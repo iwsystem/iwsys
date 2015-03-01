@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Home | IW System</title>
     <meta name="description" content="Home page for IW System. Web development business, delivering intelligent web developments, to small and medium sized businesses, smart web solutions, web apps, portals, ecommerce, online marketing">
-    <meta name="viewport" content="width=device-width">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -97,7 +97,7 @@
                                 <ul class="ad-desc">
                                     <li>For Your Business &amp; Personal Needs</li>
                                     <li>Win Attention of Your Customers</li>
-                                    <li>brilliant System Management Solutions</li>
+                                    <li>Brilliant System Management Solutions</li>
                                 </ul>
                             </h3>
                             <a class="btn btn-medium btn-black" href="services.php">What We Offer</a>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Contact Us | IW System</title>
     <meta name="description" content="IW System Contact.  Send message, call and chat with the customer service. ALways Available to sort out your needs">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="shortcut icon" href="images/ico/icon.ico">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
@@ -157,7 +157,7 @@
                             <div>
                                 <textarea name="cust_rep_message" id="cust_rep_message" class="input-xlarge" placeholder="Briefly tell us your enquiry..."></textarea>
                                 <p>Maximum 500 characters</p>
-                            </div><br>
+                            </div>
                              <div class="modal-footer">
                                 <input class="btn btn-success" type="submit" value="Send" id="submit_to_cust_rep">
                                 <a href="#" class="btn" data-dismiss="modal">Cancel</a>
@@ -219,7 +219,7 @@
                             <div>
                                 <textarea name="consult_description" id="consult_description" class="input-xlarge" placeholder="Briefly tell us about your project is..."></textarea>
                                 <p>Maximum 500 characters</p>
-                            </div><br>
+                            </div>
                             <div class="modal-footer">
                                 <input class="btn btn-success" type="submit" value="Send" id="submit_to_consultant">
                                 <a href="#" class="btn" data-dismiss="modal">Cancel</a>
