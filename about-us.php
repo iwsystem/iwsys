@@ -76,7 +76,7 @@
                         </div>
                         <div id="service1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                We provide clients with quality Mobile Responsive designs. We not only deliver quality designs, but we make sure that your website offers a good level of intelligence and usability to lead your customers to the correct location without much clicks... <br><i><a href="website-des-and-dev.php">See more details</a></i>
+                                We provide clients with quality Mobile Responsive designs. We do not only deliver quality designs, but we make sure that your website offers a good level of intelligence and usability to lead your customers to the correct location without much clicks... <br><i><a href="website-des-and-dev.php">See more details</a></i>
                             </div>
                         </div>
                     </div>

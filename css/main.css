@@ -26,7 +26,7 @@
     box-sizing: border-box;
 }
 body {
-    padding-top: 80px;
+    padding-top: 90px !important;
     font-size: 14px;
     color: #34495e;
 }
@@ -1105,9 +1105,9 @@ Media Queries
     }
 }
 /*Small Screen Mobiles */
-@media (max-width:480px) {
+@media (min-width:320px) (max-width:480px) {
     .service-box .overlay {
-        padding-right: 40px;
+        padding-right: 30px;
     }
     .modal {
         left: 20%;

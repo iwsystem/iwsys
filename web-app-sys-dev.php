@@ -163,7 +163,7 @@
                             </div>
                             <label class="label" for="consult_description">Brief Project Description *</label><br>
                             <div>
-                                <textarea name="consult_description" id="consult_description" class="input-xlarge" placeholder="Briefly tell us about your project is..."></textarea>
+                                <textarea name="consult_description" id="consult_description" class="input-xlarge" placeholder="Briefly tell us about your project..."></textarea>
                                 <p>Maximum 500 characters</p>
                             </div><br>
                             <div class="modal-footer">

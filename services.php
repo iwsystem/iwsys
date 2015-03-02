@@ -104,7 +104,7 @@
                         <i style="font-size: 48px" class="icon-globe icon-large"></i>
                         <p> </p>
                         <h4>Website Design &amp; Development</h4>
-                        <p>We provide clients with quality Mobile Responsive designs. We not only deliver quality designs, but we make sure that your website offers a good level of intelligence and usability to lead your customers to the correct location without much clicks...</p> 
+                        <p>We provide clients with quality Mobile Responsive designs. We do not only deliver quality designs, but we make sure that your website offers a good level of intelligence and usability to lead your customers to the correct location without much clicks...</p> 
                         <div class="overlay">
                             <div class="service-box-inner">
                                 <h3><a href="website-des-and-dev.php">Click Here</a></h3>
@@ -239,7 +239,7 @@
                         </div>
                         <label class="label" for="consult_description">Brief Project Description *</label><br>
                         <div>
-                            <textarea name="consult_description" id="consult_description" class="input-xlarge" placeholder="Briefly tell us about your project is..."></textarea>
+                            <textarea name="consult_description" id="consult_description" class="input-xlarge" placeholder="Briefly tell us about your project..."></textarea>
                             <p>Maximum 500 characters</p>
                         </div><br>
                         <div class="modal-footer">

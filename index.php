@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html class="no-js">
 <head>
@@ -170,7 +169,7 @@
                             </div>
                             <label class="label" for="consult_description">Brief Project Description *</label><br>
                             <div>
-                                <textarea name="consult_description" id="consult_description" class="input-xlarge" placeholder="Briefly tell us about your project is..."></textarea>
+                                <textarea name="consult_description" id="consult_description" class="input-xlarge" placeholder="Briefly tell us about your project..."></textarea>
                                 <p>Maximum 500 characters</p>
                             </div><br>
                             <div class="modal-footer">
@@ -202,7 +201,7 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading"><a href="website-des-and-dev.php">Website Development</a></h4>
-                            <p>We provide clients with quality Mobile Responsive designs. We not only deliver quality designs, but we make sure that your website offers a good level of intelligence and usability to lead your customers to the correct location without much clicks. <i><a href="website-des-and-dev.php">Find out more</a></i></p>
+                            <p>We provide clients with quality Mobile Responsive designs. We do not only deliver quality designs, but we make sure that your website offers a good level of intelligence and usability to lead your customers to the correct location without much clicks. <i><a href="website-des-and-dev.php">Find out more</a></i></p>
                         </div>
                     </div>
                 </div>            
