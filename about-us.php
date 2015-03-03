@@ -41,7 +41,16 @@
                 <h2>Who we are</h2>
                 <p>IW System is a top provider of Quality and Intelligent Web - based development project including but not limited to Web Applications, Web Portals and Websites, for all kinds and sizes of business. We are not only here for business minded people, but also for individuals that require a web project for personal use including events and non-profit purposes.</p>
                 <p>We serve different kinds and sizes of business. Our clients range from small to medium sized businesses -  which constitutes our major market niche, to bigger businesses that require more complex systems. No matter your size, we take your business needs very serious and as a matter of priority.</p>
-                <p>So, Do you require a complex Web Application to facilitate the functionality of your business OR a Web Shop to Advertise, Market and Sell your goods or services or both OR a smart Web Portal to be used by you and your team to improve efficiency and effectiveness OR a basic Web Presence for your customers to be able to learn and keep to date with your products and services and be able to easily contact you? YOU can count on our experts to help you achieve your goal </p>
+                <p>
+                    <b>So, Do you require</b> 
+                    <ul>
+                        <li>A simple or complex Web Application to facilitate the functionality of your business</li>
+                        <li>A Web Shop to Advertise, Market and Sell your goods or services or both</li>
+                        <li>A smart Web Portal to be used by you and your team to improve efficiency and effectiveness</li>
+                        <li>A basic Web Presence for your customers to be able to learn and keep to date with your products and services and be able to easily contact you?</li>
+                    </ul>
+                 <b>YOU</b> can count on our experts to help you achieve your goal 
+                </p>
             </div>
             <div class="span6"><br>
                 <h3>How we serve you</h3>
@@ -61,7 +70,7 @@
                     <li><i class='icon-thumbs-up'></i> <b>Experience & Professionalism</b> – We have team of quality experts that are well grounded in development and understanding customers' needs. So be assured that we will capture your idea and put it into design.</li>
                     <li><i class='icon-thumbs-up'></i> <b>Customized</b> for you – We tailor our solutions to fit you ( your business, your taste, your budget). We will not give you quality that you cannot afford.</li>
                     <li><i class='icon-thumbs-up'></i> <b>Speed & Accuracy</b> – We will impress you with speed and yet provide you with error prone solutions. </li>
-                    <li><i class='icon-thumbs-up'></i> <b>Brilliant Customer Support</b> – At IW System, although we are out to make profit (so we can get our bank accounts flowing <i class='icon-smile'></i> ), we ALWAYS remember that keeping our customers satisfied is one of our priorities because we believe that a happy customer tells the world about you!!</li>
+                    <li><i class='icon-thumbs-up'></i> <b>Brilliant Customer Support</b> – At IW System, although we are out to make profit (so we can get our bank accounts flowing), we ALWAYS remember that keeping our customers satisfied is one of our priorities because we believe that a happy customer tells the world about you!!</li>
                 </ul>
             </div>
             <div class="span6">
