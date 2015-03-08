@@ -34,14 +34,14 @@
                             consult_email: {required: true, email: true },
                             consult_country: {required: true, minlength: 2, number: false},
                             consult_phone: {number: true},
-                            consult_description: {required: true, minlength: 5, maxlength: 500}
+                            consult_description: {required: true, minlength: 5}
                         },
                         messages: {
                             consult_name: {required: "Please type your name"},
                             consult_email: {required: "Please type email", number: "Must be a valid email"},
                             consult_country: {required: "Type your country", minlength: "Atleast 2 letters", number: "Country can't be a number"},
                             consult_phone: {number: "Should contain  only numbers"},
-                            consult_description: {required: 'Please describe project', minlength: 'Atleast 5 letters', maxlength: "Maximum 500 characters"}
+                            consult_description: {required: 'Please describe project', minlength: 'Atleast 5 letters'}
                         },
                         //  This function specifies what will happen after the validation is successful
                         submitHandler: function(form) {
