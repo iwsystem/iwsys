@@ -1193,6 +1193,7 @@ Media Queries
         padding-bottom: 20px;
     }
 }
+/*Making the index home page photo to maintain full size in smaller screen instead of repeating like tile*/
 @media (max-width:767px) {
     .sl-slide-horizontal .sl-slide-inner {
         background-size: 100% 100% !important;
