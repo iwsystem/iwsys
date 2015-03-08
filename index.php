@@ -327,7 +327,7 @@
     <!-- Required javascript files for Slider -->
     <script src="js/jquery.ba-cond.min.js"></script>
     <script src="js/jquery.slitslider.js"></script>
-    // <script src="js/send_msg.js"></script>
+    <script src="js/send_msg.js"></script>
     <!-- /Required javascript files for Slider -->
     <!-- SL Slider -->
     <script type="text/javascript"> 
