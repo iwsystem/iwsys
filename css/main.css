@@ -219,7 +219,7 @@ ul.tag-cloud li {
     color: #fff;
 }
 header.navbar .navbar-inner {
-    background-size: 100%;
+    background-size: 200%;
     background-image: url("../images/grey-back.jpg");
     border: 0;
     -webkit-box-shadow: none;
@@ -350,8 +350,8 @@ header .dropdown-menu:before {
 .modal .icon-remove {
     color: #848484;
     position: absolute;
-    right: -5px;
-    top: -5px;
+    right: 5px;
+    top: 5px;
     width: 16px;
     height: 16px;
     line-height: 16px;
@@ -1056,6 +1056,9 @@ Media Queries
     .service-box .overlay {
         padding-right: 15px;
     }
+    .modal input[type="text"], .modal input[type="password"] {
+        min-height: 40px;
+    }
 }
 /*Big screen Windows Phone / Android*/
 @media (min-width:640px) and (max-width:768px) {
@@ -1065,18 +1068,38 @@ Media Queries
     }
     .modal {
         width: 50%;
-        left: 20%;
+        left: 50%;
     }
     .title .row-fluid [class*="span"]:first-child {
         margin-left: 10px;
     }
     .modal#loginForm {
         width: 70%;
-        margin-top: 20%;
-        margin-left: 0;
+        margin-top: 10%;
+        overflow-y: auto;
     }
     .nav-collapse.collapse {
         float: left;
+        left: 10px;
+    }
+    .modal input[type="text"], .modal input[type="password"] {
+        min-height: 40px;
+    }
+    .dropdown-menu>li {
+    border-style: outset;
+    border-width: 1px;
+    }
+    .dropdown-menu>li>a {
+        line-height: 10px;
+    }
+    .sl-slider h2 {
+        font-size: 24px;
+    }
+    .sl-slider h3 {
+        font-size: 6px;
+    } 
+    div#thanks {
+        display: inline-block;
     }
 }
 /*Iphones*/
@@ -1099,9 +1122,30 @@ Media Queries
         width: 70%;
         margin-top: 20%;
         margin-left: 0;
+        overflow-y: auto;
     }
     .nav-collapse.collapse {
         float: left;
+        left: 10px;
+    }
+    .modal input[type="text"], .modal input[type="password"] {
+        min-height: 40px;
+    }
+    .dropdown-menu>li {
+    border-style: outset;
+    border-width: 1px;
+    }
+    .dropdown-menu>li>a {
+        line-height: 10px;
+    }
+    .sl-slider h2 {
+        font-size: 24px;
+    }
+    .sl-slider h3 {
+        font-size: 6px;
+    } 
+    div#thanks {
+        display: inline-block;
     }
 }
 /*Small Screen Mobiles */
@@ -1110,14 +1154,47 @@ Media Queries
         padding-right: 30px;
     }
     .modal {
-        left: 20%;
+        left: 10%;
     }
     .modal#loginForm {
         width: 70%;
         margin-top: 20%;
         margin-left: 0;
+        overflow-y: auto;
     }
     .nav-collapse.collapse {
         float: left;
+        left: 10px;
+    }
+    .modal input[type="text"], .modal input[type="password"] {
+        min-height: 40px;
+    }
+    .dropdown-menu>li {
+    border-style: outset;
+    border-width: 1px;
+    }
+    .dropdown-menu>li>a {
+        line-height: 10px;
+    }
+    .sl-slider h2 {
+        font-size: 24px;
+    }
+    .sl-slider h3 {
+        font-size: 6px;
+    } 
+    div#thanks {
+        display: inline-block;
+    }
+}
+/*Small Screen Mobiles including small iphones and android */
+@media (min-width:480px) and (max-width:520px) {
+    .service-box .overlay {
+        padding-right: 40px;
+        padding-bottom: 20px;
+    }
+}
+@media (max-width:767px) {
+    .sl-slide-horizontal .sl-slide-inner {
+        background-size: 100% 100% !important;
     }
 }

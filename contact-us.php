@@ -98,12 +98,10 @@
                     });
                 }
             }
-
             //when the dom has loaded setup form validation rules
             $(D).ready(function($) {
                 VALID.UTIL.myValid();
             });
-
         })(jQuery, window, document);
     </script>
 </head>
@@ -120,6 +118,7 @@
         <div class="tab-wrap">
             <div class="well well-large">
                 <h2>What would you want to speak to us about?</h2>
+                <p>We are always here to render support and advise about our services. Click on any of the buttons below so we point you to the right direction</p>
                 <!-- Modal for Customer Service contact -->
                 <div id="cust-rep-contact" class="modal hide fade in" style="display: none;">
                     <div class="modal-header">
@@ -229,10 +228,9 @@
                 </div>
                 <!-- End of modal for Consultant contact form -->
                 <div id="thanks">
-                    <p>
-                        <a data-toggle="modal" href="#cust-rep-contact" class="btn btn-success btn-large" title="Click for Customer Service">General Enquiries</a>
-                        <a data-toggle="modal" href="#consultant-contact" class="btn btn-black btn-large pull-right" title="Click for a Consultant">Project Discussion</a>
-                    </p>
+                        <div class="span4"><a data-toggle="modal" href="#cust-rep-contact" class="btn btn-success btn-large" title="Click for Customer Service">General Enquiries</a></div>
+                        <div class="span2"></div>
+                        <div class="span4"><a data-toggle="modal" href="#consultant-contact" class="btn btn-black btn-large pull-right" title="Click for a Consultant">Project Discussion</a></div>
                 </div>
             </div>
         </div>
