@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>E-Commerce | IW System</title>
+    <title>E-Commerce | IW System | UK</title>
     <meta name="description" content="Ecommerce Page, Create and develop Web Store, E-Shop, Online Shopping Experience with good User Interface UI / UX">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
