@@ -1149,7 +1149,7 @@ Media Queries
     }
 }
 /*Small Screen Mobiles */
-@media (min-width:320px) (max-width:480px) {
+@media (max-width:480px) {
     .service-box .overlay {
         padding-right: 30px;
     }
