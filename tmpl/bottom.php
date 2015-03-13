@@ -19,7 +19,7 @@
                       </li><br>
                       <li>
                           <i class="icon-phone"></i>
-                          <strong>Phone</strong> 0845-875-0505
+                          <strong>Phone</strong> (+44) 0845-875-0505
                       </li>
                       <li>
                           <i class="icon-envelope"></i>
