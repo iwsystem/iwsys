@@ -69,7 +69,7 @@
                 <ul class='no-bullet'>
                     <li><i class='icon-thumbs-up'></i> <b>Experience & Professionalism</b> – We have team of quality experts that are well grounded in development and understanding customers' needs. So be assured that we will capture your idea and put it into design.</li>
                     <li><i class='icon-thumbs-up'></i> <b>Customized</b> for you – We tailor our solutions to fit you ( your business, your taste, your budget). We will not give you quality that you cannot afford.</li>
-                    <li><i class='icon-thumbs-up'></i> <b>Speed & Accuracy</b> – We will impress you with speed and yet provide you with error prone solutions. </li>
+                    <li><i class='icon-thumbs-up'></i> <b>Speed & Accuracy</b> – We will impress you with speed and yet provide you with error free solutions. </li>
                     <li><i class='icon-thumbs-up'></i> <b>Brilliant Customer Support</b> – At IW System, although we are out to make profit (so we can get our bank accounts flowing), we ALWAYS remember that keeping our customers satisfied is one of our priorities because we believe that a happy customer tells the world about you!!</li>
                 </ul>
             </div>
