@@ -130,7 +130,7 @@
                             <span id="success_body" class="success_body">Thank you for getting in touch. We will contact you shortly</span>  
                         </div>
                         <div id="cust_rep_error_msg" class="hide center">
-                            <span id="error_head" class="error_head">Oops! Message Not Sent!</span>
+                            <span id="error_head" class="error_head">Oops! Message Not Sent!</span><br>
                             <span id="error_body" class="error_body">Sorry, something went wrong. Refresh page and try again.</span>
                         </div>
                     </div><br>

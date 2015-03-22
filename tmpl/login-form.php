@@ -5,9 +5,9 @@
       </div>
       <!--Modal Body-->
       <div class="modal-body">
-          <form class="form-inline" action="index.php" method="post" id="form-login">
-              <input type="text" class="input-small" placeholder="Email">
-              <input type="password" class="input-small" placeholder="Password">
+          <form class="form-inline" action="portal/signon/chk-login.php" method="post" id="form-login" role="form">
+              <input type="text" class="input-small" placeholder="Username" id="username" name="username"  required>
+              <input type="password" class="input-small" placeholder="Password" id="password" name="password" required>
               <label class="checkbox">
                   <input type="checkbox"> Remember me
               </label>

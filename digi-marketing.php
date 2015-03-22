@@ -118,7 +118,7 @@
                             <span id="success_body" class="success_body">One of Our Consultants will get intouch with you shortly</span>  
                         </div>
                         <div id="consult_error_msg" class="hide center">
-                            <span id="error_head" class="error_head">Oops! Message Not Sent!</span>
+                            <span id="error_head" class="error_head">Oops! Message Not Sent!</span><br>
                             <span id="error_body" class="error_body">Sorry, something went wrong. Refresh page and try again.</span>
                         </div>
                     </div><br>
