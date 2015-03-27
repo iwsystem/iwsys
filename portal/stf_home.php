@@ -44,11 +44,11 @@ include_once("signon/pdo-connect.php");
 </head>
 <body>
     <div id="main_wrapper">
-        <?php include('tmpl/cli_nav.php');  ?>
+        <?php include('tmpl/stf_nav.php');  ?>
         <!-- /.Line breaking -->
         <div><br></div>
         <!--  Page body -->
-        <?php include('tmpl/body_wrapper/cli_bdy_home.php');  ?>
+        <?php include('tmpl/body_wrapper/stf_bdy_home.php');  ?>
         <!--  Footer -->
         <?php include('tmpl/footer.php');  ?>
     </div>

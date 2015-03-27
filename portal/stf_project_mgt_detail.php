@@ -1,6 +1,6 @@
 <?php
 include_once('signon/session.php');
-include_once("signon/pdo-connect.php");
+include_once('signon/pdo-connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +8,9 @@ include_once("signon/pdo-connect.php");
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Trading Strategy Analysis Tool Data Entry Page, to fill out form to be analysed">
+    <meta name="description" content="Result of the analysis of data entered into the form">
     <meta name="author" content="Michael Ifeorah">
-    <title>Strategy Analyser - Data Entry</title>
+    <title>Strategy Analyser - Result</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -18,19 +18,13 @@ include_once("signon/pdo-connect.php");
     <!-- Custom CSS -->
     <link href="css/strat-analyze.css" rel="stylesheet">
     <link href="css/trade-admin.css" rel="stylesheet">
-    <!-- Custom Fonts -->
+    <!-- Custom Fonts --> 
     <link href="fa/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/trade-admin.js"></script>
     <!-- jQuery validate plugin -->
     <script src="js/jquery.validate.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
-     <!-- Validation And Ajax sending -->
+    <!-- Validation Script -->
     <script type="text/javascript">
         (function($,W,D)
         {
@@ -40,18 +34,19 @@ include_once("signon/pdo-connect.php");
                 myValid: function()
                 {
                     //form validation rules
-                    $("#cust_contact-consult").validate({
+                    $("#myForm").validate({
                         errorElement: "span",
-                        errorClass: "error_msg",    //  Define the class for the error message
+                        errorClass: "error_msg", 
                         rules: {
-                            title: {required: true, minlength: 2},
-                            project: {required: true},
-                            message_description: {required: true, minlength: 5}
+                            title: {required: true },
+                            update_desc: {required: true, minlength: 4, maxlength: 1500}
                         },
                         messages: {
-                            title: {required: " Please give a title", minlength: "Atleast 2 letters"},
-                            project: {required: " Please select the Project"},
-                            message_description: {required: ' Please type your message', minlength: 'Atleast 5 letters'}
+                            title: {required: "Please add a title"},
+                            update_desc: {required: "Please insert a description", minlength: "Atleast 4 letters", maxlength: "Not more than 1500 Characters"}
+                        },
+                        submitHandler: function(form) {
+                            form.submit();
                         }
                     });
                 }
@@ -66,21 +61,27 @@ include_once("signon/pdo-connect.php");
     </script>
 </head>
 <body>
-    <?php
+    <?php 
         //  Refresh the page after  user details update
-        if (isset($_GET["status"])) {
-            header("refresh:8; url=cli_cust_contact_consult.php");
-        }
+/*        if (isset($_GET["status"])) {
+            header("refresh:8; url=cli_project-detail.php?proj=$i_projID");
+        }*/
     ?>
     <div id="main_wrapper">
-        <?php include('tmpl/cli_nav.php');  ?>
+        <?php include('tmpl/stf_nav.php');  ?>
         <!-- /.Line breaking -->
         <div><br></div>
         <!--  Page body -->
-        <?php include('tmpl/body_wrapper/cli_bdy_cust_contact_consult.php');  ?>
+        <?php include('tmpl/body_wrapper/stf_bdy_project_mgt_detail.php');  ?>
         <!--  Footer -->
         <?php include('tmpl/footer.php');  ?>
     </div>
     <!-- /#main_wrapper -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/trade-admin.js"></script>
 </body>
 </html>

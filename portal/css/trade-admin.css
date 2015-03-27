@@ -367,3 +367,6 @@ table.dataTable thead .sorting:after {
     font-weight: 400;
     color: #285674;
 }
+.empDiv {
+    color: #428bca;
+}

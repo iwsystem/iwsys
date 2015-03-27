@@ -18,7 +18,7 @@
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li>
-                    <a href="cli_user-profile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <a href="cli_user_profile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                 </li>
                 <li class="divider"></li>
                 <li>

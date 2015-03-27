@@ -23,7 +23,6 @@
                 <li><a href="digi-marketing.php">Online / Digital Marketing</a></li>
               </ul>
             </li>
-   <!--          <li><a href="get-quote.php">Get a Quote</a></li> -->
             <li><a href="contact-us.php">Contact</a></li>
             <li class="login">
               <a data-toggle="modal" href="#loginForm"><i class="icon-lock"></i> CLIENT LOGIN</a>  
