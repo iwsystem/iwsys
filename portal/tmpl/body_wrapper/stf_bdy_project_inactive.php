@@ -10,7 +10,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    This is a summarized list of all concluded client projects you are handling <br>
+                    This is a summarized list of all concluded client projects you handled <br>
                     Click on each of the projects on the table below, to access more details about the project. 
                 </div>
                 <!-- /.panel-heading -->

@@ -94,6 +94,17 @@
                         </li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-envelope fa-fw"></i> New Client Contact <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="stf_cust_consult_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved </a>
+                        </li>
+                        <li>
+                            <a href="stf_cust_consult_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->

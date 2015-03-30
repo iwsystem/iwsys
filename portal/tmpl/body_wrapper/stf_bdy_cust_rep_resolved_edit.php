@@ -20,7 +20,7 @@
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">View Resolved Message <i class="fa fa-angle-right"></i> <?php echo ucfirst($arr_Details['cust_name']) ." " .ucfirst($arr_Details['lastname']); ?>
+                    <h1 class="page-header">View Resolved Message <i class="fa fa-angle-right"></i> <?php echo ucfirst($arr_Details['cust_name']); ?>
                     </h1>
                 </div>
 
@@ -94,6 +94,7 @@
                                             <label class="col-lg-3 control-label" for="cust_note"> Staff Note:</label>
                                             <div class="col-lg-6">
                                               <textarea id="cust_note" name="cust_note" class="textarea-large form-control" placeholder="Type Notes Here..."><?php echo $arr_Details["cust_note"]; ?></textarea>
+                                              * Maximum 1500 Characters
                                             </div>
                                           </div><br>
                                           <div class="form-group">

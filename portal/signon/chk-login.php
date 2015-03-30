@@ -60,28 +60,34 @@ session_start();
 				$_SESSION["last_login"]=$row[0];
 			}
 
-			//	Condition to redirect user to ideal page
-			if($_SESSION["user_type"] == 1)  {
-				// We Will prepare SQL Query to retrieve employees id and role
-				$str_query = "	SELECT emp_id, role_id
-			    				FROM tbl_employee
-			    				WHERE user_id = :user_id;";
-			    $str_stmt = $r_Db->prepare($str_query);
-				// bind paramenters, Named paramenters alaways start with colon(:)
-			    $str_stmt->bindParam(':user_id', $_SESSION["user_id"]);
-				// For Executing prepared statement we will use below function
-			    $str_stmt->execute();
-				// fetch only gets one row. Use  fatch(PDO::FETCH_ASSOC) for making the result an associative array
-				$row  = $str_stmt -> fetch();
-				$_SESSION["emp_id"]=$row[0];	//	setting a session varaible for the id of the staff
-				$_SESSION["role_id"]=$row[1];	// setting a session variable for the role of the staff
+			// Checking if this is a first time login
+			if($_SESSION["status"] == 7) {
+				//	Redirect to the staff first time login page
+				header("location:first_time_login.php");		
+			} else {
+				//	Condition to redirect user to ideal page
+				if($_SESSION["user_type"] == 1)  {
+					// We Will prepare SQL Query to retrieve employees id and role
+					$str_query = "	SELECT emp_id, role_id
+				    				FROM tbl_employee
+				    				WHERE user_id = :user_id;";
+				    $str_stmt = $r_Db->prepare($str_query);
+					// bind paramenters, Named paramenters alaways start with colon(:)
+				    $str_stmt->bindParam(':user_id', $_SESSION["user_id"]);
+					// For Executing prepared statement we will use below function
+				    $str_stmt->execute();
+					// fetch only gets one row. Use  fatch(PDO::FETCH_ASSOC) for making the result an associative array
+					$row  = $str_stmt -> fetch();
+					$_SESSION["emp_id"]=$row[0];	//	setting a session varaible for the id of the staff
+					$_SESSION["role_id"]=$row[1];	// setting a session variable for the role of the staff
 
-				//	Redirect to the staff portal home page
-				header("location:../stf_home.php");	
-			}   else    { 
-				//	Redirect to the customer portal home page
-				header("location:../cli_home.php");
-			}			 
+					//	Redirect to the staff portal home page
+					header("location:../stf_home.php");	
+				}   else    { 
+					//	Redirect to the customer portal home page
+					header("location:../cli_home.php");
+				}	
+			}
 		} else {
 			echo "Invalid Username or Password, if this continues, contact administrator<br>";
 			echo "You will be returned to login page in 5 seconds OR Click the back button to return<br> Redirecting ...";
