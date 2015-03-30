@@ -39,7 +39,7 @@ include_once('signon/pdo-connect.php');
                         errorClass: "error_msg", 
                         rules: {
                             title: {required: true },
-                            update_desc: {required: true, minlength: 4, maxlength: 1500}
+                            update_desc: {required: true, minlength: 4, maxlength: 500}
                         },
                         messages: {
                             title: {required: "Please add a title"},
@@ -61,18 +61,12 @@ include_once('signon/pdo-connect.php');
     </script>
 </head>
 <body>
-    <?php 
-        //  Refresh the page after  user details update
-/*        if (isset($_GET["status"])) {
-            header("refresh:8; url=cli_project-detail.php?proj=$i_projID");
-        }*/
-    ?>
     <div id="main_wrapper">
-        <?php include('tmpl/cli_nav.php');  ?>
+        <?php include('tmpl/stf_nav.php');  ?>
         <!-- /.Line breaking -->
         <div><br></div>
         <!--  Page body -->
-        <?php include('tmpl/body_wrapper/cli_bdy_project_detail.php');  ?>
+        <?php include('tmpl/body_wrapper/stf_bdy_project_inactive_detail.php');  ?>
         <!--  Footer -->
         <?php include('tmpl/footer.php');  ?>
     </div>

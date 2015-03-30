@@ -42,30 +42,55 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-folder fa-fw"></i> Project <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="stf_project_mgt.php"><i class="fa fa-plus fa-fw"></i> Add Project</a>
+                            <a href="stf_project_newProj.php"><i class="fa fa-plus fa-fw"></i> Add Project</a>
                         </li>
                         <li>
-                            <a href="stf_project_mgt.php"><i class="fa fa-table fa-fw"></i> Active Projects</a>
+                            <a href="stf_project_active.php"><i class="fa fa-table fa-fw"></i> Active Projects</a>
                         </li>
                         <li>
-                            <a href="stf_project_mgt.php"><i class="fa fa-table fa-fw"></i> Inactive Projects</a>
+                            <a href="stf_project_inactive.php"><i class="fa fa-table fa-fw"></i> Inactive Projects</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="stf_user_admin_newUser.php"><i class="fa fa-plus fa-fw"></i> Add User</a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-users fa-fw"></i> Client Admin <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="stf_cust_admin_active.php"><i class="fa fa-table fa-fw"></i> Active Clients</a>
+                        </li>
+                        <li>
+                            <a href="stf_cust_admin_inactive.php"><i class="fa fa-table fa-fw"></i> Inactive Clients</a>
+                        </li>
+                        <li>
+                            <a href="stf_cust_admin_pending.php"><i class="fa fa-table fa-fw"></i> Pending Clients</a>
                         </li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-cog fa-fw"></i> User Admin <span class="fa arrow"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-cog fa-fw"></i> Employee Admin <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="stf_user_admin_new.php"><i class="fa fa-plus fa-fw"></i> Add User</a>
+                            <a href="stf_emp_admin_active.php"><i class="fa fa-table fa-fw"></i> Active Employee</a>
                         </li>
                         <li>
-                            <a href="stf_user_admin_active.php"><i class="fa fa-table fa-fw"></i> Active Users</a>
+                            <a href="stf_emp_admin_inactive.php"><i class="fa fa-table fa-fw"></i> Inactive Employee</a>
                         </li>
                         <li>
-                            <a href="stf_user_admin_inactive.php"><i class="fa fa-table fa-fw"></i> Inactive Users</a>
+                            <a href="stf_emp_admin_pending.php"><i class="fa fa-table fa-fw"></i> Pending Employee</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> Customer Rep Contacts <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="stf_cust_rep_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved </a>
                         </li>
                         <li>
-                            <a href="stf_user_admin_pending.php"><i class="fa fa-table fa-fw"></i> Pending Users</a>
+                            <a href="stf_cust_rep_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved </a>
                         </li>
                     </ul>
                 </li>
