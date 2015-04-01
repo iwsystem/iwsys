@@ -10,7 +10,7 @@ include_once("signon/pdo-connect.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Michael Ifeorah">
-    <title>IW System Portal - Staff Admin</title>
+    <title>IW System Portal - Customer message Consultant</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -37,7 +37,7 @@ include_once("signon/pdo-connect.php");
 <?php
     //  Refresh the page after  user details update
     if (isset($_GET["status"])) {
-        header('refresh:8; url=stf_emp_admin_pending.php');
+        header('refresh:8; url=stf_cust_consult_contact_sorted.php');
     }
 ?>
     <div id="main_wrapper">
@@ -46,7 +46,7 @@ include_once("signon/pdo-connect.php");
         <!-- /.Line breaking -->
         <div><br></div>
         <!--  Page body -->
-        <?php include('tmpl/body_wrapper/stf_bdy_emp_admin_pending_edit.php');  ?>
+        <?php include('tmpl/body_wrapper/stf_bdy_cust_consult_contact_sorted_edit.php');  ?>
         <!--  Footer -->
         <?php include('tmpl/footer.php');  ?>
     </div>

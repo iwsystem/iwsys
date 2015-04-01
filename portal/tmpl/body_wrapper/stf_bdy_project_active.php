@@ -29,13 +29,14 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    $int_eID = $_SESSION["user_id"]; // This is the user id of the logged in user / consultant handling the project
+                                    $int_eID = $_SESSION["emp_id"]; // This is the user id of the logged in user / consultant handling the project
                                     try {
                                         if ($int_eID == 1) { //  If the logged in user is the administrator
                                             // We Will prepare SQL Query to retrieve all projects in the system
                                             $str_query = "  SELECT *
                                                             FROM tbl_project
-                                                            WHERE  status = 9;";      
+                                                            WHERE  status = 9
+                                                            ORDER BY proj_id DESC;";      
                                             $str_stmt = $r_Db->prepare($str_query);
                                             // For Executing prepared statement we will use below function
                                             $str_stmt->execute();
@@ -45,7 +46,8 @@
                                             $str_query = "  SELECT *
                                                             FROM tbl_project
                                                             WHERE  emp_id = :emp_id
-                                                            AND status = 9;";      
+                                                            AND status = 9
+                                                            ORDER BY proj_id DESC;";      
                                             $str_stmt = $r_Db->prepare($str_query);
                                             // bind paramenters, Named paramenters alaways start with colon(:)
                                             $str_stmt->bindParam(':emp_id', $int_eID);

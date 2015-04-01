@@ -42,7 +42,7 @@
 
                                         //  Looping through the array to display details retrieved from database
                                         foreach ($arr_active_user as $oActiveUser) {
-                                            $usr_id = $oActiveUser["user_id"]; // Assigning the variable for hte firstname
+                                            $usr_id = $oActiveUser["user_id"]; // Assigning the variable for the user id
                                             $first_name = ucfirst($oActiveUser["firstname"]); // Assigning the variable for hte firstname
                                             $last_name = ucfirst($oActiveUser["lastname"]);    // Assigning the variable for hte lastname
                                             $created = $oActiveUser["created"]; // Assignning variable for the creation date

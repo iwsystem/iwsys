@@ -56,7 +56,8 @@
                                                         <?php
                                                             //  Looping through the array to display details retrieved from database
                                                             foreach ($arr_Consultant as $oConsultant) {
-                                                              $int_eID = $oConsultant['user_id']; // User id of the consultant
+                                                              $int_eID = $oConsultant['emp_id']; // Employee id of the consultant
+                                                              $int_usrID = $oConsultant['user_id']; // User id of the consultant
                                                               // We Will prepare SQL Query to retrieve name of each consultant
                                                               $str_query = "  SELECT firstname, lastname
                                                                               FROM tbl_user
@@ -64,7 +65,7 @@
                                                               $str_stmt = $r_Db->prepare($str_query);
                                                               // For Executing prepared statement we will use below function
                                                               // bind paramenters, Named paramenters alaways start with colon(:)
-                                                              $str_stmt->bindParam(':user_id', $int_eID);
+                                                              $str_stmt->bindParam(':user_id', $int_usrID);
                                                               $str_stmt->execute();
                                                               $arr_cName = $str_stmt->fetch(PDO::FETCH_ASSOC);
                                                         ?>

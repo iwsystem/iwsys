@@ -8,9 +8,8 @@ include_once("signon/pdo-connect.php");
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Result of the analysis of data entered into the form">
     <meta name="author" content="Michael Ifeorah">
-    <title>Strategy Analyser - Result</title>
+    <title>IW System Portal - Project - Inactive</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->

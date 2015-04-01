@@ -137,7 +137,7 @@
                         <div class="row"></div>
                         <!-- Project History -->
                         <div class="panel-body">
-                            <h3 class="blue_header">Project History</h3>
+                            <h3 class="blue_header">Project History</h3><br>
                             <div class="row">
                                 <?php
                                     //  Checking if the array of project updates are empty
@@ -145,7 +145,7 @@
                                 ?>
                                             <div class="panel panel-info">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title">Title: <span class="pull-right">Date Updated: </span></h3>
+                                                    <h3 class="panel-title"> <span class="pull-right"> </span></h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="project_history_body">
@@ -161,11 +161,39 @@
                                         //  If the array is not empty, that means that there has been some project updates
                                         //  Looping through the array to display details retrieved from database
                                         foreach ($arr_project_update as $oProject_update) {
+
+                                            if($oProject_update['user_type'] == 1)  {   // If the user that made update is a staff
+                                ?>
+                                            <!-- Display each panel containing the update information-->
+                                            <div class="panel panel-info pull-right history_width">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title"><i class="fa fa-eye fa-fw"></i> <?php echo $oProject_update["title"]; ?> <span class="pull-right"><i class="fa fa-clock-o fa-fw"></i>  <?php echo $oProject_update["update_time"]; ?> </span></h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="project_history_body">
+                                                        <?php echo $oProject_update["description"]; ?>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-footer">
+                                                    <h6><i class="fa fa-folder fa-fw"></i>Attachment: 
+                                                        <?php 
+                                                            if (isset($oProject_update["file_name"])) {   // Checking if the file name is set and / or Not NULL
+                                                                echo  $oProject_update["file_name"];
+                                                            } else {
+                                                                echo "No Attachment";
+                                                            } 
+                                                        ?> 
+                                                    </h6>
+                                                </div>
+                                            </div>  
+                                            <div class="row"></div>      
+                                <?php   
+                                            } elseif ($oProject_update['user_type'] == 2) {     //  If the user that made update is a customer
                                 ?>
                                             <!-- Display each panel containing the update information -->
-                                            <div class="panel panel-info">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title"><i class="fa fa-eye fa-fw"></i>Title: <?php echo $oProject_update["title"]; ?> <span class="pull-right"><i class="fa fa-clock-o fa-fw"></i> Date Updated: <?php echo $oProject_update["update_time"]; ?> </span></h3>
+                                            <div class="panel panel-info pull-left history_width">
+                                                <div class="panel-heading empHead">
+                                                    <h3 class="panel-title"><i class="fa fa-eye fa-fw"></i> <?php echo $oProject_update["title"]; ?> <span class="pull-right"><i class="fa fa-clock-o fa-fw"></i> <?php echo $oProject_update["update_time"]; ?> </span></h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="project_history_body">
@@ -186,6 +214,7 @@
                                             </div>  
                                             <div class="row"></div>
                                 <?php
+                                            } 
                                         }
                                     }
                                 ?>

@@ -1,6 +1,6 @@
 <?php
-include_once('signon/session.php');
-include_once('signon/pdo-connect.php');
+include_once('session.php');
+include_once('pdo-connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,38 +33,8 @@ include_once('signon/pdo-connect.php');
     <script src="../js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
-    <!-- Validation Script -->
-    <script type="text/javascript">
-        (function($,W,D)
-        {
-            var VALID = {};
-            VALID.UTIL =
-            {
-                myValid: function()
-                {
-                    //form validation rules
-                    $("#myForm").validate({
-                        errorElement: "span",
-                        errorClass: "error_msg", 
-                        rules: {
-                            pass: {required: true, minlength: 6},
-                            re_pass: {required: true, minlength: 6}
-                        },
-                        messages: {
-                            user_type: {required: "Please re-type matching password", minlength: "Cannot be less than 6 letters"}
-                            country: {required: "Please re-type matching password", minlength: "Cannot be less than 6 letters"}
-                        }
-                    });
-                }
-            }
-
-            //when the dom has loaded setup form validation rules
-            $(D).ready(function($) {
-                VALID.UTIL.myValid();
-            });
-
-        })(jQuery, window, document);
-    </script>
+    <!-- Confirm Password -->
+    <script src="../js/confirm-pass_first_time.js"></script>
 </head>
 <body>
     <div id="main_wrapper">
@@ -93,23 +63,24 @@ include_once('signon/pdo-connect.php');
                                     <div class="col-md-8">
                                         <form id="myForm" class="form-horizontal" role="form" method="post" action="first_time_login_update.php">
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label">New Password:</label>
-                                            <div class="col-lg-6">
-                                              <input id="pass" name="pass" class="form-control" type="text" placeholder="New Password">
-                                            </div>
-                                          </div>
-                                          <div class="form-group">
-                                            <label class="col-lg-3 control-label">Confirm Password:</label>
-                                            <div class="col-lg-6">
-                                              <input id="re_pass" name="re_pass" class="form-control" type="text" placeholder="Confirm Password">
+                                            <label class="col-md-3 control-label">New Password:</label>
+                                            <div class="col-md-8">
+                                              <input id="password" name="password" class="form-control" type="password" placeholder="New Password">
                                               <input name="usr" id="usr" type="hidden" value="<?php echo $_SESSION["user_id"]; ?>">
                                               <input name="usr_typ" id="usr_typ" type="hidden" value="<?php echo $_SESSION["user_type"]; ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
+                                            <label class="col-md-3 control-label">Confirm password:</label>
+                                            <div class="col-md-8">
+                                              <input id="confirm_password" name="confirm_password" class="form-control" type="password" placeholder="Confirm Password">
+                                              <span id='pass_message'></span>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
                                             <label class="col-md-3 control-label"></label>
                                             <div class="col-md-8">
-                                              <input type="submit" name="submit" class="btn btn-primary" value="Add">
+                                              <input type="submit" name="submit" class="btn btn-primary" value="Update">
                                               <span class="gap"></span>
                                               <input type="reset" class="btn btn-default" value="Reset">
                                             </div>

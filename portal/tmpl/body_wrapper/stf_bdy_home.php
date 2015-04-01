@@ -22,7 +22,7 @@
                         <div class="panel-body ">
                             <div class="row">
                                 <div class="col-lg-3">
-                                    <div class="clock-container">
+                                    <div class="clock-container col-lg-offset-6 col-md-offset-2 col-sm-offset-1 col-xs-offset-1">
                                         <div class="clock">
                                             <div id="Date"></div>
                                             <ul>

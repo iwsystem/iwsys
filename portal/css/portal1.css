@@ -368,5 +368,12 @@ table.dataTable thead .sorting:after {
     color: #285674;
 }
 .empDiv {
-    color: #428bca;
+    color: #428bca !important;
+}
+.empHead{
+    background-color: #68838B !important;
+    color: white  !important;
+}
+.history_width {
+    min-width: 80%;
 }

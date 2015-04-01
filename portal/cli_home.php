@@ -9,7 +9,6 @@ include_once("signon/pdo-connect.php");
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Trading Strategy Analysis Tool Home Page. Intro to the Trade analysis Portal">
     <meta name="author" content="Michael Ifeorah">
     <title>IW System Portal - Home</title>
     <!-- ShieldUI Forx Charts CSS -->
