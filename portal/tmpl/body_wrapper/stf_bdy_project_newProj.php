@@ -24,7 +24,7 @@
                                                 echo '  <div class="alert alert-info alert-dismissable">
                                                             <a class="panel-close close" data-dismiss="alert">×</a> 
                                                             <i class="fa fa-thumbs-up"></i>
-                                                            <strong>Thanks</strong>. The New User was added <strong>Successfully!</strong>
+                                                            <strong>Thanks</strong>. The New Project was added <strong>Successfully!</strong>
                                                         </div>';
                                             } else if ($_GET["status"]== "fail") {
                                                 echo '  <div class="alert alert-info alert-dismissable">

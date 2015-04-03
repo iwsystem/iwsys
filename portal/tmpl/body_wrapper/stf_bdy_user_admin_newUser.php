@@ -84,6 +84,12 @@
                                             </div>
                                           </div>
                                           <div class="form-group">
+                                            <label class="col-lg-3 control-label">Confirm Email:</label>
+                                            <div class="col-lg-6">
+                                              <input id="confirm_email" name="confirm_email" class="form-control required email" equalTo='#email' type="text" placeholder="Confirm Email">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
                                             <label class="col-lg-3 control-label">Phone:</label>
                                             <div class="col-lg-6">
                                               <input id="phone" name="phone" class="form-control" type="text" placeholder="Contact # of User">

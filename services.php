@@ -73,6 +73,13 @@
 
         })(jQuery, window, document);
     </script>
+    <!-- Changing the JQuery Validation Default Message -->
+    <script>
+        jQuery.extend(jQuery.validator.messages, {
+            equalTo: "Please enter matchinhg email.",
+            email: "Please enter a valid email."
+        });
+    </script>
 <body>
 
     <!--Header-->
@@ -188,68 +195,72 @@
                 </div><!-- Service Five -->
             </div>
             <hr>
-            <!-- Modal for Consultant contact -->
-            <div id="consultant-contact" class="modal hide fade in" style="display: none;">
-                <div class="modal-header">
-                    <a class="close" data-dismiss="modal">×</a>
-                    <h3>Get in touch with a Consultant for a Quote</h3>
-                    <span>Please fill in all sections marked *</span><br><br>
-                    <div id="consult_success_msg" class="hide center">
-                        <span id="success_head" class="success_head">Message Sent!</span><br>
-                        <span id="success_body" class="success_body">One of Our Consultants will get intouch with you shortly</span>  
+                <!-- Modal for Consultant contact -->
+                <div id="consultant-contact" class="modal hide fade in" style="display: none;">
+                    <div class="modal-header">
+                        <a class="close" data-dismiss="modal">×</a>
+                        <h3>Get in touch with a Consultant for a Quote</h3>
+                        <span>Please fill in all sections marked *</span><br><br>
+                        <div id="consult_success_msg" class="hide center">
+                            <span id="success_head" class="success_head">Message Sent!</span><br>
+                            <span id="success_body" class="success_body">One of Our Consultants will get intouch with you shortly</span>  
+                        </div>
+                        <div id="consult_error_msg" class="hide center">
+                            <span id="error_head" class="error_head">Oops! Message Not Sent!</span>
+                            <span id="error_body" class="error_body">Sorry, something went wrong. Refresh page and try again.</span>
+                        </div>
+                    </div><br>
+                    <div class="modal-body">
+                        <form id="contact-consult" class="contact-consult" role="form" name ="contact-consult" novalidate="novalidate">
+                            <label class="label" for="consult_name">Your Name *</label><br>
+                            <div>
+                                <input type="text" name="consult_name" id="consult_name" class="input-xlarge" placeholder="Your Name"><br> 
+                            </div>
+                            <label class="label" for="consult_company">Your Company / Organization</label><br>
+                            <div>
+                                <input type="text" name="consult_company" id="consult_company" class="input-xlarge" placeholder="Your Company Name"><br>
+                            </div>
+                            <label class="label" for="consult_email">Your Email *</label><br>
+                            <div>
+                                <input type="text" name="consult_email" id="consult_email" class="input-xlarge" placeholder="Your Email"><br>
+                            </div>
+                            <label class="label" for="consult_confirm_email">Confirm Email *</label><br>
+                            <div>
+                                <input type="text" name="consult_confirm_email" id="consult_confirm_email" class="input-xlarge required email" equalTo='#consult_email' placeholder="Confirm Email"><br>
+                            </div>
+                            <label class="label" for="consult_phone">Your Phone</label><br>
+                            <div>
+                                <input type="text" name="consult_phone" id="consult_phone" class="input-xlarge" placeholder="Your Phone"><br>
+                            </div>
+                            <label class="label" for="consult_country">Your Country *</label><br>
+                            <div>
+                                <input type="text" name="consult_country" id="consult_country" class="input-xlarge" placeholder="Your Country"><br>
+                            </div>
+                            <label class="label" for="consult_interest">Which service are you interested in ?</label><br>
+                            <div>
+                                <!-- <input type="text" name="consult_interest" id="consult_interest" class="input-xlarge" placeholder="Which Services do You want"><br> -->
+                                <select name="consult_interest" class="input-xLarge" id="consult_interest" >
+                                    <option value="None">-- Services --</option>
+                                    <option value="WebDesign">Website Design & Development</option>
+                                    <option value="Web_App_AND_Sys_Dev">Web System / App Development </option>
+                                    <option value="Ecommerce">E-commerce / Web Shop </option>
+                                    <option value="CMS">Content Management System </option>
+                                    <option value="Digital_Marketing">Online / Digital Marketing </option>
+                                </select><br>
+                            </div>
+                            <label class="label" for="consult_description">Brief Project Description *</label><br>
+                            <div>
+                                <textarea name="consult_description" id="consult_description" class="input-xlarge" placeholder="Briefly tell us about your project ..."></textarea>
+                                <p>Maximum 500 characters</p>
+                            </div>
+                            <div class="modal-footer">
+                                <input class="btn btn-success" type="submit" value="Send" id="submit_to_consultant">
+                                <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+                            </div>
+                        </form>
                     </div>
-                    <div id="consult_error_msg" class="hide center">
-                        <span id="error_head" class="error_head">Oops! Message Not Sent!</span><br>
-                        <span id="error_body" class="error_body">Sorry, something went wrong. Refresh page and try again.</span>
-                    </div>
-                </div><br>
-                <div class="modal-body">
-                    <form id="contact-consult" class="contact-consult" role="form" name ="contact-consult" novalidate="novalidate">
-                        <label class="label" for="consult_name">Your Name *</label><br>
-                        <div>
-                            <input type="text" name="consult_name" id="consult_name" class="input-xlarge" placeholder="Your Name"><br> 
-                        </div>
-                        <label class="label" for="consult_company">Your Company / Organization</label><br>
-                        <div>
-                            <input type="text" name="consult_company" id="consult_company" class="input-xlarge" placeholder="Your Company Name"><br>
-                        </div>
-                        <label class="label" for="consult_email">Your Email *</label><br>
-                        <div>
-                            <input type="text" name="consult_email" id="consult_email" class="input-xlarge" placeholder="Your Email"><br>
-                        </div>
-                        <label class="label" for="consult_phone">Your Phone</label><br>
-                        <div>
-                            <input type="text" name="consult_phone" id="consult_phone" class="input-xlarge" placeholder="Your Phone"><br>
-                        </div>
-                        <label class="label" for="consult_country">Your Country *</label><br>
-                        <div>
-                            <input type="text" name="consult_country" id="consult_country" class="input-xlarge" placeholder="Your Country"><br>
-                        </div>
-                        <label class="label" for="consult_interest">Which service are you interested in ?</label><br>
-                        <div>
-                            <!-- <input type="text" name="consult_interest" id="consult_interest" class="input-xlarge" placeholder="Which Services do You want"><br> -->
-                            <select name="consult_interest" class="input-xLarge" id="consult_interest" >
-                                <option value="None">-- Services --</option>
-                                <option value="WebDesign">Website Design & Development</option>
-                                <option value="Web_App_AND_Sys_Dev">Web System / App Development </option>
-                                <option value="Ecommerce">E-commerce / Web Shop </option>
-                                <option value="CMS">Content Management System </option>
-                                <option value="Digital_Marketing">Online / Digital Marketing </option>
-                            </select><br>
-                        </div>
-                        <label class="label" for="consult_description">Brief Project Description *</label><br>
-                        <div>
-                            <textarea name="consult_description" id="consult_description" class="input-xlarge" placeholder="Briefly tell us about your project..."></textarea>
-                            <p>Maximum 500 characters</p>
-                        </div><br>
-                        <div class="modal-footer">
-                            <input class="btn btn-success" type="submit" value="Send" id="submit_to_consultant">
-                            <a href="#" class="btn" data-dismiss="modal">Cancel</a>
-                        </div>
-                    </form>
                 </div>
-            </div>
-            <!-- End of modal for Consultant contact form -->
+                <!-- End of modal for Consultant contact form -->
             <br><br>     
             <div class="center">           
                 <p>Do you want to know more details of what we can offer you <i class="icon-question"></i></p>

@@ -24,7 +24,6 @@ include_once('signon/pdo-connect.php');
     <link href="css/portal1.css" rel="stylesheet">
     <!-- Custom Fonts --> 
     <link href="fa/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!-- jQuery validate plugin -->
@@ -78,6 +77,13 @@ include_once('signon/pdo-connect.php');
 
         })(jQuery, window, document);
     </script>
+    <!-- Changing the JQuery Validation Default Message -->
+    <script>
+        jQuery.extend(jQuery.validator.messages, {
+            equalTo: "Please enter matchinhg email."
+        });
+    </script>
+    <!--  Script to expose employee specific fiellds -->
     <script type="text/javascript">
         $(document).ready(function() {
             $('#user_type').on('change',function(){

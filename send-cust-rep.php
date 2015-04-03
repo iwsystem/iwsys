@@ -1,5 +1,7 @@
 <?php
 	include_once("signon/pdo-connect.php");
+	include_once("mailer/class.phpmailer.php");
+	include_once("mailer/class.smtp.php");
 
     $str_cust_name = $_POST['cust_rep_name']; // Variable for the name of the customer
     $str_cust_email = $_POST['cust_rep_email']; // Variable for the email of the customer
@@ -21,54 +23,66 @@
         $str_stmt->bindParam(':cust_message', $str_cust_message);
         // For Executing prepared statement we will use below function
         $str_stmt->execute();
+
+        //  Preparing PHP Mailer to forward the new message mail confirmation to the customer 
+        $mail             = new PHPMailer();    // PHP Mailer Class
+        $mail->isSMTP();
+        $mail->SMTPDebug = 0;
+        $mail->Host       = "iwsystemcom.ipage.com";      // sets Ipage as the SMTP server
+        $mail->Port       = 587;                   // set the SMTP port
+        $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
+        $mail->SMTPAuth   = true;                  // enable SMTP authentication
+        $mail->Username   = "contact@iwsystem.co.uk";  // GMAIL username
+        $mail->Password   = "Chumasky2014&";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
+        $mail->From       = "contact@iwsystem.co.uk";
+        $mail->FromName   = "IW System";
+        $mail->addAddress("$str_cust_email",ucfirst($str_cust_name));
+        $mail->addReplyTo("contact@iwsystem.co.uk","Customer Rep");
+        $mail->Subject    = "Thank you for contacting us - " . ucfirst($str_cust_name);
+        $mail->AltBody    = "Hello " . ucfirst($str_cust_name) . ", Thank you for contacting us. One of our customer representatives 
+        will get in touch with you shortly to handle any query or questions you have. For the mean time, do not hesistate to visit our 
+        website at www.iwsystem.co.uk to view all we can offer you. Thanks"; //Text Body
+        $mail->IsHTML(true); // send as HTML
+        $mail_body             = "Hello <b>" . ucfirst($str_cust_name) . ", </b><br><br>Thank you for contacting us. <br>One of our customer representatives 
+        will get in touch with you shortly to handle any query or questions you have. <br><br>For the mean time, do not hesistate to visit our 
+        website at www.iwsystem.co.uk to view all we can offer you. <br><br><br>Thanks<br><br><br>Customer Rep<br><b>IW System</b>";
+        //  Sending off the mail
+        if(!$mail->Send()) {
+          echo "Mailer Error: " . $mail->ErrorInfo;
+        } 
+
+        //  Preparing PHP Mailer to forward the new message mail confirmation to the customer rep staff 
+        $mail2             = new PHPMailer();    // PHP Mailer Class
+        $mail2->isSMTP();
+        $mail2->SMTPDebug = 0;
+        $mail2->Host       = "iwsystemcom.ipage.com";      // sets Ipage as the SMTP server
+        $mail2->Port       = 587;                   // set the SMTP port
+        $mail2->SMTPSecure = "tls";                 // sets the prefix to the servier
+        $mail2->SMTPAuth   = true;                  // enable SMTP authentication
+        $mail2->Username   = "contact@iwsystem.co.uk";  // GMAIL username
+        $mail2->Password   = "Chumasky2014&";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
+        $mail2->From       = "donotreply@iwsystem.co.uk";
+        $mail2->FromName   = "IW System";
+        $mail2->addAddress("contact@iwsystem.co.uk", "Customer Rep");
+        $mail2->addReplyTo("donotreply@iwsystem.co.uk","Do Not Reply");
+        $mail2->Subject    = "You have a new Message from - " . ucfirst($str_cust_name);
+        $mail2->AltBody    = "Hi there, You have a new message from a client. The details are below: Customer Name: ". ucfirst($str_cust_name) . " Email: " . 
+        					$str_cust_email . " Phone: " . $int_cust_phone . " Message Subject: " . ucfirst($str_cust_subject) . " Message Description:  " . $str_cust_message
+        					. " . Please get in touch with the customer as soon as possible and update account portal accordingly. Thanks"; //Text Body
+        $mail2->IsHTML(true); // send as HTML
+        $mail2_body             = "Hi there, <br><br>You have a new message from a client. <br>The details are below: <<br><br><b>Customer Name:</b> ". ucfirst($str_cust_name) . " <br><b>Email: </b>" . 
+        					$str_cust_email . " <br><b>Phone: </b>" . $int_cust_phone . " <br><b>Message Subject: </b>" . ucfirst($str_cust_subject) . " <br><b>Message Description:  </b>" . $str_cust_message
+        					. " . <br><br>Please get in touch with the customer as soon as possible and update account portal accordingly. <br><br>Thanks"; 
+        //  Sending off the mail
+        if(!$mail2->Send()) {
+          echo "Mailer Error: " . $mail2->ErrorInfo;
+        } 
+
         echo 'success';
     }   catch(PDOException $e)  {
         echo "Connection failed: " . $e->getMessage();
     }
     $r_Db = null;
-    
-/*         // Sending Email to  Consultant
-        $str_consultant_email = 'consultant@iwsystem.co.uk';	// Email Address of company  consultant
-		$to = $str_consultant_email;
-		$headers = "From: Web_Form";
-		$headers .= "Reply-To: $str_consultant_email";
-		$email_subject = "New Job Opportunity";
-		$email_body = "You have received a new message from a prospect on ".date('l jS F Y h:i:s A'); ."\n".
-		" Here are the details:\n".
-		"Name: $str_cust_name \n ".
-		"Company Name: $str_cust_company\n".
-		"Email: $str_cust_email \n".
-		"Phone: $int_cust_phone \n".
-		"Country: $str_cust_country \n".
-		"Service Interest: $str_cust_interest \n".
-		"Project Description: $str_cust_description \n".;
-		mail($to,$email_subject,$email_body,$headers);	//	PHP Mail function  for sending email*/
-
-
-/*		// Sending Email to  Customer to acknowledge receipt of mail
-		$to = $str_cust_email;
-		$headers = "From: no_reply@iwsystem.co.uk";
-		$headers .= "Reply-To: no_reply@iwsystem.co.uk";
-		$email_subject = "Service Request Info Received!";
-		$email_body = "You have requested information about our service on ".date('l jS F Y h:i:s A'); ."\n".
-		" \nThank you for contacting us!\n".
-		"\n This is to confirm we have received your message and one of our consultants will be in touch with you shortly to discuss your needs \n ".
-		"\n Alternatively, you can also reach us by: \n".
-		"Email: $str_consultant_email \n".
-		"Skype: iw.system \n".
-		"Twitter: @iw_system \n";
-		mail($to,$email_subject,$email_body,$headers);	//	PHP Mail function  for sending email*/
-		
-    // Closing MySQL database connection   
-    
-
-
-/*echo "<span class=\"alert alert-success\" >Your message has been received. Thanks! Here is what you submitted:</span><br><br>";
-echo "<stong>Name:</strong> ".$name."<br>";	
-echo "<stong>Email:</strong> ".$email."<br>";	
-echo "<stong>Message:</strong> ".$message."<br>";*/
-
-
 ?>
 
 

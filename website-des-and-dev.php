@@ -71,6 +71,13 @@
 
         })(jQuery, window, document);
     </script>
+    <!-- Changing the JQuery Validation Default Message -->
+    <script>
+        jQuery.extend(jQuery.validator.messages, {
+            equalTo: "Please enter matchinhg email.",
+            email: "Please enter a valid email."
+        });
+    </script>
 </head>
 <body>
 
@@ -122,7 +129,7 @@
                             <span id="success_body" class="success_body">One of Our Consultants will get intouch with you shortly</span>  
                         </div>
                         <div id="consult_error_msg" class="hide center">
-                            <span id="error_head" class="error_head">Oops! Message Not Sent!</span><br>
+                            <span id="error_head" class="error_head">Oops! Message Not Sent!</span>
                             <span id="error_body" class="error_body">Sorry, something went wrong. Refresh page and try again.</span>
                         </div>
                     </div><br>
@@ -139,6 +146,10 @@
                             <label class="label" for="consult_email">Your Email *</label><br>
                             <div>
                                 <input type="text" name="consult_email" id="consult_email" class="input-xlarge" placeholder="Your Email"><br>
+                            </div>
+                            <label class="label" for="consult_confirm_email">Confirm Email *</label><br>
+                            <div>
+                                <input type="text" name="consult_confirm_email" id="consult_confirm_email" class="input-xlarge required email" equalTo='#consult_email' placeholder="Confirm Email"><br>
                             </div>
                             <label class="label" for="consult_phone">Your Phone</label><br>
                             <div>
@@ -162,9 +173,9 @@
                             </div>
                             <label class="label" for="consult_description">Brief Project Description *</label><br>
                             <div>
-                                <textarea name="consult_description" id="consult_description" class="input-xlarge" placeholder="Briefly tell us about your project..."></textarea>
+                                <textarea name="consult_description" id="consult_description" class="input-xlarge" placeholder="Briefly tell us about your project ..."></textarea>
                                 <p>Maximum 500 characters</p>
-                            </div><br>
+                            </div>
                             <div class="modal-footer">
                                 <input class="btn btn-success" type="submit" value="Send" id="submit_to_consultant">
                                 <a href="#" class="btn" data-dismiss="modal">Cancel</a>

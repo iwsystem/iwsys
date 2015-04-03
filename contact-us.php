@@ -104,6 +104,13 @@
             });
         })(jQuery, window, document);
     </script>
+    <!-- Changing the JQuery Validation Default Message -->
+    <script>
+        jQuery.extend(jQuery.validator.messages, {
+            equalTo: "Please enter matchinhg email.",
+            email: "Please enter a valid email."
+        });
+    </script>
 </head>
 <body>
 
@@ -143,6 +150,10 @@
                             <label class="label" for="cust_rep_email">Your Email *</label><br>
                             <div>
                                 <input type="text" name="cust_rep_email" id="cust_rep_email" class="input-xlarge" placeholder="Your Email"><br>
+                            </div>
+                            <label class="label" for="cust_rep_confirm_email">Confirm Email *</label><br>
+                            <div>
+                                <input type="text" name="cust_rep_confirm_email" id="cust_rep_confirm_email" class="input-xlarge required email" equalTo='#cust_rep_email' placeholder="Confirm Email"><br>
                             </div>
                             <label class="label" for="cust_rep_phone">Your Phone</label><br>
                             <div>
@@ -193,6 +204,10 @@
                             <label class="label" for="consult_email">Your Email *</label><br>
                             <div>
                                 <input type="text" name="consult_email" id="consult_email" class="input-xlarge" placeholder="Your Email"><br>
+                            </div>
+                            <label class="label" for="consult_confirm_email">Confirm Email *</label><br>
+                            <div>
+                                <input type="text" name="consult_confirm_email" id="consult_confirm_email" class="input-xlarge required email" equalTo='#consult_email' placeholder="Confirm Email"><br>
                             </div>
                             <label class="label" for="consult_phone">Your Phone</label><br>
                             <div>
