@@ -28,33 +28,6 @@
         // For Executing prepared statement we will use below function
         $str_stmt->execute();
 
-         //  Preparing PHP Mailer to forward the new message mail confirmation to the customer 
-        $mail             = new PHPMailer();    // PHP Mailer Class
-        $mail->isSMTP();
-        $mail->SMTPDebug = 0;
-        $mail->Host       = "iwsystemcom.ipage.com";      // sets Ipage as the SMTP server
-        $mail->Port       = 587;                   // set the SMTP port
-        $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
-        $mail->SMTPAuth   = true;                  // enable SMTP authentication
-        $mail->Username   = "consultant@iwsystem.co.uk";  // GMAIL username
-        $mail->Password   = "Chumasky2014&";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
-        $mail->From       = "consultant@iwsystem.co.uk";
-        $mail->FromName   = "IW System";
-        $mail->addAddress("$str_cust_email", ucfirst($str_cust_name);
-        $mail->addReplyTo("consultant@iwsystem.co.uk","Consultant");
-        $mail->Subject    = "Thank you for contacting us - " . ucfirst($str_cust_name);
-        $mail->AltBody    = "Hello " . ucfirst($str_cust_name) . ", Thank you for contacting us regarding our service. One of our consultants 
-        will get in touch with you shortly to handle any query or questions you have. For the mean time, do not hesistate to visit our 
-        website at www.iwsystem.co.uk to view all we can offer you. Thanks"; //Text Body
-        $mail->IsHTML(true); // send as HTML
-        $mail_body             = "Hello <b>" . ucfirst($str_cust_name) . ", </b><br><br>Thank you for contacting us regarding our service. <br>One of our consultants 
-        will get in touch with you shortly to handle any query or questions you have. <br><br>For the mean time, do not hesistate to visit our 
-        website at www.iwsystem.co.uk to view all we can offer you. <br><br><br>Thanks<br><br><br>Customer Representative<br><b>IW System</b>";
-        //  Sending off the mail
-        if(!$mail->Send()) {
-          echo "Mailer Error: " . $mail->ErrorInfo;
-        } 
-
         //  Preparing PHP Mailer to forward the new message mail confirmation to the consultant staff 
         $mail2             = new PHPMailer();    // PHP Mailer Class
         $mail2->isSMTP();
@@ -63,20 +36,22 @@
         $mail2->Port       = 587;                   // set the SMTP port
         $mail2->SMTPSecure = "tls";                 // sets the prefix to the servier
         $mail2->SMTPAuth   = true;                  // enable SMTP authentication
-        $mail2->Username   = "contact@iwsystem.co.uk";  // GMAIL username
-        $mail2->Password   = "Chumasky2014&";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
-        $mail2->From       = "donotreply@iwsystem.co.uk";
+        $mail2->Username   = "consultant@iwsystem.co.uk";  // Email username
+        $mail2->Password   = "Chumasky2014&";            // Email password, Some times if two step varification enabled in this mail id, Mail will not be sent.
+        $mail2->From       = "consultant@iwsystem.co.uk";
         $mail2->FromName   = "IW System";
         $mail2->addAddress("consultant@iwsystem.co.uk", "Consultant");
-        $mail2->addReplyTo("donotreply@iwsystem.co.uk","Do Not Reply");
+        $mail2->addReplyTo("admin@iwsystem.co.uk","Do Not Reply");
         $mail2->Subject    = "You have a new Message from - " . ucfirst($str_cust_name);
         $mail2->AltBody    = "Hi there, You have a new message from a client. The details are below: Customer Name: ". ucfirst($str_cust_name) . " Company: ". $str_cust_company . " Email: " . 
-        					$str_cust_email . " Phone: " . $int_cust_phone . " Country: ". $str_cust_country ." Message Subject: " . $str_cust_subject . " Message Description:  " . $str_cust_message
+        					$str_cust_email . " Phone: " . $int_cust_phone . " Country: ". $str_cust_country ." Message Subject: " . $str_cust_interest . " Message Description:  " . $str_cust_description
         					. " . Please get in touch with the customer as soon as possible and update account portal accordingly. Thanks"; //Text Body
         $mail2->IsHTML(true); // send as HTML
-        $mail2_body             = "Hi there, <br><br>You have a new message from a client. <br>The details are below: <<br><br><b>Customer Name:</b> ". ucfirst($str_cust_name) . " <br><b>Company: </b>". $str_cust_company ." <br><b>Email: </b>" . 
+        $mail2_body             = "Hi there, <br><br>You have a new message from a client. <br>The details are below: <br><br><b>Customer Name:</b> ". ucfirst($str_cust_name) . " <br><b>Company: </b>". $str_cust_company ." <br><b>Email: </b>" . 
         					$str_cust_email . " <br><b>Phone: </b>" . $int_cust_phone . " <br><b>Country: </b>". $str_cust_country ." <br><b>Message Subject: </b>" . $str_cust_interest . " <br><b>Message Description:  </b>" . $str_cust_description
         					. " . <br><br>Please get in touch with the customer as soon as possible and update account portal accordingly. <br><br>Thanks"; 
+        
+        $mail2->msgHTML($mail2_body);
         //  Sending off the mail
         if(!$mail2->Send()) {
           echo "Mailer Error: " . $mail2->ErrorInfo;

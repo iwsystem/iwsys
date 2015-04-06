@@ -56,7 +56,7 @@ include_once("signon/pdo-connect.php");
     <script>
     $(document).ready(function() {
         var table = $('#project-table').dataTable({
-            "iDisplayLength" : 30,   // Setting the initial display size for the table
+            "iDisplayLength" : 15,   // Setting the initial display size for the table
         });
     });
 

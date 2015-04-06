@@ -47,7 +47,7 @@
                         <li>A simple or complex Web Application to facilitate the functionality of your business</li>
                         <li>A Web Shop to Advertise, Market and Sell your goods or services or both</li>
                         <li>A smart Web Portal to be used by you and your team to improve efficiency and effectiveness</li>
-                        <li>A basic Web Presence for your customers to be able to learn and keep to date with your products and services and be able to easily contact you?</li>
+                        <li>A basic Web Presence for your customers to learn and keep to date with your products & services and yet be able to easily contact you?</li>
                     </ul>
                  <b>YOU</b> can count on our experts to help you achieve your goal 
                 </p>
@@ -70,7 +70,7 @@
                     <li><i class='icon-thumbs-up'></i> <b>Experience & Professionalism</b> – We have team of quality experts that are well grounded in development and understanding customers' needs. So be assured that we will capture your idea and put it into design.</li>
                     <li><i class='icon-thumbs-up'></i> <b>Customized</b> for you – We tailor our solutions to fit you ( your business, your taste, your budget). We will not give you quality that you cannot afford.</li>
                     <li><i class='icon-thumbs-up'></i> <b>Speed & Accuracy</b> – We will impress you with speed and yet provide you with error free solutions. </li>
-                    <li><i class='icon-thumbs-up'></i> <b>Brilliant Customer Support</b> – At IW System, although we are out to make profit (so we can get our bank accounts flowing), we ALWAYS remember that keeping our customers satisfied is one of our priorities because we believe that a happy customer tells the world about you!!</li>
+                    <li><i class='icon-thumbs-up'></i> <b>Brilliant Customer Support</b> – At IW System, we ALWAYS remember that keeping our customers satisfied is one of our priorities because we believe that a happy customer tells the world about you!!</li>
                 </ul>
             </div>
             <div class="span6">

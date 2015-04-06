@@ -83,7 +83,7 @@ include_once("mailer/class.smtp.php");
         $s_cusLastname = $arr_cusName['lastname'];    // Customer's lastname
         $s_cusEmail = $arr_cusName['email'];    // Customer's email address
 
-        //  Preparing PHP Mailer to forward the new Project mail confirmation to the customer 
+        //  Preparing PHP Mailer to forward the mail confirmation to the consultant 
         $mail             = new PHPMailer();    // PHP Mailer Class
         $mail->isSMTP();
         $mail->SMTPDebug = 0;

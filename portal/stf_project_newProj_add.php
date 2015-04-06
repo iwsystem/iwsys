@@ -13,7 +13,6 @@ include_once("mailer/class.smtp.php");
     $start = $_POST['start']; // Variable for the postcode
     $deadline = $_POST['deadline']; // Variable for the postcode
 
-
     //  Code to store the inputed data into the user table
     try {
         // We Will prepare SQL Query to insert the new project to the database
@@ -98,44 +97,19 @@ include_once("mailer/class.smtp.php");
         $mail->From       = "donotreply@iwsystem.co.uk";
         $mail->FromName   = "IW System";
         $mail->addAddress("$s_cusEmail", ucfirst($s_cusFirstname) . ucfirst($s_cusLastname));
+        $mail->addAddress("$s_consultEmail", ucfirst($s_consultFirstname) . ucfirst($s_consultLastname));
         $mail->addReplyTo("donotreply@iwsystem.co.uk","Do Not Reply");
         $mail->Subject    = "New Project Created - ".ucfirst($s_title);
-        $mail->AltBody    = "Hello" . ucfirst($s_cusFirstname) . ucfirst($s_cusLastname) . ", a new Project has been created for you. With the title: "
+        $mail->AltBody    = "Hi there, A new Project has been created for you. You can find the details about the project below: Title: "
          . ucfirst($s_title) . ". Visit your account at www.iwsystem.co.uk to log in and view project. You can contact your project consultant - ". ucfirst($s_consultFirstname)
          . " on ". $s_consultEmail ; //Text Body
         $mail->IsHTML(true); // send as HTML
-        $mail_body             = "Hello" . ucfirst($s_cusFirstname) . ucfirst($s_cusLastname) . ", <br><<br>A new Project has been created for you. With the title: "
-         . ucfirst($s_title) . ". <br><br>Visit your account at www.iwsystem.co.uk to log in and view project. <br>You can contact your project consultant - ". ucfirst($s_consultFirstname)
-         . " on ". $s_consultEmail " <br><br>THanks. <br><br><b>IW System</b>";   // HTML Message
+        $mail_body             = "Hi there, <br><br>A new Project has been created for you. <br>You can find the details about the project below:<br><br><b>Client Name:</b> " .ucfirst($s_cusFirstname) ." ". ucfirst($s_cusLastname) . "<br><b>Title:</b> "
+         . ucfirst($s_title) . "<br><b>Project Consultant:</b> " .ucfirst($s_consultFirstname) . "<br><br>Visit <a href='www.iwsystem.co.uk'>IW System</a> to log in and view project. <br>You can contact your project consultant on ". $s_consultEmail . " <br><br>Thanks. <br><br><b>IW System</b><br>Administrator";   // HTML Message
         $mail->msgHTML($mail_body);
         //  Sending off the mail
         if(!$mail->Send()) {
           echo "Mailer Error: " . $mail->ErrorInfo;
-        } 
-
-        //  Preparing PHP Mailer to forward the new Project mail confirmation to the consultant
-        $mail2             = new PHPMailer();    // PHP Mailer Class
-        $mail2->isSMTP();
-        $mail2->SMTPDebug = 0;
-        $mail->Host       = "iwsystemcom.ipage.com";      // sets Ipage as the SMTP server
-        $mail->Port       = 587;                   // set the SMTP port
-        $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
-        $mail->SMTPAuth   = true;                  // enable SMTP authentication
-        $mail->Username   = "contact@iwsystem.co.uk";  // GMAIL username
-        $mail2->Password   = "Chumasky2014&";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
-        $mail2->From       = "donotreply@iwsystem.co.uk";
-        $mail2->FromName   = "IW System";
-        $mail2->addAddress("consultant@iwsystem.co.uk", ucfirst($s_consultFirstname) . ucfirst($s_consultLastname));
-        $mail2->addReplyTo("donotreply@iwsystem.co.uk","Do Not Reply");
-        $mail2->Subject    = "New Project Created - ".ucfirst($s_title);
-        $mail2->AltBody    = "Hello" . ucfirst($s_consultFirstname) . ucfirst($s_consultLastname) . ", a new Project has been created for you to work on. With the title: " . ucfirst($s_title) . ". Visit your account at www.iwsystem.co.uk to log in and view project" ; //Text Body
-        $mail2->IsHTML(true); // send as HTML
-        $mail2_body             = "Hello" . ucfirst($s_consultFirstname) . ucfirst($s_consultLastname) . ", <br><br>A new Project has been created for you to work on. With the title: " . ucfirst($s_title) . ". <br><br>Visit your account at www.iwsystem.co.uk to log in and view project
-                                <br><br>Thanks<br><br><b>Admin</b>" ;  // HTML Message
-        $mail2->msgHTML($mail2_body);
-        //  Sending off the mail
-        if(!$mail2->Send()) {
-          echo "Mailer Error: " . $mail2->ErrorInfo;
         } 
 
         $status = "success";    // This variable will be sent back to the user profile page to enable the success display

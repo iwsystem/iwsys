@@ -1046,6 +1046,30 @@ font-weight: lighter;
     font-weight: 400;
     color: #285674;
 }
+ #cust-rep-overlay {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 80%;
+  height: 70%;
+  opacity: 0.5;
+  border-radius: 4px;
+  background:#e3e3e3 url('img/loader.gif') no-repeat fixed center;
+  color: #4490c2;
+  padding: 30px;    
+}
+ #consult-overlay {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 80%;
+  height: 75%;
+  opacity: 0.5;
+  border-radius: 4px;
+  background:#e3e3e3 url('img/loader.gif') no-repeat fixed center;
+  color: #4490c2;
+  padding: 30px;    
+}
 
 /*
 Media Queries

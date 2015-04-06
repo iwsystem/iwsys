@@ -21,6 +21,7 @@
                                 <tr>
                                     <th>Customer Name</th>
                                     <th>Project Title</th>
+                                    <th>Consultant</th>
                                     <th>Project beta</th>
                                     <th>Project History</th>
                                     <th>Start</th>
@@ -60,8 +61,8 @@
                                         foreach ($arr_Project as $oProject) {
                                             $i_projectID = $oProject["proj_id"]; // Assigning the id that will be passed to the detail script
                                             $i_custID = $oProject["user_id"];    // Assigning a variable for the customer ID used for retrieving their name
-
-                                            // We Will prepare SQL Query
+                                            $i_consultID = $oProject["emp_id"];     // Consultant responsible for the project
+                                            // We Will prepare SQL Query to determine the name of customer
                                             $str_query = "  SELECT firstname, lastname
                                                             FROM tbl_user
                                                             WHERE  user_id = :user_id;";
@@ -74,8 +75,21 @@
                                             $first_name = ucfirst($arr_user_name['firstname']);
                                             $last_name = ucfirst($arr_user_name['lastname']);
 
+                                            // We Will prepare SQL Query to determine name of consultant
+                                            $str_query = "  SELECT firstname, lastname
+                                                            FROM tbl_user
+                                                            WHERE  user_id = :user_id;";
+                                            $str_stmt = $r_Db->prepare($str_query);
+                                            // bind paramenters, Named paramenters alaways start with colon(:)
+                                            $str_stmt->bindParam(':user_id', $i_consultID);
+                                            $str_stmt->execute();   // For Executing prepared statement we will use below function
+                                            $arr_consult_name = $str_stmt->fetch();    //  Storing the customer's details in an array.
+
+                                            $consult_first_name = ucfirst($arr_consult_name['firstname']);
+                                            $consult_last_name = ucfirst($arr_consult_name['lastname']);
+
                                             echo "<tr>";
-                                            echo "<td>" . $first_name." ". $last_name . "</td>"."<td>". $oProject["title"] . "</td>"."<td>" . "<a href='pages/client/$i_custID/test/$i_projectID'>Project Page</a>" . "</td>" . "<td>" . "<a href='stf_project_active_detail.php?proj=$i_projectID'> Project History </a>" . "</td>"."<td>". $oProject["start_date"] . "</td>"."<td>". $oProject["deadline"] . "</td>"; 
+                                            echo "<td>" . $first_name." ". $last_name . "</td>"."<td>". $oProject["title"] . "</td>"."<td>". $consult_first_name . " ". $consult_last_name . "</td>" . "<td>" . "<a href='pages/client/$i_custID/test/$i_projectID'>Project Page</a>" . "</td>" . "<td>" . "<a href='stf_project_active_detail.php?proj=$i_projectID'> Project History </a>" . "</td>"."<td>". $oProject["start_date"] . "</td>"."<td>". $oProject["deadline"] . "</td>"; 
                                             echo "</tr>";
                                         }
                                     }   catch(PDOException $e)  {

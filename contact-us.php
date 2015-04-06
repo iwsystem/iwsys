@@ -33,14 +33,14 @@
                             consult_email: {required: true, email: true },
                             consult_country: {required: true, minlength: 2, number: false},
                             consult_phone: {number: true},
-                            consult_description: {required: true, minlength: 5}
+                            consult_description: {required: true, minlength: 5, maxlength: 500}
                         },
                         messages: {
                             consult_name: {required: "Please type your name"},
                             consult_email: {required: "Please type email", number: "Must be a valid email"},
                             consult_country: {required: "Type your country", minlength: "Atleast 2 letters", number: "Country can't be a number"},
                             consult_phone: {number: "Should contain  only numbers"},
-                            consult_description: {required: 'Please describe project', minlength: 'Atleast 5 letters'}
+                            consult_description: {required: 'Please describe project', minlength: 'Atleast 5 letters', maxlength: 'Not more tha 500 letters'}
                         },
                         //  This function specifies what will happen after the validation is successful
                         submitHandler: function(form) {
@@ -48,12 +48,19 @@
                                 type: "POST",
                                 url: "send-consultant.php", // Wherer to send the form
                                 data: $('form.contact-consult').serialize(),
+                                beforeSend: function(){
+                                    $('#consult-overlay').show();
+                                },
+                                complete: function(){
+                                    $('#consult-overlay').hide();
+                                },
                                 success: function(msg){
                                     $('form.contact-consult').hide();
                                     $("#consult_success_msg").show();
                                     
                                 },
                                 error: function(){
+                                    $('form.contact-consult').hide();
                                     $("#consult_error_msg").show();
                                 }
                             });
@@ -70,13 +77,13 @@
                             cust_rep_name: {required: true },
                             cust_rep_email: {required: true, email: true },
                             cust_rep_phone: {number: true},
-                            cust_rep_message: {required: true, minlength: 5}
+                            cust_rep_message: {required: true, minlength: 5, maxlength: 500}
                         },
                         messages: {
                             cust_rep_name: {required: "Please type your name"},
                             cust_rep_email: {required: "Please type email", number: "Must be a valid email"},
                             consult_phone: {number: "Should contain  only numbers"},
-                            cust_rep_message: {required: 'Type you enquiry', minlength: 'Atleast 5 letters'}
+                            cust_rep_message: {required: 'Type you enquiry', minlength: 'Atleast 5 letters', maxlength: 'Not more tha 500 letters'}
                         },
                         //  This function specifies what will happen after the validation is successful
                         submitHandler: function(form) {
@@ -84,12 +91,18 @@
                                 type: "POST",
                                 url: "send-cust-rep.php", // Where to send the form
                                 data: $('form.contact-cust-rep').serialize(),
+                                beforeSend: function(){
+                                    $('#cust-rep-overlay').show();
+                                },
+                                complete: function(){
+                                    $('#cust-rep-overlay').hide();
+                                },
                                 success: function(msg){
                                     $('form.contact-cust-rep').hide();
                                     $("#cust_rep_success_msg").show();
-                                    
                                 },
                                 error: function(){
+                                    $('form.contact-cust-rep').hide();
                                     $("#cust_rep_error_msg").show();
                                 }
                             });
@@ -174,13 +187,14 @@
                             </div>
                         </form>
                     </div>
+                    <div id="cust-rep-overlay" class="hide"></div>
                 </div>
                 <!-- End of modal for Customer Service contact -->
                 <!-- Modal for Consultant contact -->
                 <div id="consultant-contact" class="modal hide fade in" style="display: none;">
                     <div class="modal-header">
                         <a class="close" data-dismiss="modal">×</a>
-                        <h3>Get in touch with a Consultant for a Quote</h3>
+                        <h3>Contact a Consultant for more discussion about your project</h3>
                         <span>Please fill in all sections marked *</span><br><br>
                         <div id="consult_success_msg" class="hide center">
                             <span id="success_head" class="success_head">Message Sent!</span><br>
@@ -240,6 +254,7 @@
                             </div>
                         </form>
                     </div>
+                    <div id="consult-overlay" class="hide"></div>
                 </div>
                 <!-- End of modal for Consultant contact form -->
                 <div id="thanks">
