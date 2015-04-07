@@ -15,6 +15,7 @@
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <script src="js/vendor/jquery-1.9.1.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
+    <script src="js/countries.js"></script>
      <!-- Validation And Ajax sending -->
     <script type="text/javascript">
         (function($,W,D)
@@ -31,14 +32,14 @@
                         rules: {
                             consult_name: {required: true },
                             consult_email: {required: true, email: true },
-                            consult_country: {required: true, minlength: 2, number: false},
+                            consult_country: {required: true},
                             consult_phone: {number: true},
                             consult_description: {required: true, minlength: 5, maxlength: 500}
                         },
                         messages: {
                             consult_name: {required: "Please type your name"},
                             consult_email: {required: "Please type email", number: "Must be a valid email"},
-                            consult_country: {required: "Type your country", minlength: "Atleast 2 letters", number: "Country can't be a number"},
+                            consult_country: {required: "Select your country"},
                             consult_phone: {number: "Should contain  only numbers"},
                             consult_description: {required: 'Please describe project', minlength: 'Atleast 5 letters', maxlength: 'Not more tha 500 letters'}
                         },
@@ -77,12 +78,14 @@
                             cust_rep_name: {required: true },
                             cust_rep_email: {required: true, email: true },
                             cust_rep_phone: {number: true},
+                            cust_rep_country: {required: true},
                             cust_rep_message: {required: true, minlength: 5, maxlength: 500}
                         },
                         messages: {
                             cust_rep_name: {required: "Please type your name"},
                             cust_rep_email: {required: "Please type email", number: "Must be a valid email"},
-                            consult_phone: {number: "Should contain  only numbers"},
+                            cust_rep_phone: {number: "Should contain  only numbers"},
+                            cust_rep_country: {required: "Select your country"},
                             cust_rep_message: {required: 'Type you enquiry', minlength: 'Atleast 5 letters', maxlength: 'Not more tha 500 letters'}
                         },
                         //  This function specifies what will happen after the validation is successful
@@ -168,6 +171,13 @@
                             <div>
                                 <input type="text" name="cust_rep_confirm_email" id="cust_rep_confirm_email" class="input-xlarge required email" equalTo='#cust_rep_email' placeholder="Confirm Email"><br>
                             </div>
+                            <label class="label" for="cust_rep_country">Your Country*</label><br>
+                            <div>
+                                <select name="cust_rep_country" id="cust_rep_country" class="input-large"></select><br>
+                                    <script language="javascript">
+                                        populateCountries("cust_rep_country");
+                                    </script>
+                            </div>
                             <label class="label" for="cust_rep_phone">Your Phone</label><br>
                             <div>
                                 <input type="text" name="cust_rep_phone" id="cust_rep_phone" class="input-xlarge" placeholder="Your Phone"><br>
@@ -227,9 +237,12 @@
                             <div>
                                 <input type="text" name="consult_phone" id="consult_phone" class="input-xlarge" placeholder="Your Phone"><br>
                             </div>
-                            <label class="label" for="consult_country">Your Country *</label><br>
+                            <label class="label" for="consult_country">Your Country*</label><br>
                             <div>
-                                <input type="text" name="consult_country" id="consult_country" class="input-xlarge" placeholder="Your Country"><br>
+                                <select name="consult_country" id="consult_country" class="input-large"></select><br>
+                                    <script language="javascript">
+                                        populateCountries("consult_country");
+                                    </script>
                             </div>
                             <label class="label" for="consult_interest">Which service are you interested in ?</label><br>
                             <div>

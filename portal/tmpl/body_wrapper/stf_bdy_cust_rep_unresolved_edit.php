@@ -67,6 +67,12 @@
                                             </div>
                                           </div>
                                           <div class="form-group">
+                                            <label class="col-lg-3 control-label">Customer's Country:</label>
+                                            <div class="col-lg-8">
+                                              <input name="cust_country" class="form-control" type="text" value="<?php echo ucfirst($arr_Details['cust_country']); ?>">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
                                             <label class="col-lg-3 control-label">Customer's Phone:</label>
                                             <div class="col-lg-8">
                                               <input name="cust_phone" class="form-control" type="text" value="<?php echo $arr_Details["cust_phone"]; ?>">

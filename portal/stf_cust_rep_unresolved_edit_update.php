@@ -7,6 +7,7 @@ include_once("signon/pdo-connect.php");
     $cust_name = strtolower($_POST['cust_name']); // Variable for the user's first name
     $cust_email = $_POST['cust_email']; // Variable for the user's email
     $cust_phone = $_POST['cust_phone']; // Variable for the user's phone
+    $cust_country = $_POST['cust_country']; // Variable for the user's country
     $cust_note = strtolower($_POST['cust_note']); // Variable for the notes by the customer rep staff
     $status = $_POST['status']; // Variable for the user's phone
 
@@ -15,7 +16,7 @@ include_once("signon/pdo-connect.php");
         try {
             // We Will prepare SQL Query
             $str_query = "  UPDATE tbl_cust_rep_contact
-                            SET cust_name=:cust_name, cust_email=:cust_email, cust_phone=:cust_phone, cust_note=:cust_note 
+                            SET cust_name=:cust_name, cust_email=:cust_email, cust_phone=:cust_phone, cust_country=:cust_country, cust_note=:cust_note 
                             WHERE id = :id;";
             $str_stmt = $r_Db->prepare($str_query);
             // bind paramenters, Named paramenters alaways start with colon(:)
@@ -23,6 +24,7 @@ include_once("signon/pdo-connect.php");
             $str_stmt->bindParam(':cust_name', $cust_name);
             $str_stmt->bindParam(':cust_email', $cust_email);
             $str_stmt->bindParam(':cust_phone', $cust_phone);
+            $str_stmt->bindParam(':cust_country', $cust_country);
             $str_stmt->bindParam(':cust_note', $cust_note);
             // For Executing prepared statement we will use below function
             $str_stmt->execute();
@@ -36,7 +38,7 @@ include_once("signon/pdo-connect.php");
         try {
             // We Will prepare SQL Query
             $str_query = "  UPDATE tbl_cust_rep_contact
-                            SET cust_name=:cust_name, cust_email=:cust_email, cust_phone=:cust_phone, cust_note=:cust_note, status=9 
+                            SET cust_name=:cust_name, cust_email=:cust_email, cust_phone=:cust_phone, cust_country=:cust_country, cust_note=:cust_note, status=9 
                             WHERE id = :id;";
             $str_stmt = $r_Db->prepare($str_query);
             // bind paramenters, Named paramenters alaways start with colon(:)
@@ -44,6 +46,7 @@ include_once("signon/pdo-connect.php");
             $str_stmt->bindParam(':cust_name', $cust_name);
             $str_stmt->bindParam(':cust_email', $cust_email);
             $str_stmt->bindParam(':cust_phone', $cust_phone);
+            $str_stmt->bindParam(':cust_country', $cust_country);
             $str_stmt->bindParam(':cust_note', $cust_note);
             // For Executing prepared statement we will use below function
             $str_stmt->execute();
