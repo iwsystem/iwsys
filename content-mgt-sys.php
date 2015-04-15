@@ -206,6 +206,7 @@
     <?php include('tmpl/login-form.php');  ?>
 
     <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/bootstrap-hover-dropdown.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

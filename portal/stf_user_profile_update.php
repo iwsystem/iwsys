@@ -9,7 +9,6 @@ include_once("signon/pdo-connect.php");
     $email = strtolower($_POST['email']); // Variable for the user's email
     $phone = strtolower($_POST['phone']); // Variable for the user's phone
     $password = strtolower($_POST['password']); // Variable for the user's password
-    $confirm_password = strtolower($_POST['confirm_password']); // Variable for the user's password confirmation field
     //  Set conditions to update the table. If there is no password entered, update other fields except the password
     if ($password == "") {
         //  Code to store the inputed data into th database table
@@ -33,6 +32,19 @@ include_once("signon/pdo-connect.php");
             $status = "fail";    // This variable will be sent back to the user profile page to enable the failure display
         }
     } else {
+
+        // Section to create a secure password to be stored in the table
+        $cost = 10;
+
+        // Create a random salt
+        $salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
+
+        // Prefix information about the hash so PHP knows how to verify it later.
+        $salt = sprintf("$2a$%02d$", $cost) . $salt;
+
+        // Hash the password with the salt
+        $hash_password = crypt($password, $salt);   //  Password to be stored in database
+
          //  Code to store the inputed data into th database table
         try {
             // We Will prepare SQL Query
@@ -46,7 +58,7 @@ include_once("signon/pdo-connect.php");
             $str_stmt->bindParam(':lastname', $lastname);
             $str_stmt->bindParam(':email', $email);
             $str_stmt->bindParam(':phone', $phone);
-            $str_stmt->bindParam(':password', $password);   // Password is saved here
+            $str_stmt->bindParam(':password', $hash_password);   // Password is saved here
             // For Executing prepared statement we will use below function
             $str_stmt->execute();
             $status = "success";    // This variable will be sent tback to the user profile page to enable the success display

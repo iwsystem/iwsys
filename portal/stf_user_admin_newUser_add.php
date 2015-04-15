@@ -22,6 +22,19 @@ include_once("mailer/class.smtp.php");
 
     //  Code to store the inputed data into the user table
     try {
+
+        // Section to create a secure password to be stored in the table
+        $cost = 10;
+
+        // Create a random salt
+        $salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
+
+        // Prefix information about the hash so PHP knows how to verify it later.
+        $salt = sprintf("$2a$%02d$", $cost) . $salt;
+
+        // Hash the password with the salt
+        $hash_password = crypt($password, $salt);   //  Password to be stored in database
+        
         // We Will prepare SQL Query
         $str_query = "  INSERT INTO tbl_user (firstname, lastname, email, phone, address1, address2, city, state_county, postcode, country, user_type, username, password, created, status )
                         VALUES (:firstname, :lastname, :email, :phone, :address1, :address2, :city, :state_county, :postcode, :country, :user_type, :username, :password, NOW(), 7);";
@@ -39,7 +52,7 @@ include_once("mailer/class.smtp.php");
         $str_stmt->bindParam(':country', $country);
         $str_stmt->bindParam(':user_type', $user_type);
         $str_stmt->bindParam(':username', $username);
-        $str_stmt->bindParam(':password', $password);
+        $str_stmt->bindParam(':password', $hash_password);
         // For Executing prepared statement we will use below function
         $str_stmt->execute();
         $eUserID = $r_Db->lastInsertId();  // Variable for the id of the previously inserted user  

@@ -344,6 +344,7 @@
     <?php include('tmpl/login-form.php');  ?>
     <!-- javascript files and libraries -->
     <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/bootstrap-hover-dropdown.min.js"></script>
     <script src="js/jquery.lettering.js"></script>
     <script src="js/jquery.textillate.js"></script>
     <script src="js/main.js"></script>

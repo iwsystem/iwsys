@@ -12,7 +12,7 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="about-us.php">About Us</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="icon-angle-down"></i></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">Services <i class="icon-angle-down"></i></a>
               <ul class="dropdown-menu">
                 <li><a href="services.php">All Services</a></li>
                 <li class="divider"></li>

@@ -77,7 +77,20 @@ include_once("signon/pdo-connect.php");
             }
         }
 
-    } else {    // If no password
+    } else {    // If password is entered
+
+        // Section to create a secure password to be stored in the table
+        $cost = 10;
+
+        // Create a random salt
+        $salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
+
+        // Prefix information about the hash so PHP knows how to verify it later.
+        $salt = sprintf("$2a$%02d$", $cost) . $salt;
+
+        // Hash the password with the salt
+        $hash_password = crypt($password, $salt);   //  Password to be stored in database
+        
         if ($status == "") {    //  Check if there is a change of status
             //  Code to store the inputed data into th database table
             try {
@@ -98,7 +111,7 @@ include_once("signon/pdo-connect.php");
                 $str_stmt->bindParam(':state_county', $state_county);
                 $str_stmt->bindParam(':postcode', $postcode);
                 $str_stmt->bindParam(':country', $country);
-                $str_stmt->bindParam(':password', $password);
+                $str_stmt->bindParam(':password', $hash_password);
                 // For Executing prepared statement we will use below function
                 $str_stmt->execute();
                 $status = "success";    // This variable will be sent tback to the user profile page to enable the success display
@@ -126,7 +139,7 @@ include_once("signon/pdo-connect.php");
                 $str_stmt->bindParam(':state_county', $state_county);
                 $str_stmt->bindParam(':postcode', $postcode);
                 $str_stmt->bindParam(':country', $country);
-                $str_stmt->bindParam(':password', $password);
+                $str_stmt->bindParam(':password', $hash_password);
                 $str_stmt->bindParam(':status', $status);
                 // For Executing prepared statement we will use below function
                 $str_stmt->execute();

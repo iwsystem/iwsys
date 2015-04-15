@@ -3,26 +3,26 @@ session_start();
 	include_once("pdo-connect.php");
 	// Define $myusername and $mypassword 
 	$username=strtolower($_POST['username']);
-	$password=strtolower($_POST['password']);
+	$password=strtolower($_POST['password']);	// This should be changed to have no strtolower() if users should have different combination of letters
 	$loginIp = $_SERVER['REMOTE_ADDR'];
 	try {
 		// We Will prepare SQL Query
-		$str_query = "	SELECT user_id, firstname, lastname, status, user_type
+		$str_query = "	SELECT user_id, firstname, lastname, status, user_type, password
 	    				FROM tbl_user
-	    				WHERE username = :username 
-	    				AND password = :password;";
+	    				WHERE username = :username;";
 	    $str_stmt = $r_Db->prepare($str_query);
 		// bind paramenters, Named paramenters alaways start with colon(:)
 	    $str_stmt->bindParam(':username', $username);
-	    $str_stmt->bindParam(':password', $password);
 		// For Executing prepared statement we will use below function
 	    $str_stmt->execute();
 		// Count no. of records	
 	    $count = $str_stmt->rowCount();
 		//just fetch. only gets one row. Use  fatch(PDO::FETCH_ASSOC) for making the result an associative array
 		$row  = $str_stmt -> fetch();
+
+		//	Checking if the user exists AND the password is correct after matching hashed passwords
 		// User Redirect Conditions will go here
-		if($count==1) {
+		if($count==1 && ( $row[5] == crypt($password, $row[5]) )) {
 			if ($row[3] == 8) {	// If the user is inactive, redirect or write an error message
 				echo "Sorry, but your account is currently not active on the system<br>";
 				echo "You will be returned to home page in 5 seconds OR Click the back button to return<br> Redirecting ...";
