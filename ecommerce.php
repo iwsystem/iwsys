@@ -88,9 +88,9 @@
     </script>
 </head>
 <body>
+    <?php include_once("gtrack.php"); ?>
     <!--Header-->
     <?php include('tmpl/header.php');  ?>
-
     <section class="title">
         <div class="container">
             <div class="row-fluid">
