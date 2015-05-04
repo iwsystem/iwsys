@@ -18,15 +18,16 @@
                           <strong>Twitter:</strong> <a href="https://twitter.com/iw_system">@iw_system </a>
                       </li><br>
                       <li>
-                          <i class="icon-phone"></i>
-                          <strong>Phone</strong> (+44) 0845-875-0505
-                      </li>
-                      <li>
                           <i class="icon-envelope"></i>
                           <strong>Email: </strong> contact@iwsystem.co.uk
                       </li>
+                      <li>
+                          <i class="icon-phone"></i>
+                          <strong>Phone</strong> (+44) 0845-875-0505<br>
+                      </li>
                   </ul>
               </div>
+
               <!--End Socials and Contacts-->
               <!--Who we are-->
               <div id="the-business" class="span3">
@@ -56,6 +57,10 @@
               <!--End Our Services-->
       </div>
       <!--/row-fluid-->
+      <p class="bottom_notice">
+      Note: *Calls are charged at your local BT Landline / Network Provider rates. <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** Calls to <span>0845</span> numbers are <span>Free</span> from your BT Landline & Mobile Phone Plans
+      </p>
     </div>
     <!--/container-->
   </section>

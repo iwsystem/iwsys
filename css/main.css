@@ -1070,6 +1070,13 @@ font-weight: lighter;
   color: #4490c2;
   padding: 30px;    
 }
+.bottom_notice {
+    font-size: 13px;
+    color: #e3e3e3;
+}
+.bottom_notice span {
+    color: #4490c2;
+}
 
 /*
 Media Queries
