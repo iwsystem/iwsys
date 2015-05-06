@@ -37,7 +37,7 @@ include_once("signon/pdo-connect.php");
 <?php
     //  Refresh the page after  user details update
     if (isset($_GET["status"])) {
-        header('refresh:8; url=stf_cust_rep_unresolved.php');
+        header('refresh:8; url=stf_cust_rep_web_resolved.php');
     }
 ?>
     <div id="main_wrapper">
@@ -46,7 +46,7 @@ include_once("signon/pdo-connect.php");
         <!-- /.Line breaking -->
         <div><br></div>
         <!--  Page body -->
-        <?php include('tmpl/body_wrapper/stf_bdy_cust_rep_unresolved_edit.php');  ?>
+        <?php include('tmpl/body_wrapper/stf_bdy_cust_rep_web_resolved_edit.php');  ?>
         <!--  Footer -->
         <?php include('tmpl/footer.php');  ?>
     </div>

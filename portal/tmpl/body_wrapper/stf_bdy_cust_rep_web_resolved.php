@@ -1,7 +1,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="page-header">Resolved Customer Contacts </h2>
+            <h2 class="page-header">Resolved Customer Contacts - WEB </h2>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -10,7 +10,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    This is a summarized list of all resolved customer rep communications<br>
+                    This is a summarized list of all resolved customer rep communications, for contacts through web form<br>
                     Click on each message on the table below, to access more details.  
                 </div>
                 <!-- /.panel-heading -->
@@ -34,6 +34,7 @@
                                         $str_query = "  SELECT id, cust_name, cust_subject, contact_date
                                                         FROM tbl_cust_rep_contact 
                                                         WHERE status = 9
+                                                        AND cust_medium = 0
                                                         ORDER BY id DESC;";
                                         $str_stmt = $r_Db->prepare($str_query);
                                         // For Executing prepared statement we will use below function
@@ -47,7 +48,7 @@
                                             $subject = ucfirst($oResolved["cust_subject"]); // Assigning the variable for hte name
                                             $date = $oResolved["contact_date"]; // Assignning variable for the creation date
                                             echo "<tr>";
-                                            echo "<td>" . $name. "</td>"."<td>". $subject . "</td>" ."<td>". $date . "</td>"."<td>" . "<a href='stf_cust_rep_resolved_edit.php?usr=$contact_id'> <i class='fa fa-eye fa-fw'></i> </a>" . "</td>"; 
+                                            echo "<td>" . $name. "</td>"."<td>". $subject . "</td>" ."<td>". $date . "</td>"."<td>" . "<a href='stf_cust_rep_web_resolved_edit.php?usr=$contact_id'> <i class='fa fa-eye fa-fw'></i> </a>" . "</td>"; 
                                             echo "</tr>";
                                         }                          
                                         

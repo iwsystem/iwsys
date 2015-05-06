@@ -38,7 +38,7 @@ include_once("signon/pdo-connect.php");
         try {
             // We Will prepare SQL Query
             $str_query = "  UPDATE tbl_cust_rep_contact
-                            SET cust_name=:cust_name, cust_email=:cust_email, cust_phone=:cust_phone, cust_country=:cust_country, cust_note=:cust_note, status=8 
+                            SET cust_name=:cust_name, cust_email=:cust_email, cust_phone=:cust_phone, cust_country=:cust_country, cust_note=:cust_note, status=9 
                             WHERE id = :id;";
             $str_stmt = $r_Db->prepare($str_query);
             // bind paramenters, Named paramenters alaways start with colon(:)
@@ -61,5 +61,5 @@ include_once("signon/pdo-connect.php");
     // Closing MySQL database connection   
     $r_Db = null;
     //  Redirect to the user profile page
-    header("location:stf_cust_rep_resolved_edit.php?usr=$i_uID&status=$status"); 
+    header("location:stf_cust_rep_phone_unresolved_edit.php?usr=$i_uID&status=$status"); 
 ?>

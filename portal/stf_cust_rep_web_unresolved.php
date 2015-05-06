@@ -9,7 +9,7 @@ include_once("signon/pdo-connect.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Michael Ifeorah">
-    <title>IW System Portal - Customer contact Consultant</title>
+    <title>IW System Portal - Customer Rep </title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -28,7 +28,7 @@ include_once("signon/pdo-connect.php");
         <!-- /.Line breaking -->
         <div><br></div>
         <!--  Page body -->
-        <?php include('tmpl/body_wrapper/stf_bdy_cust_consult_resolved.php');  ?>
+        <?php include('tmpl/body_wrapper/stf_bdy_cust_rep_web_unresolved.php');  ?>
         <!--  Footer -->
         <?php include('tmpl/footer.php');  ?>
     </div>

@@ -3,7 +3,7 @@
     try {
       // We Will prepare SQL Query
       $str_query = "  SELECT *
-                      FROM tbl_consult_contact
+                      FROM tbl_cust_rep_contact
                       WHERE  id = :id;";
       $str_stmt = $r_Db->prepare($str_query);
       // bind paramenters, Named paramenters alaways start with colon(:)
@@ -20,7 +20,7 @@
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">View Resolved Message <i class="fa fa-angle-right"></i> <?php echo ucfirst($arr_Details['consult_name']); ?>
+                    <h1 class="page-header">View Resolved Message - PHONE <i class="fa fa-angle-right"></i> <?php echo ucfirst($arr_Details['cust_name']); ?>
                     </h1>
                 </div>
 
@@ -58,54 +58,48 @@
                                           } 
                                         ?>
                                         <h3>Customer Information</h3>
-                                        <form class="form-horizontal" role="form" method="post" action="stf_cust_consult_resolved_edit_update.php">
+                                        <form class="form-horizontal" role="form" method="post" action="stf_cust_rep_phone_resolved_edit_update.php">
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Customer's Name:</label>
                                             <div class="col-lg-8">
-                                              <input name="usr" id="usr" type="hidden" value="<?php echo $arr_Details['id']; ?>">
-                                              <input name="name" class="form-control" type="text" value="<?php echo ucfirst($arr_Details['consult_name']); ?>">
+                                              <input name="usr" id="usr" type="hidden" value="<?php echo ucfirst($arr_Details['id']); ?>">
+                                              <input name="cust_name" class="form-control" type="text" value="<?php echo ucfirst($arr_Details['cust_name']); ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label">Customer's Company:</label>
+                                            <label class="col-lg-3 control-label">Customer's Country:</label>
                                             <div class="col-lg-8">
-                                              <input name="company" class="form-control" type="text" value="<?php echo ucfirst($arr_Details['consult_company']); ?>">
+                                              <input name="cust_country" class="form-control" type="text" value="<?php echo ucfirst($arr_Details['cust_country']); ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Customer's Phone:</label>
                                             <div class="col-lg-8">
-                                              <input name="phone" class="form-control" type="text" value="<?php echo $arr_Details["consult_phone"]; ?>">
+                                              <input name="cust_phone" class="form-control" type="text" value="<?php echo $arr_Details["cust_phone"]; ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Customer's Email:</label>
                                             <div class="col-lg-8">
-                                              <input name="email" class="form-control" type="text" value="<?php echo $arr_Details["consult_email"]; ?>">
+                                              <input name="cust_email" class="form-control" type="text" value="<?php echo $arr_Details["cust_email"]; ?>">
                                             </div>
                                           </div>  
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label">Customer Country:</label>
+                                            <label class="col-lg-3 control-label">Message Subject:</label>
                                             <div class="col-lg-6">
-                                              <input id="country" name="country" class="form-control" type="text" value="<?php echo $arr_Details["consult_country"]; ?>">
+                                              <input id="cust_subject" name="cust_subject" class="form-control" type="text" value="<?php echo $arr_Details["cust_subject"]; ?>" disabled>
                                             </div>
                                           </div>
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label">Service Interest:</label>
+                                            <label class="col-lg-3 control-label" for="cust_message"> Customer's Message:</label>
                                             <div class="col-lg-6">
-                                              <input id="interest" name="interest" class="form-control" type="text" value="<?php echo $arr_Details["consult_interest"]; ?>" disabled>
-                                            </div>
-                                          </div>
-                                          <div class="form-group">
-                                            <label class="col-lg-3 control-label" for="message"> Customer's Message:</label>
-                                            <div class="col-lg-6">
-                                              <textarea id="message" name="message" class="textarea-large form-control" placeholder="Message Here..." disabled><?php echo $arr_Details["consult_description"]; ?></textarea>
+                                              <textarea id="cust_message" name="cust_message" class="textarea-large form-control" placeholder="Message Here..." disabled><?php echo $arr_Details["cust_message"]; ?></textarea>
                                             </div>
                                           </div><br>
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label" for="note"> Staff Note:</label>
+                                            <label class="col-lg-3 control-label" for="cust_note"> Staff Note:</label>
                                             <div class="col-lg-6">
-                                              <textarea id="note" name="note" class="textarea-large form-control" placeholder="Type Notes Here..."><?php echo $arr_Details["consult_note"]; ?></textarea>
+                                              <textarea id="cust_note" name="cust_note" class="textarea-large form-control" placeholder="Type Notes Here..."><?php echo $arr_Details["cust_note"]; ?></textarea>
                                               * Maximum 1500 Characters
                                             </div>
                                           </div><br>

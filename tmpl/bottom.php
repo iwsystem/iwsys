@@ -58,7 +58,7 @@
       </div>
       <!--/row-fluid-->
       <p class="bottom_notice">
-      Note: *Calls are charged at your local BT Landline / Network Provider rates. <br>
+      Note: * Calls are charged at your local BT Landline / Network Provider rates. <br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** Calls to <span>0845</span> numbers are <span>Free</span> from your BT Landline & Mobile Phone Plans
       </p>
     </div>

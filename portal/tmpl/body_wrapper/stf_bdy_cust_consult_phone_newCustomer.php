@@ -1,27 +1,8 @@
-<?php
-  $i_uID = $_GET['usr'];
-    try {
-      // We Will prepare SQL Query
-      $str_query = "  SELECT *
-                      FROM tbl_cust_rep_contact
-                      WHERE  id = :id;";
-      $str_stmt = $r_Db->prepare($str_query);
-      // bind paramenters, Named paramenters alaways start with colon(:)
-      $str_stmt->bindParam(':id', $i_uID);
-      // For Executing prepared statement we will use below function
-      $str_stmt->execute();
-      $arr_Details = $str_stmt->fetch(PDO::FETCH_ASSOC);
-  }   catch(PDOException $e)  {
-          echo "Connection failed: " . $e->getMessage();
-  }
-  // Closing MySQL database connection   
-  $r_Db = null;
-?>
+
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">View Resolved Message <i class="fa fa-angle-right"></i> <?php echo ucfirst($arr_Details['cust_name']); ?>
-                    </h1>
+                    <h1 class="page-header">Add New Customer - PHONE</h1>
                 </div>
 
                 <!-- /.col-lg-12 -->
@@ -31,7 +12,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Here you can view and update the communication from this customer.<br>
+                            Here you can add new custoemrs that called in by phone.<br>
                         </div>
                         <div class="panel-body ">
                             <div class="row">
@@ -46,69 +27,88 @@
                                                 echo '  <div class="alert alert-info alert-dismissable">
                                                             <a class="panel-close close" data-dismiss="alert">×</a> 
                                                             <i class="fa fa-coffee"></i>
-                                                            <strong>Thanks</strong>. Your details were updated <strong>Successfully!</strong>
+                                                            <strong>Thanks</strong>. The customer was added <strong>Successfully!</strong>
                                                         </div>';
                                             } else if ($_GET["status"]== "fail") {
                                                 echo '  <div class="alert alert-info alert-dismissable">
                                                             <a class="panel-close close" data-dismiss="alert">×</a> 
                                                             <i class="fa fa-coffee"></i>
-                                                            <strong>Sorry</strong>. Your update was <strong>Unsuccessfully!</strong>. Please retry or contact admin.
+                                                            <strong>Sorry</strong>. Your entry was <strong>Unsuccessfully!</strong>. Please retry or contact admin.
                                                         </div>';
                                             }
                                           } 
                                         ?>
-                                        <h3>Customer Information</h3>
-                                        <form class="form-horizontal" role="form" method="post" action="stf_cust_rep_resolved_edit_update.php">
+                                        <h3>New Customer Information</h3>
+                                        <form id="myForm" class="form-horizontal" role="form" method="post" action="stf_cust_consult_phone_newCustomer_add.php">
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Customer's Name:</label>
                                             <div class="col-lg-8">
-                                              <input name="usr" id="usr" type="hidden" value="<?php echo ucfirst($arr_Details['id']); ?>">
-                                              <input name="cust_name" class="form-control" type="text" value="<?php echo ucfirst($arr_Details['cust_name']); ?>">
+                                              <input name="consult_name" class="form-control" type="text" placeholder="Type name">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label">Customer's Company:</label>
+                                            <div class="col-lg-8">
+                                              <input name="consult_company" class="form-control" type="text" placeholder="Type company">
                                             </div>
                                           </div>
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Customer's Country:</label>
                                             <div class="col-lg-8">
-                                              <input name="cust_country" class="form-control" type="text" value="<?php echo ucfirst($arr_Details['cust_country']); ?>">
+                                              <input name="consult_country" class="form-control" type="text" placeholder= "Type Country">
                                             </div>
                                           </div>
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Customer's Phone:</label>
                                             <div class="col-lg-8">
-                                              <input name="cust_phone" class="form-control" type="text" value="<?php echo $arr_Details["cust_phone"]; ?>">
+                                              <input name="consult_phone" class="form-control" type="text" placeholder="Type Phone">
                                             </div>
                                           </div>
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Customer's Email:</label>
                                             <div class="col-lg-8">
-                                              <input name="cust_email" class="form-control" type="text" value="<?php echo $arr_Details["cust_email"]; ?>">
+                                              <input id="consult_email" name="consult_email" class="form-control" type="text" placeholder="Type Email">
                                             </div>
                                           </div>  
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label">Message Subject:</label>
+                                            <label class="col-lg-3 control-label">Confirm Email:</label>
                                             <div class="col-lg-6">
-                                              <input id="cust_subject" name="cust_subject" class="form-control" type="text" value="<?php echo $arr_Details["cust_subject"]; ?>" disabled>
+                                              <input id="confirm_email" name="confirm_email" class="form-control consult_email" equalTo='#consult_email' type="text" placeholder="Confirm Email">
+                                            </div>
+                                          </div>                            
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label">Service Interest:</label>
+                                            <div class="col-lg-6">
+                                              <select name="consult_interest" class="form-control" id="consult_interest" >
+                                                  <option value="None">-- Select Services --</option>
+                                                  <option value="WebDesign">Website Design & Development</option>
+                                                  <option value="Web_App_AND_Sys_Dev">Web System / App Development </option>
+                                                  <option value="Ecommerce">E-commerce / Web Shop </option>
+                                                  <option value="CMS">Content Management System </option>
+                                                  <option value="Digital_Marketing">Online / Digital Marketing </option>
+                                              </select><br>
                                             </div>
                                           </div>
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label" for="cust_message"> Customer's Message:</label>
+                                            <label class="col-lg-3 control-label" for="consult_description"> Customer's Message:</label>
                                             <div class="col-lg-6">
-                                              <textarea id="cust_message" name="cust_message" class="textarea-large form-control" placeholder="Message Here..." disabled><?php echo $arr_Details["cust_message"]; ?></textarea>
+                                              <textarea id="consult_description" name="consult_description" class="textarea-large form-control" placeholder="Message Here..."></textarea>
                                             </div>
                                           </div><br>
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label" for="cust_note"> Staff Note:</label>
+                                            <label class="col-lg-3 control-label" for="consult_note"> Staff Note:</label>
                                             <div class="col-lg-6">
-                                              <textarea id="cust_note" name="cust_note" class="textarea-large form-control" placeholder="Type Notes Here..."><?php echo $arr_Details["cust_note"]; ?></textarea>
+                                              <textarea id="consult_note" name="consult_note" class="textarea-large form-control" placeholder="Type Notes Here..."></textarea>
                                               * Maximum 1500 Characters
                                             </div>
                                           </div><br>
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label empDiv">Change User Status:</label>
+                                            <label class="col-lg-3 control-label empDiv">Contact Status:</label>
                                             <div class="col-lg-6">
                                                 <select name="status" class="form-control" id="status" >
-                                                    <option value="">-- Change Status --</option>
+                                                    <option value="">-- Select Contact Status --</option>
                                                     <option value="8">Unresolved</option>
+                                                    <option value="9">Resolved</option>
                                                 </select>
                                             </div>
                                           </div>

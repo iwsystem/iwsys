@@ -28,7 +28,7 @@ include_once("signon/pdo-connect.php");
         <!-- /.Line breaking -->
         <div><br></div>
         <!--  Page body -->
-        <?php include('tmpl/body_wrapper/stf_bdy_cust_rep_unresolved.php');  ?>
+        <?php include('tmpl/body_wrapper/stf_bdy_cust_rep_phone_unresolved.php');  ?>
         <!--  Footer -->
         <?php include('tmpl/footer.php');  ?>
     </div>

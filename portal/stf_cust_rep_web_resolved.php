@@ -2,7 +2,6 @@
 include_once('signon/session.php');
 include_once("signon/pdo-connect.php");
 ?>
-    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,41 +14,43 @@ include_once("signon/pdo-connect.php");
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
     <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="css/plugins/dataTables.bootstrap.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/portal2.css" rel="stylesheet">
     <link href="css/portal1.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="fa/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/portal1.js"></script>
-    <!-- jQuery validate plugin -->
-    <script src="js/jquery.validate.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
-    <!-- Confirm Password -->
-    <script src="js/confirm-pass.js"></script>
 </head>
 <body>
-<?php
-    //  Refresh the page after  user details update
-    if (isset($_GET["status"])) {
-        header('refresh:8; url=stf_cust_rep_resolved.php');
-    }
-?>
     <div id="main_wrapper">
-        <!--  Navigation -->
         <?php include('tmpl/stf_nav.php');  ?>
         <!-- /.Line breaking -->
         <div><br></div>
         <!--  Page body -->
-        <?php include('tmpl/body_wrapper/stf_bdy_cust_rep_resolved_edit.php');  ?>
+        <?php include('tmpl/body_wrapper/stf_bdy_cust_rep_web_resolved.php');  ?>
         <!--  Footer -->
         <?php include('tmpl/footer.php');  ?>
     </div>
-    <!-- /main_wrapper -->
+    <!-- /#main_wrapper -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/portal1.js"></script>
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        var table = $('#dataTables-users').dataTable({
+            "iDisplayLength" : 15,   // Setting the initial display size for the table
+        });
+    });
+    </script>
 </body>
 </html>

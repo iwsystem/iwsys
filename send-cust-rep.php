@@ -13,8 +13,8 @@
 	//  Code to store the inputed data into th database table
     try {
         // We Will prepare SQL Query
-        $str_query = "  INSERT INTO tbl_cust_rep_contact (cust_name, cust_email, cust_phone, cust_country, cust_subject, cust_message, contact_date, status)
-                        VALUES (:cust_name, :cust_email, :cust_phone, :cust_country, :cust_subject, :cust_message, NOW(), 8);";
+        $str_query = "  INSERT INTO tbl_cust_rep_contact (cust_name, cust_email, cust_phone, cust_country, cust_subject, cust_message, cust_medium, contact_date, status)
+                        VALUES (:cust_name, :cust_email, :cust_phone, :cust_country, :cust_subject, :cust_message, 0, NOW(), 8);";
         $str_stmt = $r_Db->prepare($str_query);
         // bind paramenters, Named paramenters alaways start with colon(:)
         $str_stmt->bindParam(':cust_name', $str_cust_name);

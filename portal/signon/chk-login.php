@@ -7,7 +7,7 @@ session_start();
 	$loginIp = $_SERVER['REMOTE_ADDR'];
 	try {
 		// We Will prepare SQL Query
-		$str_query = "	SELECT user_id, firstname, lastname, status, user_type, password
+		$str_query = "	SELECT user_id, firstname, lastname, status, user_type, password, email
 	    				FROM tbl_user
 	    				WHERE username = :username;";
 	    $str_stmt = $r_Db->prepare($str_query);
@@ -34,6 +34,7 @@ session_start();
 				$_SESSION["status"]=$row[3];
 				$_SESSION["user_type"]=$row[4];
 				$_SESSION["logged_in_user"]=$username;
+				$_SESSION["email"]=$row[6];
 				
 				//	This condition makes sure that the user exists before the next queries will be evaluated
 				if (isset($_SESSION["user_id"])) {

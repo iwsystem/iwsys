@@ -62,5 +62,5 @@ include_once("signon/pdo-connect.php");
     // Closing MySQL database connection   
     $r_Db = null;
     //  Redirect to the user profile page
-    header("location:stf_cust_consult_resolved_edit.php?usr=$i_uID&status=$status"); 
+    header("location:stf_cust_consult_web_resolved_edit.php?usr=$i_uID&status=$status"); 
 ?>

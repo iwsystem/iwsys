@@ -1,7 +1,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="page-header">Resolved Consultant Contacts </h2>
+            <h2 class="page-header">Unresolved Consultant Contacts -WEB </h2>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -10,12 +10,12 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    This is a summarized list of all resolved consultancy request communications<br>
+                    This is a summarized list of all unresolved consultancy request communications, for contacts via web form<br>
                     Click on each message on the table below, to access more details.  
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <h3 class="blue_header">List of Resolved Contacts</h3>
+                    <h3 class="blue_header">List of Unresolved Contacts</h3>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover" id="dataTables-users">
                             <thead>
@@ -33,7 +33,8 @@
                                         // We Will prepare SQL Query to retrieve all active users in  the system
                                         $str_query = "  SELECT id, consult_name, consult_interest, contact_date
                                                         FROM tbl_consult_contact 
-                                                        WHERE status = 9
+                                                        WHERE status = 8
+                                                        AND consult_medium = 0
                                                         ORDER BY id DESC;";
                                         $str_stmt = $r_Db->prepare($str_query);
                                         // For Executing prepared statement we will use below function
@@ -47,7 +48,7 @@
                                             $subject = ucfirst($oResolved["consult_interest"]); // Assigning the variable for hte name
                                             $date = $oResolved["contact_date"]; // Assignning variable for the creation date
                                             echo "<tr>";
-                                            echo "<td>" . $name. "</td>"."<td>". $subject . "</td>" ."<td>". $date . "</td>"."<td>" . "<a href='stf_cust_consult_resolved_edit.php?usr=$contact_id'> <i class='fa fa-eye fa-fw'></i> </a>" . "</td>"; 
+                                            echo "<td>" . $name. "</td>"."<td>". $subject . "</td>" ."<td>". $date . "</td>"."<td>" . "<a href='stf_cust_consult_web_unresolved_edit.php?usr=$contact_id'> <i class='fa fa-eye fa-fw'></i> </a>" . "</td>"; 
                                             echo "</tr>";
                                         }                          
                                         
