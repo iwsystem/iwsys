@@ -65,7 +65,7 @@ include_once('signon/pdo-connect.php');
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading col-lg-9">
-                        <p>You have successfully changed you password. Details with your new password has been sent to your email. Use the new password to login .</p>
+                        <p>You have successfully changed your password. Details with your new password have been sent to your email. Use the new password to login .</p>
                         <p>Note: To improve the security of your account, you will be asked to change this password before accessing your account. </p>
                         </div>
                         <!-- /.End of Add New -->
