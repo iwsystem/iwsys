@@ -5,6 +5,7 @@ session_start();
 	$username=strtolower($_POST['username']);
 	$password=strtolower($_POST['password']);	// This should be changed to have no strtolower() if users should have different combination of letters
 	$loginIp = $_SERVER['REMOTE_ADDR'];
+	$cookie_month = time() + 2678400;	// Time set for the login cookie
 	try {
 		// We Will prepare SQL Query
 		$str_query = "	SELECT user_id, firstname, lastname, status, user_type, password, email
@@ -24,9 +25,8 @@ session_start();
 		// User Redirect Conditions will go here
 		if($count==1 && ( $row[5] == crypt($password, $row[5]) )) {
 			if ($row[3] == 8) {	// If the user is inactive, redirect or write an error message
-				echo "Sorry, but your account is currently not active on the system<br>";
-				echo "You will be returned to home page in 5 seconds OR Click the back button to return<br> Redirecting ...";
-				header("refresh:5; url=../../index.php");
+				//  Redirect to the invalid user page
+            	header("location: ../../user_account_inactive.php"); 
 			} else {
 				$_SESSION["user_id"]=$row[0];
 				$_SESSION["firstname"]=$row[1];
@@ -65,40 +65,54 @@ session_start();
 					//	Create a new session varaible of the last logi time
 					$_SESSION["last_login"]=$row[0];
 				}
+						
+				//	Set Cookie to remember credentials
+				if($_POST['remember']) {
+					setcookie('remember_me', $username, $cookie_month);
+				} elseif(!$_POST['remember']) {	// If user did not select Remembr Me, but there was a cookie in the system, remove the cookie
+					if(isset($_COOKIE['remember_me'])) {
+						$past = time() - 100;
+						setcookie('remember_me', $username, $past);
+					}
+				}
+				//	Condition to redirect user to ideal page
+				if($_SESSION["user_type"] == 1)  {
+					// We Will prepare SQL Query to retrieve employees id and role
+					$str_query = "	SELECT emp_id, role_id
+				    				FROM tbl_employee
+				    				WHERE user_id = :user_id;";
+				    $str_stmt = $r_Db->prepare($str_query);
+					// bind paramenters, Named paramenters alaways start with colon(:)
+				    $str_stmt->bindParam(':user_id', $_SESSION["user_id"]);
+					// For Executing prepared statement we will use below function
+				    $str_stmt->execute();
+					// fetch only gets one row. Use  fatch(PDO::FETCH_ASSOC) for making the result an associative array
+					$row  = $str_stmt -> fetch();
+					$_SESSION["emp_id"]=$row[0];	//	setting a session varaible for the id of the staff
+					$_SESSION["role_id"]=$row[1];	// setting a session variable for the role of the staff
 
-				// Checking if this is a first time login
-				if($_SESSION["status"] == 7) {
-					//	Redirect to the staff first time login page
-					header("location:first_time_login.php");		
-				} else {
-					//	Condition to redirect user to ideal page
-					if($_SESSION["user_type"] == 1)  {
-						// We Will prepare SQL Query to retrieve employees id and role
-						$str_query = "	SELECT emp_id, role_id
-					    				FROM tbl_employee
-					    				WHERE user_id = :user_id;";
-					    $str_stmt = $r_Db->prepare($str_query);
-						// bind paramenters, Named paramenters alaways start with colon(:)
-					    $str_stmt->bindParam(':user_id', $_SESSION["user_id"]);
-						// For Executing prepared statement we will use below function
-					    $str_stmt->execute();
-						// fetch only gets one row. Use  fatch(PDO::FETCH_ASSOC) for making the result an associative array
-						$row  = $str_stmt -> fetch();
-						$_SESSION["emp_id"]=$row[0];	//	setting a session varaible for the id of the staff
-						$_SESSION["role_id"]=$row[1];	// setting a session variable for the role of the staff
-
+					// Checking if this is a first time login
+					if($_SESSION["status"] == 7) {
+						//	Redirect to the staff first time login page
+						header("location:first_time_login.php");		
+					} else {
 						//	Redirect to the staff portal home page
 						header("location:../stf_home.php");	
-					}   else    { 
+					}
+				}   else    { 
+					// Checking if this is a first time login
+					if($_SESSION["status"] == 7) {
+						//	Redirect to the staff first time login page
+						header("location:first_time_login.php");		
+					} else {
 						//	Redirect to the customer portal home page
 						header("location:../cli_home.php");
-					}	
-				}
+					}
+				}	
 			}
 		} else {
-			echo "Invalid Username or Password, if this continues, contact administrator<br>";
-			echo "You will be returned to home page in 5 seconds OR Click the back button to return<br> Redirecting ...";
-			header("refresh:5; url=../../index.php");
+            //  Redirect to the invalid user page
+            header("location: ../../invalid_user_login.php"); 
 		}
 	}	catch(PDOException $e)	{
 		echo "Connection failed: " . $e->getMessage();

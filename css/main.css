@@ -1077,6 +1077,18 @@ font-weight: lighter;
 .bottom_notice span {
     color: #4490c2;
 }
+ #password-overlay {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 80%;
+  height: 70%;
+  opacity: 0.5;
+  border-radius: 4px;
+  background:#e3e3e3 url('img/loader.gif') no-repeat fixed center;
+  color: #4490c2;
+  padding: 30px;    
+}
 
 /*
 Media Queries

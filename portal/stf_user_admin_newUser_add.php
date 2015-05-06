@@ -89,11 +89,11 @@ include_once("mailer/class.smtp.php");
             $mail->Subject    = "New Account Created - ". ucfirst($first_name);
             $mail->AltBody    = "Hello " . ucfirst($first_name) . " " . ucfirst($last_name) . ", A new account has been created for you. Visit your account at www.iwsystem.co.uk. 
             Your login details are: Username: ". $username . " Password: " . $password . " You will be asked to change your password for your first login. This is for improved security of your account because we take the security of
-            your data very seriously. If you require any further assistance, do not hesitate to contact us at admin@iwsystem.co.uk ";
+            your data very seriously. If you require any further assistance, do not hesitate to contact us at support@iwsystem.co.uk ";
             $mail->IsHTML(true); // send as HTML
             $mail_body             = "Hello <b>" . ucfirst($first_name) ." " . ucfirst($last_name) . "</b>, <br><br>A new account has been created for you. <br><br>Visit your account at www.iwsystem.co.uk. <br><br>
             Your login details are: <br><br><b>Username: </b>". $username . " <br><b>Password: </b>" . $password . " <br><br>You will be asked to change your password for your first login. This is for improved security of your account because we take the security of
-            your data very seriously. <br><br>If you require any further assistance, do not hesitate to contact us at admin@iwsystem.co.uk<br><br>Once again, <b>Welcome</b> to IW System <br><br>Thanks<br><br><b>Admin</b>";   // HTML Message
+            your data very seriously. <br><br>If you require any further assistance, do not hesitate to contact us at support@iwsystem.co.uk<br><br>Once again, <b>Welcome</b> to IW System <br><br>Thanks<br><br><b>Admin</b>";   // HTML Message
             $mail->msgHTML($mail_body);
             //  Sending off the mail
             if(!$mail->Send()) {
