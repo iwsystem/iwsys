@@ -23,6 +23,7 @@
                                     <th>Customer's Name</th>
                                     <th>Message Title</th>
                                     <th>Date Contacted</th>
+                                    <th>Outcome</th>
                                     <th>View Details</th>
                                 </tr>
                             </thead>
@@ -31,7 +32,7 @@
                                     try {
                                         
                                         // We Will prepare SQL Query to retrieve all active users in  the system
-                                        $str_query = "  SELECT id, consult_name, consult_interest, contact_date
+                                        $str_query = "  SELECT id, consult_name, consult_interest, contact_date, consult_outcome
                                                         FROM tbl_consult_contact 
                                                         WHERE status = 9
                                                         AND consult_medium = 1
@@ -47,8 +48,14 @@
                                             $name = ucfirst($oResolved["consult_name"]); // Assigning the variable for hte name
                                             $subject = ucfirst($oResolved["consult_interest"]); // Assigning the variable for hte name
                                             $date = $oResolved["contact_date"]; // Assignning variable for the creation date
+                                            $outcome = $oResolved["consult_outcome"]; // Assigning the variable for the outcome
+                                            if ($outcome == 0) {
+                                                $outcome_message = "Failed";
+                                            } else {
+                                                $outcome_message = "Successful";
+                                            }
                                             echo "<tr>";
-                                            echo "<td>" . $name. "</td>"."<td>". $subject . "</td>" ."<td>". $date . "</td>"."<td>" . "<a href='stf_cust_consult_phone_resolved_edit.php?usr=$contact_id'> <i class='fa fa-eye fa-fw'></i> </a>" . "</td>"; 
+                                            echo "<td>" . $name. "</td>"."<td>". $subject . "</td>" ."<td>". $date . "</td>" ."<td>". $outcome_message . "</td>" ."<td>" . "<a href='stf_cust_consult_phone_resolved_edit.php?usr=$contact_id'> <i class='fa fa-eye fa-fw'></i> </a>" . "</td>"; 
                                             echo "</tr>";
                                         }                          
                                         

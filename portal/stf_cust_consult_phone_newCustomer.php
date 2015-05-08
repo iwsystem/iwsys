@@ -47,12 +47,14 @@ include_once("signon/pdo-connect.php");
                             consult_name: {required: true },
                             consult_phone: {required: false, number: true},
                             consult_email: {required: false, email: true},
+                            consult_outcome: {required: true},
                             status: {required: true}
                         },
                         messages: {
                             consult_name: {required: "Please add the customers name"},
                             consult_phone: {number: "Please include only numbers without space"},
                             consult_email: {email: "Please add a valid email"},
+                            consult_outcome: {required: "Please  select status"},
                             status: {required: "Please  select status"}
                         }
                     });

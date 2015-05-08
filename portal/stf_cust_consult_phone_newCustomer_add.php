@@ -15,13 +15,14 @@ include_once("mailer/class.smtp.php");
     $consult_interest = $_POST['consult_interest']; // Variable for the customer's subject
     $consult_description = $_POST['consult_description']; // Variable for the customer's message
     $consult_note = strtolower($_POST['consult_note']); // Variable for the notes by the customer rep staff
+    $consult_outcome = $_POST['consult_outcome']; // Variable for the customer's outcome
     $contact_status = $_POST['status']; // Variable for the customer's phone
 
     //  Code to store the inputed data into th database table
     try {
         // We Will prepare SQL Query
-        $str_query = "  INSERT INTO tbl_consult_contact (consult_name, consult_company, consult_email, consult_phone, consult_country, consult_interest, consult_description, consult_medium, contact_date, consult_note, status)
-                        VALUES (:consult_name, :consult_company, :consult_email, :consult_phone, :consult_country, :consult_interest, :consult_description, 1, NOW(), :consult_note, :contact_status);";
+        $str_query = "  INSERT INTO tbl_consult_contact (consult_name, consult_company, consult_email, consult_phone, consult_country, consult_interest, consult_description, consult_medium,  consult_note, consult_outcome, contact_date, status)
+                        VALUES (:consult_name, :consult_company, :consult_email, :consult_phone, :consult_country, :consult_interest, :consult_description, 1, :consult_note, :consult_outcome, NOW(), :contact_status);";
         $str_stmt = $r_Db->prepare($str_query);
         // bind paramenters, Named paramenters alaways start with colon(:)
         $str_stmt->bindParam(':consult_name', $consult_name);
@@ -32,6 +33,7 @@ include_once("mailer/class.smtp.php");
         $str_stmt->bindParam(':consult_interest', $consult_interest);
         $str_stmt->bindParam(':consult_description', $consult_description);
         $str_stmt->bindParam(':consult_note', $consult_note);
+        $str_stmt->bindParam(':consult_outcome', $consult_outcome);
         $str_stmt->bindParam(':contact_status', $contact_status);
         // For Executing prepared statement we will use below function
         $str_stmt->execute();

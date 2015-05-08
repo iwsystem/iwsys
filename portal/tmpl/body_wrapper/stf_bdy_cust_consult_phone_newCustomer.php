@@ -12,7 +12,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Here you can add new custoemrs that called in by phone.<br>
+                            Here you can add new customers that called in by phone.<br>
                         </div>
                         <div class="panel-body ">
                             <div class="row">
@@ -102,6 +102,16 @@
                                               * Maximum 1500 Characters
                                             </div>
                                           </div><br>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label empDiv">Contact Outcome:</label>
+                                            <div class="col-lg-6">
+                                                <select name="consult_outcome" class="form-control" id="consult_outcome" >
+                                                    <option value="">-- Select Contact Outcome --</option>
+                                                    <option value="0">Failed</option>
+                                                    <option value="1">Successful</option>
+                                                </select>
+                                            </div>
+                                          </div>
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label empDiv">Contact Status:</label>
                                             <div class="col-lg-6">

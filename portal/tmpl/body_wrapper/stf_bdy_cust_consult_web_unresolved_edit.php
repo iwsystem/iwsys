@@ -110,11 +110,28 @@
                                             </div>
                                           </div><br>
                                           <div class="form-group">
+                                            <label class="col-lg-3 control-label">Contact Outcome:</label>
+                                            <div class="col-lg-6">
+                                              <input id="outcome" name="outcome" class="form-control" type="text" value="<?php if ($arr_Details["consult_outcome"] == 0) {echo 'Failed';} else {echo 'Successful';} ?>" disabled>
+                                              <input name="old_outcome" id="old_outcome" type="hidden" value="<?php echo $arr_Details['consult_outcome']; ?>">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label empDiv">Change Outcome:</label>
+                                            <div class="col-lg-6">
+                                                <select name="new_outcome" class="form-control" id="new_outcome" >
+                                                    <option value="">-- Select Contact Outcome --</option>
+                                                    <option value="0">Failed</option>
+                                                    <option value="1">Successful</option>
+                                                </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
                                             <label class="col-lg-3 control-label empDiv">Change User Status:</label>
                                             <div class="col-lg-6">
                                                 <select name="status" class="form-control" id="status" >
                                                     <option value="">-- Change Status --</option>
-                                                    <option value="9">Resolved</option>
+                                                    <option value="8">Unresolved</option>
                                                 </select>
                                             </div>
                                           </div>

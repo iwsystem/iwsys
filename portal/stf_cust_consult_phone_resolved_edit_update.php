@@ -11,13 +11,18 @@ include_once("signon/pdo-connect.php");
     $consult_phone = $_POST['phone']; // Variable for the user's phone
     $consult_note = strtolower($_POST['note']); // Variable for the notes by the customer rep staff
     $status = $_POST['status']; // Variable for the user's phone
-
+    if ($_POST['new_outcome'] == "") {
+        $consult_outcome = $_POST['old_outcome']; // Variable for the contact outcome
+    } else {
+        $consult_outcome = $_POST['new_outcome']; // Variable for the contact outcome
+    }
+   
     if ($status == "") {
         //  Code to store the inputed data into th database table
         try {
             // We Will prepare SQL Query
             $str_query = "  UPDATE tbl_consult_contact
-                            SET consult_name=:consult_name, consult_company=:consult_company, consult_country=:consult_country, consult_email=:consult_email, consult_phone=:consult_phone, consult_note=:consult_note 
+                            SET consult_name=:consult_name, consult_company=:consult_company, consult_country=:consult_country, consult_email=:consult_email, consult_phone=:consult_phone, consult_note=:consult_note, consult_outcome=:consult_outcome 
                             WHERE id = :id;";
             $str_stmt = $r_Db->prepare($str_query);
             // bind paramenters, Named paramenters alaways start with colon(:)
@@ -28,6 +33,7 @@ include_once("signon/pdo-connect.php");
             $str_stmt->bindParam(':consult_email', $consult_email);
             $str_stmt->bindParam(':consult_phone', $consult_phone);
             $str_stmt->bindParam(':consult_note', $consult_note);
+            $str_stmt->bindParam(':consult_outcome', $consult_outcome);
             // For Executing prepared statement we will use below function
             $str_stmt->execute();
             $status = "success";    // This variable will be sent back to the user profile page to enable the success display
@@ -40,7 +46,7 @@ include_once("signon/pdo-connect.php");
         try {
             // We Will prepare SQL Query
             $str_query = "  UPDATE tbl_consult_contact
-                            SET consult_name=:consult_name, consult_company=:consult_company, consult_country=:consult_country, consult_email=:consult_email, consult_phone=:consult_phone, consult_note=:consult_note, status=8 
+                            SET consult_name=:consult_name, consult_company=:consult_company, consult_country=:consult_country, consult_email=:consult_email, consult_phone=:consult_phone, consult_note=:consult_note, consult_outcome=:consult_outcome , status=8 
                             WHERE id = :id;";
             $str_stmt = $r_Db->prepare($str_query);
             // bind paramenters, Named paramenters alaways start with colon(:)
@@ -51,6 +57,7 @@ include_once("signon/pdo-connect.php");
             $str_stmt->bindParam(':consult_email', $consult_email);
             $str_stmt->bindParam(':consult_phone', $consult_phone);
             $str_stmt->bindParam(':consult_note', $consult_note);
+            $str_stmt->bindParam(':consult_outcome', $consult_outcome);
             // For Executing prepared statement we will use below function
             $str_stmt->execute();
             $status = "success";    // This variable will be sent back to the user profile page to enable the success display
