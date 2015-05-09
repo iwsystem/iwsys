@@ -3,8 +3,8 @@
     try {
       // We Will prepare SQL Query
       $str_query = "  SELECT *
-                      FROM tbl_user
-                      WHERE  user_id = :id;";
+                      FROM tbl_sales_contact
+                      WHERE  id = :id;";
       $str_stmt = $r_Db->prepare($str_query);
       // bind paramenters, Named paramenters alaways start with colon(:)
       $str_stmt->bindParam(':id', $i_uID);
@@ -20,9 +20,10 @@
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Edit Inactive Client <i class="fa fa-angle-right"></i> <?php echo ucfirst($arr_Details['firstname']) ." " .ucfirst($arr_Details['lastname']); ?>
+                    <h1 class="page-header">View Unresolved Sales <i class="fa fa-angle-right"></i> <?php echo ucfirst($arr_Details['sales_name']); ?>
                     </h1>
                 </div>
+
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
@@ -30,31 +31,12 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Here you can edit the registered information of the user.<br>
+                            Here you can view and update the communication from this customer.<br>
                         </div>
                         <div class="panel-body ">
                             <div class="row">
                                 <div class="col-lg-12"><br>
                                     <div class="row">
-                                        <!-- left column -->
-                                        <div class="col-md-4">
-                                            <div class="text-center">
-                                                <div class="image-section">
-                                                <?php
-                                                  if (isset($arr_Details["photo"])) {
-                                                ?>
-                                                    <img src="img/user-avatar.png" class="avatar img-circle user-photo" alt="avatar">
-                                                <?php
-                                                  } else  {
-                                                ?>
-                                                    <img src="img/user-avatar.png" class="avatar img-circle user-photo" alt="avatar">
-                                                <?php
-                                                  }
-                                                ?>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
                                       <!-- edit form column -->
                                       <div class="col-md-8 personal-info">
                                         <?php 
@@ -75,92 +57,97 @@
                                             }
                                           } 
                                         ?>
-                                        <h3>User Info</h3>
-                                        <form class="form-horizontal" role="form" method="post" action="stf_cust_admin_inactive_edit_update.php">
+                                        <h3>Customer Information</h3>
+                                        <form class="form-horizontal" role="form" method="post" action="stf_sales_contact_unresolved_edit_update.php">
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label">First name:</label>
-                                            <div class="col-lg-8">
-                                              <input name="usr" id="usr" type="hidden" value="<?php echo ucfirst($arr_Details['user_id']); ?>">
-                                              <input name="first_name" class="form-control" type="text" value="<?php echo ucfirst($arr_Details['firstname']); ?>">
+                                            <label class="col-lg-3 control-label">Customer's Name:</label>
+                                            <div class="col-lg-6">
+                                              <input name="usr" id="usr" type="hidden" value="<?php echo $arr_Details['id']; ?>">
+                                              <input name="sales_name" class="form-control" type="text" value="<?php echo ucfirst($arr_Details['sales_name']); ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label">Last name:</label>
-                                            <div class="col-lg-8">
-                                              <input name="last_name" class="form-control" type="text" value="<?php echo ucfirst($arr_Details["lastname"]); ?>">
+                                            <label class="col-lg-3 control-label">Customer's Company:</label>
+                                            <div class="col-lg-6">
+                                              <input name="sales_company" class="form-control" type="text" value="<?php echo ucfirst($arr_Details['sales_company']); ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label">Phone:</label>
-                                            <div class="col-lg-8">
-                                              <input name="phone" class="form-control" type="text" value="<?php echo $arr_Details["phone"]; ?>">
+                                            <label class="col-lg-3 control-label">Customer's Phone:</label>
+                                            <div class="col-lg-6">
+                                              <input name="sales_phone" class="form-control" type="text" value="<?php echo $arr_Details["sales_phone"]; ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label">Email:</label>
-                                            <div class="col-lg-8">
-                                              <input name="email" class="form-control" type="text" value="<?php echo $arr_Details["email"]; ?>">
+                                            <label class="col-lg-3 control-label">Customer's Email:</label>
+                                            <div class="col-lg-6">
+                                              <input name="sales_email" class="form-control" type="text" value="<?php echo $arr_Details["sales_email"]; ?>">
                                             </div>
                                           </div>  
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Address Line 1:</label>
                                             <div class="col-lg-6">
-                                              <input id="address1" name="address1" class="form-control" type="text" value="<?php echo $arr_Details["address1"]; ?>">
+                                              <input id="sales_address1" name="sales_address1" class="form-control" type="text" placeholder="Address Line 1" value="<?php echo $arr_Details["sales_address1"]; ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Address Line 2:</label>
                                             <div class="col-lg-6">
-                                              <input id="address2" name="address2" class="form-control" type="text" value="<?php echo $arr_Details["address2"]; ?>">
+                                              <input id="sales_address2" name="sales_address2" class="form-control" type="text" placeholder="Address Line 2" value="<?php echo $arr_Details["sales_address2"]; ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">City:</label>
                                             <div class="col-lg-6">
-                                              <input id="city" name="city" class="form-control" type="text" value="<?php echo $arr_Details["city"]; ?>">
+                                              <input id="sales_city" name="sales_city" class="form-control" type="text" placeholder="city" value="<?php echo $arr_Details["sales_city"]; ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">State OR County:</label>
                                             <div class="col-lg-6">
-                                              <input id="state_county" name="state_county" class="form-control" type="text" value="<?php echo $arr_Details["state_county"]; ?>">
+                                              <input id="sales_state_county" name="sales_state_county" class="form-control" type="text" placeholder="County" value="<?php echo $arr_Details["sales_state_county"]; ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Postcode:</label>
                                             <div class="col-lg-6">
-                                              <input id="postcode" name="postcode" class="form-control" type="text" value="<?php echo $arr_Details["postcode"]; ?>">
+                                              <input id="sales_postcode" name="sales_postcode" class="form-control" type="text" placeholder="Postcode" value="<?php echo $arr_Details["sales_postcode"]; ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Country:</label>
                                             <div class="col-lg-6">
-                                              <input id="country" name="country" class="form-control" type="text" value="<?php echo $arr_Details["country"]; ?>">
-                                            </div>
-                                          </div>                                        
-                                          <div class="form-group">
-                                            <label class="col-lg-3 control-label">Date of Account Creation:</label>
-                                            <div class="col-lg-8">
-                                              <input name="created" class="form-control" type="text" value="<?php echo $arr_Details["created"]; ?>" disabled>
-                                            </div>
-                                          </div>
-                                          <div class="form-group">  
-                                            <label class="col-md-3 control-label">Username:</label>
-                                            <div class="col-md-8">
-                                              <input name="username" class="form-control" type="text" value="<?php echo $arr_Details["username"]; ?>" disabled>
+                                              <input id="sales_country" name="sales_country" class="form-control" type="text" placeholder="Country" value="<?php echo $arr_Details["sales_country"]; ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">
-                                            <label class="col-md-3 control-label">Password:</label>
-                                            <div class="col-md-8">
-                                              <input id="password" name="password" class="form-control" type="password">
+                                            <label class="col-lg-3 control-label">Service Interest:</label>
+                                            <div class="col-lg-6">
+                                              <input id="sales_interest" name="sales_interest" class="form-control" type="text" value="<?php echo $arr_Details["sales_interest"]; ?>" disabled>
                                             </div>
                                           </div>
                                           <div class="form-group">
-                                            <label class="col-md-3 control-label">Confirm password:</label>
-                                            <div class="col-md-8">
-                                              <input id="confirm_password" name="confirm_password" class="form-control" type="password">
-                                              <span id='pass_message'></span>
+                                            <label class="col-lg-3 control-label" for="note"> Staff Note:</label>
+                                            <div class="col-lg-6">
+                                              <textarea id="sales_note" name="sales_note" class="textarea-large form-control" placeholder="Type Notes Here..."><?php echo $arr_Details["sales_note"]; ?></textarea>
+                                              * Maximum 1500 Characters
+                                            </div>
+                                          </div><br>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label">Contact Outcome:</label>
+                                            <div class="col-lg-6">
+                                              <input id="outcome" name="outcome" class="form-control" type="text" value="<?php if ($arr_Details["sales_outcome"] == 0) {echo 'Failed';} else {echo 'Successful';} ?>" disabled>
+                                              <input name="old_outcome" id="old_outcome" type="hidden" value="<?php echo $arr_Details['sales_outcome']; ?>">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label empDiv">Change Outcome:</label>
+                                            <div class="col-lg-6">
+                                                <select name="new_outcome" class="form-control" id="new_outcome" >
+                                                    <option value="">-- Select Contact Outcome --</option>
+                                                    <option value="0">Failed</option>
+                                                    <option value="1">Successful</option>
+                                                </select>
                                             </div>
                                           </div>
                                           <div class="form-group">
@@ -168,26 +155,18 @@
                                             <div class="col-lg-6">
                                                 <select name="status" class="form-control" id="status" >
                                                     <option value="">-- Change Status --</option>
-                                                    <option value="9">Active</option>
-                                                    <option value="7">Pending</option>
+                                                    <option value="9">Resolved</option>
                                                 </select>
                                             </div>
-                                          </div>                                          
-                                          <?php
-                                            $int_eID = $_SESSION["emp_id"]; // This is the user id of the logged in staff
-                                            if ($int_eID == 1) { //  If the logged in user is the administrator
-                                          ?>
-                                              <div class="form-group">
-                                                <label class="col-md-3 control-label"></label>
-                                                <div class="col-md-8">
-                                                  <input type="submit" class="btn btn-primary" value="Save Changes">
-                                                  <span></span>
-                                                  <input type="reset" class="btn btn-default" value="Cancel">
-                                                </div>
-                                              </div>
-                                          <?php
-                                            }
-                                          ?>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-md-3 control-label"></label>
+                                            <div class="col-md-8">
+                                              <input type="submit" class="btn btn-primary" value="Save Changes">
+                                              <span></span>
+                                              <input type="reset" class="btn btn-default" value="Cancel">
+                                            </div>
+                                          </div>
                                         </form>
                                       </div>
                                     </div>

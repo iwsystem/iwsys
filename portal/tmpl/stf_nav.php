@@ -93,10 +93,10 @@ if ($_SESSION['role_id'] == 1) {    // If the user is an administrator
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> Cust Rep Contacts - WEB <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="stf_cust_rep_web_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved </a>
+                            <a href="stf_cust_rep_web_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved Contacts</a>
                         </li>
                         <li>
-                            <a href="stf_cust_rep_web_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved </a>
+                            <a href="stf_cust_rep_web_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved Contacts</a>
                         </li>
                     </ul>
                 </li>
@@ -107,10 +107,10 @@ if ($_SESSION['role_id'] == 1) {    // If the user is an administrator
                             <a href="stf_cust_rep_phone_newCustomer.php"><i class="fa fa-plus fa-fw"></i> Add Contact</a>
                         </li>
                         <li>
-                            <a href="stf_cust_rep_phone_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved </a>
+                            <a href="stf_cust_rep_phone_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved Contacts</a>
                         </li>
                         <li>
-                            <a href="stf_cust_rep_phone_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved </a>
+                            <a href="stf_cust_rep_phone_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved Contacts</a>
                         </li>
                     </ul>
                 </li>
@@ -118,10 +118,10 @@ if ($_SESSION['role_id'] == 1) {    // If the user is an administrator
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-envelope fa-fw"></i> NewClient Contact - WEB <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="stf_cust_consult_web_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved </a>
+                            <a href="stf_cust_consult_web_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved Contacts</a>
                         </li>
                         <li>
-                            <a href="stf_cust_consult_web_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved </a>
+                            <a href="stf_cust_consult_web_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved Contacts</a>
                         </li>
                     </ul>
                 </li>
@@ -132,10 +132,10 @@ if ($_SESSION['role_id'] == 1) {    // If the user is an administrator
                             <a href="stf_cust_consult_phone_newCustomer.php"><i class="fa fa-plus fa-fw"></i> Add Contact</a>
                         </li>
                         <li>
-                            <a href="stf_cust_consult_phone_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved </a>
+                            <a href="stf_cust_consult_phone_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved Contacts </a>
                         </li>
                         <li>
-                            <a href="stf_cust_consult_phone_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved </a>
+                            <a href="stf_cust_consult_phone_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved Contacts </a>
                         </li>
                     </ul>
                 </li>
@@ -150,6 +150,20 @@ if ($_SESSION['role_id'] == 1) {    // If the user is an administrator
                         </li>
                         <li>
                             <a href="stf_cust_consult_contact_sorted.php"><i class="fa fa-table fa-fw"></i> Sorted </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-map-marker fa-fw"></i> Sales - Contact <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="stf_sales_contact_newCustomer.php"><i class="fa fa-plus fa-fw"></i> Add Contact</a>
+                        </li>
+                        <li>
+                            <a href="stf_sales_contact_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved Contacts </a>
+                        </li>
+                        <li>
+                            <a href="stf_sales_contact_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved Contacts</a>
                         </li>
                     </ul>
                 </li>
@@ -219,10 +233,10 @@ if ($_SESSION['role_id'] == 1) {    // If the user is an administrator
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-envelope fa-fw"></i> NewClient Contact - WEB <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="stf_cust_consult_web_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved </a>
+                            <a href="stf_cust_consult_web_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved Contacts</a>
                         </li>
                         <li>
-                            <a href="stf_cust_consult_web_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved </a>
+                            <a href="stf_cust_consult_web_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved Contacts</a>
                         </li>
                     </ul>
                 </li>
@@ -233,10 +247,10 @@ if ($_SESSION['role_id'] == 1) {    // If the user is an administrator
                             <a href="stf_cust_consult_phone_newCustomer.php"><i class="fa fa-plus fa-fw"></i> Add Contact</a>
                         </li>
                         <li>
-                            <a href="stf_cust_consult_phone_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved </a>
+                            <a href="stf_cust_consult_phone_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved Contacts</a>
                         </li>
                         <li>
-                            <a href="stf_cust_consult_phone_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved </a>
+                            <a href="stf_cust_consult_phone_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved Contacts</a>
                         </li>
                     </ul>
                 </li>
@@ -350,6 +364,20 @@ if ($_SESSION['role_id'] == 1) {    // If the user is an administrator
                 <li>
                     <a href="stf_home.php"><i class="fa fa-home fa-fw"></i> Home</a>
                 </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-map-marker fa-fw"></i> Sales - Contact <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="stf_sales_contact_newCustomer.php"><i class="fa fa-plus fa-fw"></i> Add Contact</a>
+                        </li>
+                        <li>
+                            <a href="stf_sales_contact_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved Contacts</a>
+                        </li>
+                        <li>
+                            <a href="stf_sales_contact_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved Contacts</a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a href=""><i class="fa fa-home fa-fw"></i> Email Campaign</a>
                 </li>
@@ -402,27 +430,41 @@ if ($_SESSION['role_id'] == 1) {    // If the user is an administrator
                     <a href="stf_home.php"><i class="fa fa-home fa-fw"></i> Home</a>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> Cust Rep Contacts - WEB <span class="fa arrow"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-users fa-fw"></i> Client Details <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="stf_cust_rep_web_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved </a>
+                            <a href="stf_cust_admin_active.php"><i class="fa fa-table fa-fw"></i> Active Clients</a>
                         </li>
                         <li>
-                            <a href="stf_cust_rep_web_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved </a>
+                            <a href="stf_cust_admin_inactive.php"><i class="fa fa-table fa-fw"></i> Inactive Clients</a>
+                        </li>
+                        <li>
+                            <a href="stf_cust_admin_pending.php"><i class="fa fa-table fa-fw"></i> Pending Clients</a>
                         </li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> Cust Rep Contacts - PHONE <span class="fa arrow"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> New Contacts - WEB <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="stf_cust_rep_web_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved Contacts</a>
+                        </li>
+                        <li>
+                            <a href="stf_cust_rep_web_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved Contacts</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> New Contacts - PHONE <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="stf_cust_rep_phone_newCustomer.php"><i class="fa fa-plus fa-fw"></i> Add Contact</a>
                         </li>
                         <li>
-                            <a href="stf_cust_rep_phone_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved </a>
+                            <a href="stf_cust_rep_phone_resolved.php"><i class="fa fa-table fa-fw"></i> Resolved Contacts</a>
                         </li>
                         <li>
-                            <a href="stf_cust_rep_phone_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved </a>
+                            <a href="stf_cust_rep_phone_unresolved.php"><i class="fa fa-table fa-fw"></i> Unresolved Contacts</a>
                         </li>
                     </ul>
                 </li>

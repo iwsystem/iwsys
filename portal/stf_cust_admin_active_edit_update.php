@@ -149,6 +149,8 @@ include_once("signon/pdo-connect.php");
                 $status = "fail";    // This variable will be sent back to the user profile page to enable the failure display
             }
         }
+        //  Send mail to the client asking them to sign in and change password from there profile.
+        //  As they requested for a change of password.
     }
     // Closing MySQL database connection   
     $r_Db = null;

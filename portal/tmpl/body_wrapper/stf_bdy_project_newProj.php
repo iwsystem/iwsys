@@ -95,7 +95,11 @@
                                                     $str_stmt = $r_Db->prepare($str_query);
                                                     // For Executing prepared statement we will use below function
                                                     $str_stmt->execute();
-                                                    $arr_clients = $str_stmt->fetchAll(PDO::FETCH_ASSOC);
+                                                    $arr_client = $str_stmt->fetchAll(PDO::FETCH_ASSOC);
+                                                    //  We shall use array_slice() to get the first 10 elements of the array to be displayed
+                                                    //  Judging from the fact that for a new client registered, a new project should be created immediateley.
+                                                    // the next option will be to use TypeAhead to perform Ajax search while typing the name of the client
+                                                    $arr_clients = array_slice($arr_client, 0, 10, true);
                                               ?>
                                                     <select name="client" class="form-control" id="client" >
                                                         <option value="">-- Select Client --</option>

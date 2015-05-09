@@ -173,14 +173,21 @@
                                                 </select>
                                             </div>
                                           </div>
-                                          <div class="form-group">
-                                            <label class="col-md-3 control-label"></label>
-                                            <div class="col-md-8">
-                                              <input type="submit" class="btn btn-primary" value="Save Changes">
-                                              <span></span>
-                                              <input type="reset" class="btn btn-default" value="Cancel">
-                                            </div>
-                                          </div>
+                                          <?php
+                                            $int_eID = $_SESSION["emp_id"]; // This is the user id of the logged in staff
+                                            if ($int_eID == 1) { //  If the logged in user is the administrator
+                                          ?>
+                                              <div class="form-group">
+                                                <label class="col-md-3 control-label"></label>
+                                                <div class="col-md-8">
+                                                  <input type="submit" class="btn btn-primary" value="Save Changes">
+                                                  <span></span>
+                                                  <input type="reset" class="btn btn-default" value="Cancel">
+                                                </div>
+                                              </div>
+                                          <?php
+                                            }
+                                          ?>
                                         </form>
                                       </div>
                                     </div>
