@@ -61,7 +61,8 @@
                                                               // We Will prepare SQL Query to retrieve name of each consultant
                                                               $str_query = "  SELECT firstname, lastname
                                                                               FROM tbl_user
-                                                                              WHERE  user_id = :user_id;";
+                                                                              WHERE  user_id = :user_id
+                                                                              AND status = 9;";
                                                               $str_stmt = $r_Db->prepare($str_query);
                                                               // For Executing prepared statement we will use below function
                                                               // bind paramenters, Named paramenters alaways start with colon(:)
