@@ -39,16 +39,17 @@
         $mail2->From       = "consultant@iwsystem.co.uk";
         $mail2->FromName   = "IW System";
         $mail2->addAddress("contact@iwsystem.co.uk", "Customer Rep");
-        $mail2->addAddress("support@iwsystem.co.uk", "Customer Support");
-        $mail2->addReplyTo("admin@iwsystem.co.uk","Do Not Reply");
+        $mail2->addAddress("a.jones@iwsystem.co.uk", "Customer Support -Jones");
+        $mail2->addReplyTo($str_cust_email, ucfirst($str_cust_name));
+        $mail2->addReplyTo('support@iwsystem.co.uk', 'Support - IW System');
         $mail2->Subject    = "You have a new Message from - " . ucfirst($str_cust_name);
         $mail2->AltBody    = "Hi there, You have a new message from a client. The details are below: Customer Name: ". ucfirst($str_cust_name) . " Email: " . 
         					$str_cust_email . " Phone: " . $int_cust_phone ." Country: ". $str_cust_country . " Message Subject: " . ucfirst($str_cust_subject) . " Message Description:  " . $str_cust_message
-        					. " . Please get in touch with the customer as soon as possible and update account portal accordingly. Thanks"; //Text Body
+        					. " . Please get in touch with the customer as soon as possible to address queries Thanks"; //Text Body
         $mail2->IsHTML(true); // send as HTML
         $mail2_body             = "Hi there, <br><br>You have a new message from a client. <br>The details are below: <br><br><b>Customer Name:</b> ". ucfirst($str_cust_name) . " <br><b>Email: </b>" . 
         					$str_cust_email . " <br><b>Phone: </b>" . $int_cust_phone . " <br><b>Country: </b>" . $str_cust_country . " <br><b>Message Subject: </b>" . ucfirst($str_cust_subject) . " <br><b>Message Description:  </b>" . $str_cust_message
-        					. " . <br><br>Please get in touch with the customer as soon as possible and update account portal accordingly. <br><br>Thanks"; 
+        					. " . <br><br>Please get in touch with the customer as soon as possible to address queries. <br><br>Thanks"; 
         $mail2->msgHTML($mail2_body);
         //  Sending off the mail
         if(!$mail2->Send()) {
