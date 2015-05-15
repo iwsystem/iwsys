@@ -1,6 +1,8 @@
 <?php 
 include_once('signon/session.php');
 include_once("signon/pdo-connect.php");
+include_once("mailer/class.phpmailer.php");
+include_once("mailer/class.smtp.php");
 
     //  Retrieving the variables sent by submitting  the user form
     $i_uID = $_POST['usr']; // This is the id of the user
@@ -8,7 +10,6 @@ include_once("signon/pdo-connect.php");
     $lastname = strtolower($_POST['last_name']); // Variable for the user's last name
     $email = strtolower($_POST['email']); // Variable for the user's email
     $phone = strtolower($_POST['phone']); // Variable for the user's phone
-    $email = strtolower($_POST['email']); // Variable for the user's email
     $address1 = strtolower($_POST['address1']); // Variable for the user's email
     $address2 = strtolower($_POST['address2']); // Variable for the user's email
     $city = strtolower($_POST['city']); // Variable for the user's email
@@ -149,6 +150,32 @@ include_once("signon/pdo-connect.php");
                 $status = "fail";    // This variable will be sent back to the user profile page to enable the failure display
             }
         }
+        //  Send mail to the client asking them to sign in and change password from there profile.
+        //  As they requested for a change of password.
+        $mail             = new PHPMailer();    // PHP Mailer Class
+        $mail->isSMTP();
+        $mail->SMTPDebug = 0;
+        $mail->Host       = "iwsystemcom.ipage.com";      // sets Ipage as the SMTP server
+        $mail->Port       = 587;                   // set the SMTP port
+        $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
+        $mail->SMTPAuth   = true;                  // enable SMTP authentication
+        $mail->Username   = "consultant@iwsystem.co.uk";  // GMAIL username
+        $mail->Password   = "Chumasky2014&";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
+        $mail->From       = "donotreply@iwsystem.co.uk";
+        $mail->FromName   = "IW System";
+        $mail->addAddress("$email", ucfirst($firstname) . ucfirst($lastname));
+        $mail->addReplyTo("donotreply@iwsystem.co.uk","Do Not Reply");
+        $mail->Subject    = "Password Changed";
+        $mail->AltBody    = "Hi " . ucfirst($firstname) .", A new password has been created for you. Your new password is: "
+         . $password . ". Please, login to your account at http://www.iwsystem.co.uk and change your password immediately for improved security of your account. If you didn't request for this change, please contact us immediately on support@iwsystem.co.uk. Thanks. Support Team"; //Text Body
+        $mail->IsHTML(true); // send as HTML
+        $mail_body             = "Hi " . ucfirst($firstname) .", <br><br>A new password has been created for you <br><br>Your new password is: <b>" . $password . "</b><br><br>Please, login to your account at http://www.iwsystem.co.uk and change your password immediately for improved security of your account  
+        <br><br>If you didn't request for this change, please contact us immediately on support@iwsystem.co.uk.<br><br>Thanks. <br><br><b>Administrator</b><br>IW System";   // HTML Message
+        $mail->msgHTML($mail_body);
+        //  Sending off the mail
+        if(!$mail->Send()) {
+          echo "Mailer Error: " . $mail->ErrorInfo;
+        } 
     }
     // Closing MySQL database connection   
     $r_Db = null;

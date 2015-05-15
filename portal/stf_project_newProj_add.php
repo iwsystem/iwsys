@@ -105,7 +105,7 @@ include_once("mailer/class.smtp.php");
          . " on ". $s_consultEmail ; //Text Body
         $mail->IsHTML(true); // send as HTML
         $mail_body             = "Hi there, <br><br>A new Project has been created for you. <br>You can find the details about the project below:<br><br><b>Client Name:</b> " .ucfirst($s_cusFirstname) ." ". ucfirst($s_cusLastname) . "<br><b>Title:</b> "
-         . ucfirst($s_title) . "<br><b>Project Consultant:</b> " .ucfirst($s_consultFirstname) . "<br><br>Visit <a href='www.iwsystem.co.uk'>IW System</a> to log in and view project. <br>You can contact your project consultant on ". $s_consultEmail . " <br><br>Thanks. <br><br><b>IW System</b><br>Administrator";   // HTML Message
+         . ucfirst($s_title) . "<br><b>Project Consultant:</b> " .ucfirst($s_consultFirstname) . "<br><br>Visit <a href='www.iwsystem.co.uk'>IW System</a> to log in and view project. <br>You can contact your project consultant on ". $s_consultEmail . " <br><br>Thanks. <br><br><b>Administrator</b><br>IW System";   // HTML Message
         $mail->msgHTML($mail_body);
         //  Sending off the mail
         if(!$mail->Send()) {
