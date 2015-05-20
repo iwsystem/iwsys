@@ -76,8 +76,8 @@ include_once("mailer/class.smtp.php");
             $mail             = new PHPMailer();    // PHP Mailer Class
             $mail->isSMTP();
             $mail->SMTPDebug = 0;
-            $mail->Host       = "iwsystemcom.ipage.com";      // sets Ipage as the SMTP server
-            $mail->Port       = 587;                   // set the SMTP port
+            $mail->Host       = "mail.iwhosting.org";      // sets Ipage as the SMTP server
+            $mail->Port       = 25;                   // set the SMTP port
             $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
             $mail->SMTPAuth   = true;                  // enable SMTP authentication
             $mail->Username   = "consultant@iwsystem.co.uk";  // GMAIL username
@@ -104,8 +104,8 @@ include_once("mailer/class.smtp.php");
             $mail2             = new PHPMailer();    // PHP Mailer Class
             $mail2->isSMTP();
             $mail2->SMTPDebug = 0;
-            $mail2->Host       = "iwsystemcom.ipage.com";      // sets Ipage as the SMTP server
-            $mail2->Port       = 587;                   // set the SMTP port
+            $mail2->Host       = "mail.iwhosting.org";      // sets Ipage as the SMTP server
+            $mail2->Port       = 25;                   // set the SMTP port
             $mail2->SMTPSecure = "tls";                 // sets the prefix to the servier
             $mail2->SMTPAuth   = true;                  // enable SMTP authentication
             $mail2->Username   = "consultant@iwsystem.co.uk";  // GMAIL username
