@@ -55,8 +55,8 @@ include_once("mailer/class.smtp.php");
             $mail->isSMTP();
             $mail->SMTPDebug = 0;
             $mail->Host       = "mail.iwhosting.org";      // sets Ipage as the SMTP server
-            $mail->Port       = 25;                   // set the SMTP port
-            $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
+            $mail->Port       = 2525;                   // set the SMTP port
+            $mail->SMTPSecure = "none";                 // sets the prefix to the servier
             $mail->SMTPAuth   = true;                  // enable SMTP authentication
             $mail->Username   = "consultant@iwsystem.co.uk";  // GMAIL username
             $mail->Password   = "Chumasky2014&";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
