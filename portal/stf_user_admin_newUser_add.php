@@ -17,7 +17,7 @@ include_once("mailer/class.smtp.php");
     $state_county = strtolower($_POST['state_county']); // Variable for the state / county
     $postcode = $_POST['postcode']; // Variable for the postcode
     $country = strtolower($_POST['country']); // Variable for the country
-    $username = $first_name[0].$last_name.mt_rand(1, 9).mt_rand(15, 150);       // Generating random username using the user's first name and last name combination
+    $username = $first_name."_".$last_name.mt_rand(11, 99);       // Generating random username using the user's first name and last name combination
     $password = $first_name[0].$first_name[1].$last_name[0].$last_name[1].mt_rand(1022, 30223); // Generating random password using the user's first name and last name combination
 
     //  Code to store the inputed data into the user table
