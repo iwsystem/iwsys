@@ -1,11 +1,11 @@
   <footer id="footer">
       <div class="container">
           <div class="row-fluid">
-              <div class="span5 cp">
-                  Copyright &copy; IW System <script type="text/javascript">document.write(new Date().getFullYear());</script>. All Rights Reserved
+              <div class="span7 cp">
+                  Copyright &copy; IW System Ltd. <script type="text/javascript">document.write(new Date().getFullYear());</script>. Company Registration #: 09623279. All Rights Reserved
               </div>
               <!--/Copyright-->
-              <div class="span6">
+              <div class="span4">
                   <ul class="social pull-right">
                       <li><a href="https://facebook.com/iwsystem"><i class="icon-facebook"></i></a></li>
                       <li><a href="https://twitter.com/iw_system"><i class="icon-twitter"></i></a></li>                    
