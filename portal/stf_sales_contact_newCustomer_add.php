@@ -1,6 +1,8 @@
 <?php 
 include_once('signon/session.php');
 include_once("signon/pdo-connect.php");
+include_once("mailer/class.phpmailer.php");
+include_once("mailer/class.smtp.php");
 
     
     $emp_id = $_SESSION["emp_id"]; // This is the employee ID of the signed on staff
@@ -18,7 +20,7 @@ include_once("signon/pdo-connect.php");
     $sales_interest = $_POST['sales_interest']; // Variable for the customer's subject
     $sales_note = strtolower($_POST['sales_note']); // Variable for the notes by the customer rep staff
     $sales_outcome = $_POST['sales_outcome']; // Variable for the customer's outcome
-    $contact_status = $_POST['status']; // Variable for the customer's phone
+    $contact_status = $_POST['status']; // Variable for the customer's contact status
 
     //  Code to store the inputed data into th database table
     try {
@@ -44,6 +46,64 @@ include_once("signon/pdo-connect.php");
         $str_stmt->bindParam(':contact_status', $contact_status);
         // For Executing prepared statement we will use below function
         $str_stmt->execute();
+
+        // Query to retrieve details of the employee that stored the information
+        $str_query= "   SELECT  *
+                        FROM tbl_employee
+                        WHERE emp_id = :employee;";
+        $str_stmt = $r_Db->prepare($str_query);
+        // bind paramenters, Named paramenters alaways start with colon(:)
+        $str_stmt->bindParam(':employee', $emp_id);
+        // For Executing prepared statement we will use below function
+        $str_stmt->execute();
+        $arr_employee = $str_stmt->fetch(PDO::FETCH_ASSOC); 
+
+        $emp_user_id = $arr_employee["user_id"];    // User I d of the employee
+
+        // Query to retrieve name of the employee that stored the information
+        $str_query= "   SELECT  firstname, lastname, email
+                        FROM tbl_user
+                        WHERE user_id = :emp_user_id;";
+        $str_stmt = $r_Db->prepare($str_query);
+        // bind paramenters, Named paramenters alaways start with colon(:)
+        $str_stmt->bindParam(':emp_user_id', $emp_user_id);
+        // For Executing prepared statement we will use below function
+        $str_stmt->execute();
+        $arr_employee_names = $str_stmt->fetch(PDO::FETCH_ASSOC); 
+        $emp_first_name = $arr_employee_names["firstname"];     // Employee first name
+        $emp_last_name = $arr_employee_names["lastname"];   // Employee last name
+        $emp_email = $arr_employee_names["email"];  // Employee email
+
+        //  Send auto message to consultant if the customer has been closed to be Resolved & Succewssful. That means he is a new lead to be folloowed up
+        if ($contact_status == 9 && $sales_outcome == 1) {
+            //  Preparing PHP Mailer to forward the new message mail confirmation to the customer rep staff 
+            $mail2             = new PHPMailer();    // PHP Mailer Class
+            $mail2->isSMTP();
+            $mail2->SMTPDebug = 0;
+            $mail2->Host       = "mail.iwhosting.org";      // sets Ipage as the SMTP server
+            $mail2->Port       = 2525;                   // set the SMTP port
+            $mail2->SMTPSecure = "none";                 // sets the prefix to the servier
+            $mail2->SMTPAuth   = true;                  // enable SMTP authentication
+            $mail2->Username   = "contact@iwsystem.co.uk";  // GMAIL username
+            $mail2->Password   = "Chumasky2014&";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
+            $mail2->From       = $emp_email;
+            $mail2->FromName   = "Sales Rep - IW System";
+            $mail2->addAddress("consultant@iwsystem.co.uk", "Consultant");
+            $mail2->addReplyTo($emp_email,"Sales Rep");
+            $mail2->Subject    = "New Client- Sale ";
+            $mail2->AltBody    = "Hi there, A new client sale has been achieved today. The details are below: Sales Rep: " . $emp_first_name . " " . $emp_last_name . " Customer Name: ". ucfirst($sales_name) . " Email: " . 
+                                $sales_email . " Phone: " . $sales_phone . " Country: " . $sales_country . " Service Interest: " . ucfirst($sales_interest) . " Staff Note: " . $sales_note .
+                                " . Please visit the portal to get more information, then get in touch with the customer as soon as possible and update account portal accordingly. Thanks"; //Text Body
+            $mail2->IsHTML(true); // send as HTML
+            $mail2_body             = "Hi there, <br><br>A new client sale has been achieved today. <br>The details are below: <br><br><b>Sales Rep: <b>" . ucfirst($emp_first_name) . " " . ucfirst($emp_last_name) . "</b><br><br><b>Customer Name:</b> ". ucfirst($sales_name) . " <br><b>Email: </b>" . 
+                                $sales_email . " <br><b>Phone: </b>" . $sales_phone . " <br><b>Country: </b>" . $sales_country . " <br><b>Service Interest: </b>" . ucfirst($sales_interest) . " <br><b>Staff Note:  </b>" . $sales_note
+                                . " . <br><br>Please visit the portal to get more information, then get in touch with the customer as soon as possible and update account portal accordingly. <br><br>Thanks"; 
+            $mail2->msgHTML($mail2_body);
+            //  Sending off the mail
+            if(!$mail2->Send()) {
+              echo "Mailer Error: " . $mail2->ErrorInfo;
+            }    
+        }
 
         $status = "success";    // This variable will be sent back to the user profile page to enable the success display
     }   catch(PDOException $e)  {

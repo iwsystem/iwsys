@@ -1,6 +1,8 @@
 <?php 
 include_once('signon/session.php');
 include_once("signon/pdo-connect.php");
+include_once("mailer/class.phpmailer.php");
+include_once("mailer/class.smtp.php");
 
     //  Retrieving the variables sent by submitting  the user form
     $i_uID = $_POST['usr']; // This is the id of the user
@@ -22,7 +24,8 @@ include_once("signon/pdo-connect.php");
         $sales_outcome = $_POST['new_outcome']; // Variable for the contact outcome
     }
    
-    if ($status == "") {
+    if ($status == "
+        ") {
         //  Code to store the inputed data into th database table
         try {
             // We Will prepare SQL Query
@@ -75,6 +78,36 @@ include_once("signon/pdo-connect.php");
             $str_stmt->bindParam(':sales_outcome', $sales_outcome);
             // For Executing prepared statement we will use below function
             $str_stmt->execute();
+            //  Send auto message to consultant if the customer has been closed to be Resolved & Outcome remains successful. That means he is a new lead to be folloowed up
+            if ($sales_outcome == 1) {
+                //  Preparing PHP Mailer to forward the new message mail confirmation to the customer rep staff 
+                $mail2             = new PHPMailer();    // PHP Mailer Class
+                $mail2->isSMTP();
+                $mail2->SMTPDebug = 0;
+                $mail2->Host       = "mail.iwhosting.org";      // sets Ipage as the SMTP server
+                $mail2->Port       = 2525;                   // set the SMTP port
+                $mail2->SMTPSecure = "none";                 // sets the prefix to the servier
+                $mail2->SMTPAuth   = true;                  // enable SMTP authentication
+                $mail2->Username   = "contact@iwsystem.co.uk";  // GMAIL username
+                $mail2->Password   = "Chumasky2014&";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
+                $mail2->From       = "sales@iwsystem.co.uk";
+                $mail2->FromName   = "Sales Rep - IW System";
+                $mail2->addAddress("consultant@iwsystem.co.uk", "Consultant");
+                $mail2->addReplyTo("sales@iwsystem.co.uk","Sales Rep");
+                $mail2->Subject    = "New Client- Sale ";
+                $mail2->AltBody    = "Hi there, A new client sale has been achieved today. The details are below: Customer Name: ". ucfirst($sales_name) . " Email: " . 
+                                    $sales_email . " Phone: " . $sales_phone . " Country: " . $sales_country . " Staff Note: " . $sales_note .
+                                    " . Please visit the portal to get more information, then get in touch with the customer as soon as possible and update account portal accordingly. Thanks"; //Text Body
+                $mail2->IsHTML(true); // send as HTML
+                $mail2_body             = "Hi there, <br><br>A new client sale has been achieved today. <br>The details are below: <br><br><b>Customer Name:</b> ". ucfirst($sales_name) . " <br><b>Email: </b>" . 
+                                    $sales_email . " <br><b>Phone: </b>" . $sales_phone . " <br><b>Country: </b>" . $sales_country . " <br><b>Staff Note:  </b>" . $sales_note
+                                    . " . <br><br>Please visit the portal to get more information, then get in touch with the customer as soon as possible and update account portal accordingly. <br><br>Thanks"; 
+                $mail2->msgHTML($mail2_body);
+                //  Sending off the mail
+                if(!$mail2->Send()) {
+                  echo "Mailer Error: " . $mail2->ErrorInfo;
+                }    
+            }
             $status = "success";    // This variable will be sent back to the user profile page to enable the success display
         }   catch(PDOException $e)  {
             echo "Connection failed: " . $e->getMessage();

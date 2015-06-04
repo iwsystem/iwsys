@@ -11,6 +11,33 @@
       // For Executing prepared statement we will use below function
       $str_stmt->execute();
       $arr_Details = $str_stmt->fetch(PDO::FETCH_ASSOC);
+
+      // Query to retrieve details of the employee that stored the information
+      $str_query= "   SELECT  *
+                      FROM tbl_employee
+                      WHERE emp_id = :employee;";
+      $str_stmt = $r_Db->prepare($str_query);
+      // bind paramenters, Named paramenters alaways start with colon(:)
+      $str_stmt->bindParam(':employee', $arr_Details["emp_id"]);
+      // For Executing prepared statement we will use below function
+      $str_stmt->execute();
+      $arr_employee = $str_stmt->fetch(PDO::FETCH_ASSOC); 
+
+      $emp_user_id = $arr_employee["user_id"];    // User I d of the employee
+
+      // Query to retrieve name of the employee that stored the information
+      $str_query= "   SELECT  firstname, lastname
+                      FROM tbl_user
+                      WHERE user_id = :emp_user_id;";
+      $str_stmt = $r_Db->prepare($str_query);
+      // bind paramenters, Named paramenters alaways start with colon(:)
+      $str_stmt->bindParam(':emp_user_id', $emp_user_id);
+      // For Executing prepared statement we will use below function
+      $str_stmt->execute();
+      $arr_employee_names = $str_stmt->fetch(PDO::FETCH_ASSOC); 
+      $emp_firstname = $arr_employee_names["firstname"];  // Employee Firstname
+      $emp_lastname = $arr_employee_names["lastname"];  // Employee Last name
+
   }   catch(PDOException $e)  {
           echo "Connection failed: " . $e->getMessage();
   }
@@ -59,6 +86,12 @@
                                         ?>
                                         <h3>Customer Information</h3>
                                         <form class="form-horizontal" role="form" method="post" action="stf_sales_contact_resolved_edit_update.php">
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label empDiv">Sales Representative:</label>
+                                            <div class="col-lg-6">
+                                              <input name="sales_name" class="form-control" type="text" value="<?php echo ucfirst($emp_firstname) . ' '. ucfirst($emp_lastname); ?>">
+                                            </div>
+                                          </div>
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Customer's Name:</label>
                                             <div class="col-lg-6">

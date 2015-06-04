@@ -25,7 +25,7 @@
                             ?>
                                 <tr>
                                     <th>Customer's Name</th>
-                                    <th>Staff Name</th>
+                                    <th>Sales Representative</th>
                                     <th>Date Contacted</th>
                                     <th>Outcome</th>
                                     <th>View Details</th>
