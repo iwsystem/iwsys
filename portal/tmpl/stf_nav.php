@@ -58,6 +58,20 @@ if ($_SESSION['role_id'] == 1) {    // If the user is an administrator
                         </li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-bank fa-fw"></i> Manage Payment <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="stf_payment_mgt_pending.php"><i class="fa fa-plus fa-fw"></i> Pending</a>
+                        </li>
+                        <li> 
+                            <a href="stf_payment_mgt_inprogress.php"><i class="fa fa-table fa-fw"></i> In Progress</a>
+                        </li>
+                        <li>
+                            <a href="stf_payment_mgt_completed.php"><i class="fa fa-table fa-fw"></i> Completed</a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a href="stf_user_admin_newUser.php"><i class="fa fa-plus fa-fw"></i> Add User</a>
                 </li>

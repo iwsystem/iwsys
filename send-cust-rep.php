@@ -4,6 +4,7 @@
 	include_once("mailer/class.smtp.php");
 
     $str_cust_name = $_POST['cust_rep_name']; // Variable for the name of the customer
+    $str_rep_company = $_POST['cust_rep_company']; // Variable for the company of the customer
     $str_cust_email = $_POST['cust_rep_email']; // Variable for the email of the customer
     $str_cust_country = $_POST['cust_rep_country']; // Variable for the country of the customer
     $int_cust_phone = $_POST['cust_rep_phone']; // Variable for the phone of the customer
@@ -13,11 +14,12 @@
 	//  Code to store the inputed data into th database table
     try {
         // We Will prepare SQL Query
-        $str_query = "  INSERT INTO tbl_cust_rep_contact (cust_name, cust_email, cust_phone, cust_country, cust_subject, cust_message, cust_medium, contact_date, status)
-                        VALUES (:cust_name, :cust_email, :cust_phone, :cust_country, :cust_subject, :cust_message, 0, NOW(), 8);";
+        $str_query = "  INSERT INTO tbl_cust_rep_contact (cust_name, cust_company, cust_email, cust_phone, cust_country, cust_subject, cust_message, cust_medium, contact_date, status)
+                        VALUES (:cust_name, :cust_company, :cust_email, :cust_phone, :cust_country, :cust_subject, :cust_message, 0, NOW(), 8);";
         $str_stmt = $r_Db->prepare($str_query);
         // bind paramenters, Named paramenters alaways start with colon(:)
         $str_stmt->bindParam(':cust_name', $str_cust_name);
+        $str_stmt->bindParam(':cust_company', $str_rep_company);
         $str_stmt->bindParam(':cust_email', $str_cust_email);
         $str_stmt->bindParam(':cust_phone', $int_cust_phone);
         $str_stmt->bindParam(':cust_country', $str_cust_country);

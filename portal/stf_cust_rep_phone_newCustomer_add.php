@@ -8,6 +8,7 @@ include_once("mailer/class.smtp.php");
     $i_uEmail = $_SESSION["email"]; // This is the email of the signed on user
     //  Retrieving the variables sent by submitting  the user form
     $cust_name = strtolower($_POST['cust_name']); // Variable for the customer's name
+    $cust_company = $_POST['cust_company']; // Variable for the customer's company
     $cust_country = $_POST['cust_country']; // Variable for the customer's country
     $cust_phone = $_POST['cust_phone']; // Variable for the customer's phone
     $cust_email = $_POST['cust_email']; // Variable for the customer's email
@@ -19,11 +20,12 @@ include_once("mailer/class.smtp.php");
     //  Code to store the inputed data into th database table
     try {
         // We Will prepare SQL Query
-        $str_query = "  INSERT INTO tbl_cust_rep_contact (cust_name, cust_email, cust_phone, cust_country, cust_subject, cust_message, cust_medium, contact_date, cust_note, status)
-                        VALUES (:cust_name, :cust_email, :cust_phone, :cust_country, :cust_subject, :cust_message, 1, NOW(), :cust_note, :contact_status);";
+        $str_query = "  INSERT INTO tbl_cust_rep_contact (cust_name, cust_company, cust_email, cust_phone, cust_country, cust_subject, cust_message, cust_medium, contact_date, cust_note, status)
+                        VALUES (:cust_name, :cust_company, :cust_email, :cust_phone, :cust_country, :cust_subject, :cust_message, 1, NOW(), :cust_note, :contact_status);";
         $str_stmt = $r_Db->prepare($str_query);
         // bind paramenters, Named paramenters alaways start with colon(:)
         $str_stmt->bindParam(':cust_name', $cust_name);
+        $str_stmt->bindParam(':cust_company', $cust_company);
         $str_stmt->bindParam(':cust_email', $cust_email);
         $str_stmt->bindParam(':cust_phone', $cust_phone);
         $str_stmt->bindParam(':cust_country', $cust_country);

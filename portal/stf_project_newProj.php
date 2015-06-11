@@ -42,11 +42,40 @@ include_once('signon/pdo-connect.php');
         $(function () {
             $('#datetimepicker6').datetimepicker();
             $('#datetimepicker7').datetimepicker();
+            $('#datetimepicker8').datetimepicker();
+            $('#datetimepicker9').datetimepicker();
+            $('#datetimepicker10').datetimepicker();
+            $('#datetimepicker11').datetimepicker();
+            $('#datetimepicker12').datetimepicker();
+            $('#datetimepicker13').datetimepicker();
+            $('#datetimepicker14').datetimepicker();
             $("#datetimepicker6").on("dp.change",function (e) {
                 $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
             });
             $("#datetimepicker7").on("dp.change",function (e) {
                 $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+            $("#datetimepicker8").on("dp.change",function (e) {
+                $('#datetimepicker9').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker9").on("dp.change",function (e) {
+                $('#datetimepicker8').data("DateTimePicker").maxDate(e.date);
+            });
+            $("#datetimepicker10").on("dp.change",function (e) {
+                $('#datetimepicker11').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker11").on("dp.change",function (e) {
+                $('#datetimepicker10').data("DateTimePicker").maxDate(e.date);
+            });
+            $("#datetimepicker12").on("dp.change",function (e) {
+                $('#datetimepicker13').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker13").on("dp.change",function (e) {
+                $('#datetimepicker12').data("DateTimePicker").maxDate(e.date);
+                $('#datetimepicker14').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker14").on("dp.change",function (e) {
+                $('#datetimepicker10').data("DateTimePicker").maxDate(e.date);
             });
         });
 </script>
@@ -98,13 +127,29 @@ include_once('signon/pdo-connect.php');
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#user_type').on('change',function(){
+            $('#payment_plan').on('change',function(){
                 if( $(this).val() == 1){
-                    $("#job_titleDiv").removeClass("hide");
-                    $("#roleDiv").removeClass("hide");
+                    $(".p_one_first").removeClass("hide");
+                    $(".p_one_second").removeClass("hide");
                 } else {
-                    $("#job_titleDiv").addClass("hide");
-                    $("#roleDiv").addClass("hide");
+                    $(".p_one_first").addClass("hide");
+                    $(".p_one_second").addClass("hide");
+                }
+                if( $(this).val() == 2){
+                    $(".p_two_first").removeClass("hide");
+                    $(".p_two_second").removeClass("hide");
+                } else {
+                    $(".p_two_first").addClass("hide");
+                    $(".p_two_second").addClass("hide");
+                }
+                if( $(this).val() == 3){
+                    $(".p_three_first").removeClass("hide");
+                    $(".p_three_second").removeClass("hide");
+                    $(".p_three_third").removeClass("hide");
+                } else {
+                    $(".p_three_first").addClass("hide");
+                    $(".p_three_second").addClass("hide");
+                    $(".p_three_third").addClass("hide");
                 }
             });
         });

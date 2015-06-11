@@ -129,12 +129,6 @@
                                             </div>
                                           </div>
                                           <div class="form-group">
-                                            <label class="col-lg-3 control-label">Project Cost:</label>
-                                            <div class="col-lg-6">
-                                              <input id="cost" name="cost" class="form-control" type="text" placeholder="Cost of Project">
-                                            </div>
-                                          </div>
-                                          <div class="form-group">
                                           <label class="col-lg-3 control-label">Start Date:</label>
                                             <div class=' col-lg-6 input-group date' id='datetimepicker6'>
                                               <input type='text' class="form-control" id="start" name="start" />
@@ -150,6 +144,209 @@
                                               <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                               </span>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label">Initial Project Cost:</label>
+                                            <div class="col-lg-6">
+                                              <input id="cost" name="cost" class="form-control" type="text" placeholder="Cost of Project">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label empDiv">Payment Plan:</label>
+                                            <div class="col-lg-6">
+                                                <select name="payment_plan" class="form-control" id="payment_plan" >
+                                                    <option value="">-- Select Plan --</option>
+                                                    <option value="1">OneTime</option>
+                                                    <option value="2">2-Tier</option>
+                                                    <option value="3">3-Tier</option>
+                                                </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_one_first" name="payment_1_1_amount" id="payment_1_1_amount">
+                                            <label class="col-lg-3 control-label empDiv"> First Payment Amount:*</label>
+                                            <div class="col-lg-6">
+                                              <input id="payment_1_1_amount_input" name="payment_1_1_amount_input" class="form-control" type="text" value="0">
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_one_first" name="payment_1_1_due" id="payment_1_1_due">
+                                            <label class="col-lg-3 control-label empDiv"> First Payment Due:*</label>
+                                            <div class="col-lg-6 input-group date" id="datetimepicker8">
+                                              <input id="payment_1_1_due_input" name="payment_1_1_due_input" class="form-control" type="text" />
+                                              <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_one_first" name="payment_1_1_status" id="payment_1_1_status">
+                                            <label class="col-lg-3 control-label empDiv"> First Payment Status:*</label>
+                                            <div class="col-lg-6">
+                                                <select id="payment_1_1_status_input" name="payment_1_1_status_input" class="form-control" >
+                                                    <option value="0"> Incompleted </option>
+                                                    <option value="1"> Completed</option>
+                                                </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_one_second" name="payment_1_2_amount" id="payment_1_2_amount">
+                                            <label class="col-lg-3 control-label empDiv"> Second Payment Amount:*</label>
+                                            <div class="col-lg-6">
+                                              <input id="payment_1_2_amount_input" name="payment_1_2_amount_input" class="form-control" type="text" value="0">
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_one_second" name="payment_1_2_due" id="payment_1_2_due">
+                                            <label class="col-lg-3 control-label empDiv"> Second Payment Due:*</label>
+                                            <div class="col-lg-6 input-group date" id="datetimepicker9">
+                                              <input id="payment_1_2_due_input" name="payment_1_2_due_input" class="form-control" type="text" />
+                                              <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_one_second" name="payment_1_2_status" id="payment_1_2_status">
+                                            <label class="col-lg-3 control-label empDiv"> Second Payment Status:*</label>
+                                            <div class="col-lg-6">
+                                                <select id="payment_1_2_status_input" name="payment_1_2_status_input" class="form-control" >
+                                                    <option value="0"> Incompleted </option>
+                                                    <option value="1"> Completed</option>
+                                                </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_two_first" name="payment_2_1_amount" id="payment_2_1_amount">
+                                            <label class="col-lg-3 control-label empDiv"> First Payment Amount:*</label>
+                                            <div class="col-lg-6">
+                                              <input id="payment_2_1_amount_input" name="payment_2_1_amount_input" class="form-control" type="text" value="0">
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_two_first" name="payment_2_1_due" id="payment_2_1_due">
+                                            <label class="col-lg-3 control-label empDiv"> First Payment Due:*</label>
+                                            <div class="col-lg-6 input-group date" id="datetimepicker10">
+                                              <input id="payment_2_1_due_input" name="payment_2_1_due_input" class="form-control" type="text" />
+                                              <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_two_first" name="payment_2_1_status" id="payment_2_1_status">
+                                            <label class="col-lg-3 control-label empDiv"> First Payment Status:*</label>
+                                            <div class="col-lg-6">
+                                                <select id="payment_2_1_status_input" name="payment_2_1_status_input" class="form-control" >
+                                                    <option value="0"> Incompleted </option>
+                                                    <option value="1"> Completed</option>
+                                                </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_two_second" name="payment_2_2_amount" id="payment_2_2_amount">
+                                            <label class="col-lg-3 control-label empDiv"> Second Payment Amount:*</label>
+                                            <div class="col-lg-6">
+                                              <input id="payment_2_2_amount_input" name="payment_2_2_amount_input" class="form-control" type="text" value="0">
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_two_second" name="payment_2_2_due" id="payment_2_2_due">
+                                            <label class="col-lg-3 control-label empDiv"> Second Payment Due:*</label>
+                                            <div class="col-lg-6 input-group date" id="datetimepicker11">
+                                              <input id="payment_2_2_due_input" name="payment_2_2_due_input" class="form-control" type="text" />
+                                              <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_two_second" name="payment_2_2_status" id="payment_2_2_status">
+                                            <label class="col-lg-3 control-label empDiv"> Second Payment Status:*</label>
+                                            <div class="col-lg-6">
+                                                <select id="payment_2_2_status_input" name="payment_2_2_status_input" class="form-control" >
+                                                    <option value="0"> Incompleted </option>
+                                                    <option value="1"> Completed</option>
+                                                </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_three_first" name="payment_3_1_amount" id="payment_3_1_amount">
+                                            <label class="col-lg-3 control-label empDiv"> First Payment Amount:*</label>
+                                            <div class="col-lg-6">
+                                              <input id="payment_3_1_amount_input" name="payment_3_1_amount_input" class="form-control" type="text" value="0">
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_three_first" name="payment_3_1_due" id="payment_3_1_due">
+                                            <label class="col-lg-3 control-label empDiv"> First Payment Due:*</label>
+                                            <div class="col-lg-6 input-group date" id="datetimepicker12">
+                                              <input id="payment_3_1_due_input" name="payment_3_1_due_input" class="form-control" type="text" />
+                                              <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_three_first" name="payment_3_1_status" id="payment_3_1_status">
+                                            <label class="col-lg-3 control-label empDiv"> First Payment Status:*</label>
+                                            <div class="col-lg-6">
+                                                <select id="payment_3_1_status_input" name="payment_3_1_status_input" class="form-control" >
+                                                    <option value="0"> Incompleted </option>
+                                                    <option value="1"> Completed</option>
+                                                </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_three_second" name="payment_3_2_amount" id="payment_3_2_amount">
+                                            <label class="col-lg-3 control-label empDiv"> Second Payment Amount:*</label>
+                                            <div class="col-lg-6">
+                                              <input id="payment_3_2_amount_input" name="payment_3_2_amount_input" class="form-control" type="text" value="0">
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_three_second" name="payment_3_2_due" id="payment_3_2_due">
+                                            <label class="col-lg-3 control-label empDiv"> Second Payment Due:*</label>
+                                            <div class="col-lg-6 input-group date" id="datetimepicker13">
+                                              <input id="payment_3_2_due_input" name="payment_3_2_due_input" class="form-control" type="text" />
+                                              <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_three_second" name="payment_3_2_status" id="payment_3_2_status">
+                                            <label class="col-lg-3 control-label empDiv"> Second Payment Status:*</label>
+                                            <div class="col-lg-6">
+                                                <select id="payment_3_2_status_input" name="payment_3_2_status_input" class="form-control" >
+                                                    <option value="0"> Incompleted </option>
+                                                    <option value="1"> Completed</option>
+                                                </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_three_third" name="payment_3_3_amount" id="payment_3_3_amount">
+                                            <label class="col-lg-3 control-label empDiv"> Third Payment Amount:*</label>
+                                            <div class="col-lg-6">
+                                              <input id="payment_3_3_amount_input" name="payment_3_3_amount_input" class="form-control" type="text" value="0">
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_three_third" name="payment_3_3_due" id="payment_3_3_due">
+                                            <label class="col-lg-3 control-label empDiv"> Third Payment Due:*</label>
+                                            <div class="col-lg-6 input-group date" id="datetimepicker14">
+                                              <input id="payment_3_3_due_input" name="payment_3_3_due_input" class="form-control" type="text" />
+                                              <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <div class="form-group hide p_three_third" name="payment_3_3_status" id="payment_3_3_status">
+                                            <label class="col-lg-3 control-label empDiv"> Third Payment Status:*</label>
+                                            <div class="col-lg-6">
+                                                <select id="payment_3_3_status_input" name="payment_3_3_status_input" class="form-control" >
+                                                    <option value="0"> Incompleted </option>
+                                                    <option value="1"> Completed</option>
+                                                </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label empDiv"> Discount: %</label>
+                                            <div class="col-lg-6">
+                                              <input id="discount" name="discount" class="form-control" type="text" value="0">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label empDiv"> VAT: %</label>
+                                            <div class="col-lg-6">
+                                              <input id="vat" name="vat" class="form-control" type="text" value="0">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label"> Final Project Cost:</label>
+                                            <div class="col-lg-6">
+                                              <input id="final_cost" name="final_cost" class="form-control" type="text" value="0">
                                             </div>
                                           </div>
                                           <div class="form-group">

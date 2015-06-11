@@ -43,7 +43,13 @@
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Customer's Name:</label>
                                             <div class="col-lg-8">
-                                              <input name="cust_name" class="form-control" type="text" placeholder="Type name="" ">
+                                              <input name="cust_name" class="form-control" type="text" placeholder="Type name">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label">Customer's Company / Organization:</label>
+                                            <div class="col-lg-8">
+                                              <input name="cust_company" class="form-control" type="text" placeholder= "Type Company">
                                             </div>
                                           </div>
                                           <div class="form-group">

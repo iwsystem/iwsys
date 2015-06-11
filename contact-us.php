@@ -163,6 +163,10 @@
                             <div>
                                 <input type="text" name="cust_rep_name" id="cust_rep_name" class="input-xlarge" placeholder="Your Name"><br> 
                             </div>
+                            <label class="label" for="cust_rep_company">Your Company / Organization</label><br>
+                            <div>
+                                <input type="text" name="cust_rep_company" id="cust_rep_company" class="input-xlarge" placeholder="Your Company"><br> 
+                            </div>
                             <label class="label" for="cust_rep_email">Your Email *</label><br>
                             <div>
                                 <input type="text" name="cust_rep_email" id="cust_rep_email" class="input-xlarge" placeholder="Your Email"><br>

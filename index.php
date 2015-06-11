@@ -318,12 +318,14 @@
                                         <li class="span1"><img src="images/technologies/js.gif"  title="Javascript"></li>
                                         <li class="span1"><img src="images/technologies/php.gif"  title="PHP"></li>
                                         <li class="span1"><img src="images/technologies/mysql.gif" title="MySQL"></li>
-                                        <li class="span3"><img src="images/technologies/jquery.gif" title="JQuery"></li>
-                                        <li class="span3"><img src="images/technologies/jquery-ui.gif" title="JQuery UI"></li>
-                                        <li class="span3"><img src="images/technologies/wordpress.gif" title="WordPress"></li>
-                                        <li class="span3"><img src="images/technologies/drupal.gif"  title="Drupal"></li>
-                                        <li class="span3"><img src="images/technologies/opencart.gif"  title="OpenCart"></li>
-                                        <li class="span3"><img src="images/technologies/linux.gif" title="Linux"></li>
+                                        <li class="span2"><img src="images/technologies/jquery.gif" title="JQuery"></li>
+                                        <li class="span2"><img src="images/technologies/jquery-ui.gif" title="JQuery UI"></li>
+                                        <li class="span2"><img src="images/technologies/wordpress.gif" title="WordPress"></li>
+                                        <li class="span2"><img src="images/technologies/drupal.gif"  title="Drupal"></li>
+                                        <li class="span2"><img src="images/technologies/opencart.gif"  title="OpenCart"></li>
+                                        <li class="span2"><img src="images/technologies/linux.gif" title="Linux"></li>
+                                        <li class="span2"><img src="images/technologies/postgre.gif"  title="Postgre"></li>
+                                        <li class="span2"><img src="images/technologies/python.gif" title="Python"></li>
                                     </ul>
                                 </div>
                             </div>
