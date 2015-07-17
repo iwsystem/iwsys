@@ -131,7 +131,7 @@
                                             <div class="col-lg-6">
                                                 <select name="status" class="form-control" id="status" >
                                                     <option value="">-- Change Status --</option>
-                                                    <option value="8">Unresolved</option>
+                                                    <option value="9">Resolved</option>
                                                 </select>
                                             </div>
                                           </div>
