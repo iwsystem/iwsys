@@ -36,7 +36,7 @@ include_once("mailer/class.smtp.php");
         // Count no. of records 
         $count = $str_stmt->rowCount();
         //just fetch. only gets one row. Use  fatch(PDO::FETCH_ASSOC) for making the result an associative array
-        $row  = $str_stmt -> fetch();
+        $row  = $str_stmt -> fetch(PDO::FETCH_ASSOC);
 
         if ($count == 1) {
             // We Will prepare SQL Query to insert new password
@@ -62,15 +62,15 @@ include_once("mailer/class.smtp.php");
             $mail->Password   = "Chumasky2014&";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
             $mail->From       = "donotreply@iwsystem.co.uk";
             $mail->FromName   = "IW System";
-            $mail->addAddress("$email", ucfirst($row[1]));
+            $mail->addAddress("$email", ucfirst($row['firstname']));
             $mail->addReplyTo("donotreply@iwsystem.co.uk","Do not Reply");
             $mail->Subject    = "New Account Password";
-            $mail->AltBody    = "Hello " . ucfirst($row[1]). ", A new password has been created for you. Visit your account at www.iwsystem.co.uk. 
-            Your login details are: Username: ". $row[12] . " New Password: " . $password . " You will be asked to change your password immediately upon login. This is for improved security of your account because we take the security of
+            $mail->AltBody    = "Hello " . ucfirst($row['firstname']). ", A new password has been created for you. Visit your account at www.iwsystem.co.uk. 
+            Your login details are: Username: ". $row['username'] . " New Password: " . $password . " You will be asked to change your password immediately upon login. This is for improved security of your account because we take the security of
             your data very seriously. If this change was not initiated by you, please contact your consultant immediately.  If you require any further assistance, do not hesitate to contact us at support@iwsystem.co.uk ";
             $mail->IsHTML(true); // send as HTML
-            $mail_body             = "Hello <b>" . ucfirst($row[1]) . "</b>, <br><br>A new password has been created for you. <br><br>Visit your account at www.iwsystem.co.uk. <br><br>
-            Your login details are: <br><br><b>Username: </b>". $row[12] . " <br><b>Password: </b>" . $password . " <br><br>You will be asked to change your password immediately upon login. This is for improved security of your account because we take the security of
+            $mail_body             = "Hello <b>" . ucfirst($row['firstname']) . "</b>, <br><br>A new password has been created for you. <br><br>Visit your account at www.iwsystem.co.uk. <br><br>
+            Your login details are: <br><br><b>Username: </b>". $row['username'] . " <br><b>Password: </b>" . $password . " <br><br>You will be asked to change your password immediately upon login. This is for improved security of your account because we take the security of
             your data very seriously.<br><br><br><br>If this change was not initiated by you, please contact your consultant immediately. <br><br>Do you require any further assistance? Do not hesitate to contact us at admin@iwsystem.co.uk<br><br><br><br>Thanks<br><br><b>Admin</b>";   // HTML Message
             $mail->msgHTML($mail_body);
             //  Sending off the mail
@@ -85,8 +85,8 @@ include_once("mailer/class.smtp.php");
         } elseif ($count > 1) {
             // Closing MySQL database connection   
             $r_Db = null;
-            //  Redirect to contact support page
-            header("location:password_suport.php"); 
+            //  Redirect to contact support page if there are more than one email address in the system
+            header("location:password_support.php"); 
         } else {
             // Closing MySQL database connection   
             $r_Db = null;

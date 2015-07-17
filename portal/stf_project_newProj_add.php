@@ -15,6 +15,23 @@ include_once("mailer/class.smtp.php");
 
     //  Code to store the inputed data into the user table
     try {
+
+        // We Will prepare SQL Query to retrieve customer's firstname and lastname
+        $str_query = "  SELECT firstname, lastname, email
+                        FROM tbl_user
+                        WHERE  user_id = :user_id;";
+        $str_stmt = $r_Db->prepare($str_query);
+        // bind paramenters, Named paramenters alaways start with colon(:)
+        $str_stmt->bindParam(':user_id', $i_client);
+        // For Executing prepared statement we will use below function
+        $str_stmt->execute();
+        $arr_cusName = $str_stmt->fetch(PDO::FETCH_ASSOC);    // Aray containing the fetched data
+
+        $s_cusFirstname = $arr_cusName['firstname'];  // Customer's firstname
+        $s_cusLastname = $arr_cusName['lastname'];    // Customer's lastname
+        $s_cusEmail = $arr_cusName['email'];    // Customer's email address
+
+
         // We Will prepare SQL Query to insert the new project to the database
         $str_query = "  INSERT INTO tbl_project (title, user_id, start_date, emp_id, cost, deadline, status )
                         VALUES (:title, :user_id, :start_date, :emp_id, :cost, :deadline, 9);";
@@ -29,7 +46,7 @@ include_once("mailer/class.smtp.php");
         // For Executing prepared statement we will use below function
         $str_stmt->execute();
         $i_projId = $r_Db->lastInsertId();  // Variable for the id of the previously inserted project
-        $beta_page = "pages/client/$i_client/test/$i_projId";
+        $beta_page = "pages/client/$s_cusFirstname[0]$s_cusFirstname[1]$s_cusLastname[0]/test/$i_projId";
 
         // We Will prepare SQL Query to update the previously inserted table with the beta page
         $str_query = "  UPDATE tbl_project
@@ -68,21 +85,6 @@ include_once("mailer/class.smtp.php");
         $s_consultFirstname = $arr_cName['firstname'];  // Consultants firstname
         $s_consultLastname = $arr_cName['lastname'];    // Consultants lastname
         $s_consultEmail = $arr_cName['email'];    // Consultants email
-
-         // We Will prepare SQL Query to retrieve customer's firstname and lastname
-        $str_query = "  SELECT firstname, lastname, email
-                        FROM tbl_user
-                        WHERE  user_id = :user_id;";
-        $str_stmt = $r_Db->prepare($str_query);
-        // bind paramenters, Named paramenters alaways start with colon(:)
-        $str_stmt->bindParam(':user_id', $i_client);
-        // For Executing prepared statement we will use below function
-        $str_stmt->execute();
-        $arr_cusName = $str_stmt->fetch(PDO::FETCH_ASSOC);    // Aray containing the fetched data
-
-        $s_cusFirstname = $arr_cusName['firstname'];  // Customer's firstname
-        $s_cusLastname = $arr_cusName['lastname'];    // Customer's lastname
-        $s_cusEmail = $arr_cusName['email'];    // Customer's email address
 
         //  Preparing PHP Mailer to forward the new Project mail confirmation to the customer 
         $mail             = new PHPMailer();    // PHP Mailer Class

@@ -65,7 +65,7 @@ include_once('signon/pdo-connect.php');
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading col-lg-9">
-                        <p>Sorry, Invalid Username or Password! Click the button below to return to home page & re-enter your details.</p>
+                        <p>Sorry, Invalid Username or Password! Click the button below to return to home page & re-enter your details or change password.</p>
                         <p>If this error message persists, contact your consultant immediately. Thanks</p>
                         </div>
                         <!-- /.End of Add New -->

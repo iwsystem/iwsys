@@ -110,6 +110,12 @@
                                             </div>
                                           </div>
                                           <div class="form-group">
+                                            <label class="col-lg-3 control-label">Company:</label>
+                                            <div class="col-lg-8">
+                                              <input name="company" class="form-control" type="text" value="<?php echo ucfirst($arr_Details["company"]); ?>">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
                                             <label class="col-lg-3 control-label">Phone:</label>
                                             <div class="col-lg-8">
                                               <input name="phone" class="form-control" type="text" value="<?php echo $arr_Details["phone"]; ?>">

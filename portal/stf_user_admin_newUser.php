@@ -31,6 +31,8 @@ include_once('signon/pdo-connect.php');
     <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <!-- Combo box of countries -->
+    <script src="js/countries.js"></script>
     <!-- Validation Script -->
     <script type="text/javascript">
         (function($,W,D)
@@ -53,7 +55,7 @@ include_once('signon/pdo-connect.php');
                             address1: {required: true },
                             city: {required: true, number: false },
                             postcode: {required: true },
-                            country: {required: true, minlength: 2, number: false }
+                            country: {required: true}
                         },
                         messages: {
                             user_type: {required: "Please add a user type"},
@@ -64,7 +66,7 @@ include_once('signon/pdo-connect.php');
                             address1: {required: "Please add a valid address"},
                             city: {required: "Please add city", number: "Please add a valid city"},
                             postcode: {required: "Please add a postcode"},
-                            country: {required: "Please add a country", minlength: "Cannot be less than 2 letters", number: "Please type a valid country"}
+                            country: {required: "Please add a country"}
                         }
                     });
                 }

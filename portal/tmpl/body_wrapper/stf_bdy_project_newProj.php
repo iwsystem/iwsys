@@ -91,7 +91,7 @@
                                                     $str_query = "  SELECT *
                                                                     FROM tbl_user
                                                                     WHERE  user_type = 2
-                                                                    AND status = 9
+                                                                    AND status != 8
                                                                     ORDER BY user_id DESC;";
                                                     $str_stmt = $r_Db->prepare($str_query);
                                                     // For Executing prepared statement we will use below function

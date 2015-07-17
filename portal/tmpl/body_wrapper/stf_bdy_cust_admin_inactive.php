@@ -20,7 +20,8 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-users">
                             <thead>
                                 <tr>
-                                    <th>User's Name</th>
+                                    <th>Client's Name</th>
+                                    <th>Client's Email</th>
                                     <th>Date Created</th>
                                     <th>Edit</th>
                                 </tr>
@@ -30,7 +31,7 @@
                                     try {
                                         
                                         // We Will prepare SQL Query to retrieve all active users in  the system
-                                        $str_query = "  SELECT user_id, firstname, lastname, created, user_type
+                                        $str_query = "  SELECT user_id, firstname, lastname, email, created, user_type
                                                         FROM tbl_user 
                                                         WHERE status = 8
                                                         AND user_type = 2
@@ -42,12 +43,13 @@
 
                                         //  Looping through the array to display details retrieved from database
                                         foreach ($arr_active_user as $oActiveUser) {
-                                            $usr_id = $oActiveUser["user_id"]; // Assigning the variable for hte user id
+                                            $usr_id = $oActiveUser["user_id"]; // Assigning the variable for the user id
                                             $first_name = ucfirst($oActiveUser["firstname"]); // Assigning the variable for hte firstname
                                             $last_name = ucfirst($oActiveUser["lastname"]);    // Assigning the variable for hte lastname
+                                            $email = $oActiveUser["email"]; // Assignning variable for the email 
                                             $created = $oActiveUser["created"]; // Assignning variable for the creation date
                                             echo "<tr>";
-                                            echo "<td>" . $first_name." ". $last_name . "</td>"."<td>". $created . "</td>" ."<td>" . "<a href='stf_cust_admin_inactive_edit.php?usr=$usr_id'> <i class='fa fa-edit fa-fw'></i> </a>" . "</td>"; 
+                                            echo "<td>" . $first_name." ". $last_name . "</td>". "<td>". $email . "</td>" ."<td>". $created . "</td>"."<td>" . "<a href='stf_cust_admin_inactive_edit.php?usr=$usr_id'> <i class='fa fa-edit fa-fw'></i> </a>" . "</td>"; 
                                             echo "</tr>";
                                         }                          
                                         

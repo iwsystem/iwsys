@@ -73,6 +73,12 @@
                                             </div>
                                           </div>
                                           <div class="form-group">
+                                            <label class="col-lg-3 control-label">Company:</label>
+                                            <div class="col-lg-8">
+                                              <input name="company" class="form-control" type="text" value="<?php echo ucfirst($arr_Details["company"]); ?>">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
                                             <label class="col-lg-3 control-label">Phone:</label>
                                             <div class="col-lg-8">
                                               <input name="phone" class="form-control" type="text" value="<?php echo $arr_Details["phone"]; ?>">
@@ -82,6 +88,42 @@
                                             <label class="col-lg-3 control-label">Email:</label>
                                             <div class="col-lg-8">
                                               <input name="email" class="form-control" type="text" value="<?php echo $arr_Details["email"]; ?>">
+                                            </div>
+                                          </div>  
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label">Address Line 1:</label>
+                                            <div class="col-lg-6">
+                                              <input id="address1" name="address1" class="form-control" type="text" value="<?php echo $arr_Details["address1"]; ?>">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label">Address Line 2:</label>
+                                            <div class="col-lg-6">
+                                              <input id="address2" name="address2" class="form-control" type="text" value="<?php echo $arr_Details["address2"]; ?>">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label">City:</label>
+                                            <div class="col-lg-6">
+                                              <input id="city" name="city" class="form-control" type="text" value="<?php echo $arr_Details["city"]; ?>">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label">State OR County:</label>
+                                            <div class="col-lg-6">
+                                              <input id="state_county" name="state_county" class="form-control" type="text" value="<?php echo $arr_Details["state_county"]; ?>">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label">Postcode:</label>
+                                            <div class="col-lg-6">
+                                              <input id="postcode" name="postcode" class="form-control" type="text" value="<?php echo $arr_Details["postcode"]; ?>">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-lg-3 control-label">Country:</label>
+                                            <div class="col-lg-6">
+                                              <input id="country" name="country" class="form-control" type="text" value="<?php echo $arr_Details["country"]; ?>">
                                             </div>
                                           </div>                                          
                                           <div class="form-group">

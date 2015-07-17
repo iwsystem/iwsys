@@ -9,6 +9,7 @@ include_once("mailer/class.smtp.php");
     $user_type = $_POST['user_type']; // Variable for the first name
     $first_name = strtolower($_POST['first_name']); // Variable for the first name
     $last_name = strtolower($_POST['last_name']); // Variable for the last name
+    $company = strtolower($_POST['company']); // Variable for the company of the user
     $email = $_POST['email']; // Variable for the email
     $phone = $_POST['phone']; // Variable for the phone
     $address1 = strtolower($_POST['address1']); // Variable for asddress line 1
@@ -36,12 +37,13 @@ include_once("mailer/class.smtp.php");
         $hash_password = crypt($password, $salt);   //  Password to be stored in database
         
         // We Will prepare SQL Query
-        $str_query = "  INSERT INTO tbl_user (firstname, lastname, email, phone, address1, address2, city, state_county, postcode, country, user_type, username, password, created, status )
-                        VALUES (:firstname, :lastname, :email, :phone, :address1, :address2, :city, :state_county, :postcode, :country, :user_type, :username, :password, NOW(), 7);";
+        $str_query = "  INSERT INTO tbl_user (firstname, lastname, company, email, phone, address1, address2, city, state_county, postcode, country, user_type, username, password, created, status )
+                        VALUES (:firstname, :lastname, :company, :email, :phone, :address1, :address2, :city, :state_county, :postcode, :country, :user_type, :username, :password, NOW(), 7);";
         $str_stmt = $r_Db->prepare($str_query);
         // bind paramenters, Named paramenters alaways start with colon(:)
         $str_stmt->bindParam(':firstname', $first_name);
         $str_stmt->bindParam(':lastname', $last_name);
+        $str_stmt->bindParam(':company', $company);
         $str_stmt->bindParam(':email', $email);
         $str_stmt->bindParam(':phone', $phone);
         $str_stmt->bindParam(':address1', $address1);

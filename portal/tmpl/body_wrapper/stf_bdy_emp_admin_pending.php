@@ -22,6 +22,7 @@
                                 <tr>
                                     <th>Employee's Name</th>
                                     <th>Date Created</th>
+                                    <th>Company</th>
                                     <th>Job Position</th>
                                     <th>Edit</th>
                                 </tr>
@@ -31,7 +32,7 @@
                                     try {
                                         
                                         // We Will prepare SQL Query to retrieve all active users in  the system
-                                        $str_query = "  SELECT user_id, firstname, lastname, created, user_type
+                                        $str_query = "  SELECT user_id, firstname, lastname, company, created, user_type
                                                         FROM tbl_user 
                                                         WHERE status = 7
                                                         AND user_type = 1
@@ -46,6 +47,7 @@
                                             $usr_id = $oActiveUser["user_id"]; // Assigning the variable for hte firstname
                                             $first_name = ucfirst($oActiveUser["firstname"]); // Assigning the variable for hte firstname
                                             $last_name = ucfirst($oActiveUser["lastname"]);    // Assigning the variable for hte lastname
+                                            $company = $oActiveUser["company"]; // Assignning variable for the company
                                             $created = $oActiveUser["created"]; // Assignning variable for the creation date
                                             // We Will prepare SQL Query to retrieve all active users in  the system
                                             $str_query = "  SELECT *
@@ -58,7 +60,7 @@
                                             $str_stmt->execute();
                                             $arr_active_emp = $str_stmt->fetch(PDO::FETCH_ASSOC);  
                                             echo "<tr>";
-                                            echo "<td>" . $first_name." ". $last_name . "</td>"."<td>". $created . "</td>" ."<td>". $arr_active_emp['job_position'] . "</td>" ."<td>" . "<a href='stf_emp_admin_pending_edit.php?usr=$usr_id'> <i class='fa fa-edit fa-fw'></i> </a>" . "</td>"; 
+                                            echo "<td>" . $first_name." ". $last_name . "</td>"."<td>". $created . "</td>" . "<td>". $company . "</td>" ."<td>". $arr_active_emp['job_position'] . "</td>" ."<td>" . "<a href='stf_emp_admin_pending_edit.php?usr=$usr_id'> <i class='fa fa-edit fa-fw'></i> </a>" . "</td>"; 
                                             echo "</tr>";
                                         }                          
                                         

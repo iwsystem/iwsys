@@ -8,6 +8,7 @@ include_once("mailer/class.smtp.php");
     $i_uID = $_POST['usr']; // This is the id of the user
     $firstname = strtolower($_POST['first_name']); // Variable for the user's first name
     $lastname = strtolower($_POST['last_name']); // Variable for the user's last name
+    $company = strtolower($_POST['company']); // Variable for the user's company
     $email = strtolower($_POST['email']); // Variable for the user's email
     $phone = strtolower($_POST['phone']); // Variable for the user's phone
     $address1 = strtolower($_POST['address1']); // Variable for the user's email
@@ -26,13 +27,14 @@ include_once("mailer/class.smtp.php");
             try {
                 // We Will prepare SQL Query
                 $str_query = "  UPDATE tbl_user 
-                                SET firstname=:firstname, lastname=:lastname, email=:email, phone=:phone, address1=:address1, address2=:address2, city=:city, state_county=:state_county, postcode=:postcode, country=:country
+                                SET firstname=:firstname, lastname=:lastname, company=:company, email=:email, phone=:phone, address1=:address1, address2=:address2, city=:city, state_county=:state_county, postcode=:postcode, country=:country
                                 WHERE user_id = :id;";
                 $str_stmt = $r_Db->prepare($str_query);
                 // bind paramenters, Named paramenters alaways start with colon(:)
                 $str_stmt->bindParam(':id', $i_uID);
                 $str_stmt->bindParam(':firstname', $firstname);
                 $str_stmt->bindParam(':lastname', $lastname);
+                $str_stmt->bindParam(':company', $company);
                 $str_stmt->bindParam(':email', $email);
                 $str_stmt->bindParam(':phone', $phone);
                 $str_stmt->bindParam(':address1', $address1);
@@ -53,13 +55,14 @@ include_once("mailer/class.smtp.php");
             try {
                 // We Will prepare SQL Query
                 $str_query = "  UPDATE tbl_user 
-                                SET firstname=:firstname, lastname=:lastname, email=:email, phone=:phone, address1=:address1, address2=:address2, city=:city, state_county=:state_county, postcode=:postcode, country=:country, status=:status
+                                SET firstname=:firstname, lastname=:lastname, company=:company, email=:email, phone=:phone, address1=:address1, address2=:address2, city=:city, state_county=:state_county, postcode=:postcode, country=:country, status=:status
                                 WHERE user_id = :id;";
                 $str_stmt = $r_Db->prepare($str_query);
                 // bind paramenters, Named paramenters alaways start with colon(:)
                 $str_stmt->bindParam(':id', $i_uID);
                 $str_stmt->bindParam(':firstname', $firstname);
                 $str_stmt->bindParam(':lastname', $lastname);
+                $str_stmt->bindParam(':company', $company);
                 $str_stmt->bindParam(':email', $email);
                 $str_stmt->bindParam(':phone', $phone);
                 $str_stmt->bindParam(':address1', $address1);
@@ -97,13 +100,14 @@ include_once("mailer/class.smtp.php");
             try {
                 // We Will prepare SQL Query
                 $str_query = "  UPDATE tbl_user 
-                                SET firstname=:firstname, lastname=:lastname, email=:email, phone=:phone, address1=:address1, address2=:address2, city=:city, state_county=:state_county, postcode=:postcode, country=:country, password=:password
+                                SET firstname=:firstname, lastname=:lastname, company=:company, email=:email, phone=:phone, address1=:address1, address2=:address2, city=:city, state_county=:state_county, postcode=:postcode, country=:country, password=:password
                                 WHERE user_id = :id;";
                 $str_stmt = $r_Db->prepare($str_query);
                 // bind paramenters, Named paramenters alaways start with colon(:)
                 $str_stmt->bindParam(':id', $i_uID);
                 $str_stmt->bindParam(':firstname', $firstname);
                 $str_stmt->bindParam(':lastname', $lastname);
+                $str_stmt->bindParam(':company', $company);
                 $str_stmt->bindParam(':email', $email);
                 $str_stmt->bindParam(':phone', $phone);
                 $str_stmt->bindParam(':address1', $address1);
@@ -125,13 +129,14 @@ include_once("mailer/class.smtp.php");
             try {
                 // We Will prepare SQL Query
                 $str_query = "  UPDATE tbl_user 
-                                SET firstname=:firstname, lastname=:lastname, email=:email, phone=:phone, address1=:address1, address2=:address2, city=:city, state_county=:state_county, postcode=:postcode, country=:country, password=:password, status=:status
+                                SET firstname=:firstname, lastname=:lastname, company=:company, email=:email, phone=:phone, address1=:address1, address2=:address2, city=:city, state_county=:state_county, postcode=:postcode, country=:country, password=:password, status=:status
                                 WHERE user_id = :id;";
                 $str_stmt = $r_Db->prepare($str_query);
                 // bind paramenters, Named paramenters alaways start with colon(:)
                 $str_stmt->bindParam(':id', $i_uID);
                 $str_stmt->bindParam(':firstname', $firstname);
                 $str_stmt->bindParam(':lastname', $lastname);
+                $str_stmt->bindParam(':company', $company);
                 $str_stmt->bindParam(':email', $email);
                 $str_stmt->bindParam(':phone', $phone);
                 $str_stmt->bindParam(':address1', $address1);

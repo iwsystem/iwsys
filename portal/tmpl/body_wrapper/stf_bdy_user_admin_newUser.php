@@ -66,6 +66,12 @@
                                             </div>
                                           </div>
                                           <div class="form-group">
+                                            <label class="col-lg-3 control-label">Company:</label>
+                                            <div class="col-lg-6">
+                                              <input id="company" name="company" class="form-control" type="text" placeholder="Company of User">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
                                             <label class="col-lg-3 control-label">First Name:</label>
                                             <div class="col-lg-6">
                                               <input id="first_name" name="first_name" class="form-control" type="text" placeholder="First Name of User">
@@ -128,7 +134,10 @@
                                           <div class="form-group">
                                             <label class="col-lg-3 control-label">Country:</label>
                                             <div class="col-lg-6">
-                                              <input id="country" name="country" class="form-control" type="text" placeholder="Country">
+                                              <select name="country" id="country" class="input-large"></select><br>
+                                              <script language="javascript">
+                                                  populateCountries("country");
+                                              </script><br>
                                             </div>
                                           </div>
                                           <div class="form-group">
