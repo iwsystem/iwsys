@@ -63,7 +63,7 @@
                                                         $int_uID = $_SESSION["user_id"]; // This is the user id of the logged in user
                                                         try {
 
-                                                            // We Will prepare SQL Query to determine the name of customer
+                                                          /*  // We Will prepare SQL Query to determine the name of customer
                                                             $str_query = "  SELECT firstname, lastname
                                                                             FROM tbl_user
                                                                             WHERE  user_id = :user_id;";
@@ -74,7 +74,7 @@
                                                             $arr_user_name = $str_stmt->fetch();    //  Storing the customer's details in an array.
 
                                                             $first_name = $arr_user_name['firstname'];
-                                                            $last_name = $arr_user_name['lastname'];
+                                                            $last_name = $arr_user_name['lastname'];*/
 
                                                             // We Will prepare SQL Query
                                                             $str_query = "  SELECT *
@@ -91,7 +91,7 @@
                                                             foreach ($arr_Project as $oProject) {
                                                                 $i_projectID = $oProject["proj_id"]; // Assigning the id that will be passed to the detail script
                                                                 echo "<tr>";
-                                                                echo "<td>" . "<a href='cli_project_detail.php?proj=$i_projectID'>". $oProject["title"] . "</a>" . "</td>"."<td>". $oProject["start_date"] . "</td>"."<td>" . $oProject["deadline"] ."</td>"."<td>" . "<a href='pages/client/$first_name[0]$first_name[1]$last_name[0]/test/$i_projectID'>Project Page</a>" . "</td>"; 
+                                                                echo "<td>" . "<a href='cli_project_detail.php?proj=$i_projectID'>". $oProject["title"] . "</a>" . "</td>"."<td>". $oProject["start_date"] . "</td>"."<td>" . $oProject["deadline"] ."</td>"."<td>" . "<a href='pages/jb/$int_uID/test/$i_projectID'>Project Page</a>" . "</td>"; 
                                                                 echo "</tr>";
                                                             }
                                                         }   catch(PDOException $e)  {

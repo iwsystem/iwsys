@@ -89,7 +89,7 @@
                                             $consult_last_name = ucfirst($arr_consult_name['lastname']);
 
                                             echo "<tr>";
-                                            echo "<td>" . $first_name." ". $last_name . "</td>"."<td>". $oProject["title"] . "</td>"."<td>". $consult_first_name . " ". $consult_last_name . "</td>" . "<td>" . "<a href='pages/client/$first_name[0]$first_name[1]$last_name[0]/test/$i_projectID'>Project Page</a>" . "</td>" . "<td>" . "<a href='stf_project_active_detail.php?proj=$i_projectID'> Project History </a>" . "</td>"."<td>". $oProject["start_date"] . "</td>"."<td>". $oProject["deadline"] . "</td>"; 
+                                            echo "<td>" . $first_name." ". $last_name . "</td>"."<td>". $oProject["title"] . "</td>"."<td>". $consult_first_name . " ". $consult_last_name . "</td>" . "<td>" . "<a href='pages/jb/$i_custID/test/$i_projectID'>Project Page</a>" . "</td>" . "<td>" . "<a href='stf_project_active_detail.php?proj=$i_projectID'> Project History </a>" . "</td>"."<td>". $oProject["start_date"] . "</td>"."<td>". $oProject["deadline"] . "</td>"; 
                                             echo "</tr>";
                                         }
                                     }   catch(PDOException $e)  {

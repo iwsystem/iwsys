@@ -46,7 +46,7 @@ include_once("mailer/class.smtp.php");
         // For Executing prepared statement we will use below function
         $str_stmt->execute();
         $i_projId = $r_Db->lastInsertId();  // Variable for the id of the previously inserted project
-        $beta_page = "pages/client/$s_cusFirstname[0]$s_cusFirstname[1]$s_cusLastname[0]/test/$i_projId";
+        $beta_page = "pages/jb/$i_client/test/$i_projId";
 
         // We Will prepare SQL Query to update the previously inserted table with the beta page
         $str_query = "  UPDATE tbl_project
