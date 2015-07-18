@@ -154,6 +154,7 @@
                                             <label class="col-md-3 control-label">Username:</label>
                                             <div class="col-md-8">
                                               <input name="username" class="form-control" type="text" value="<?php echo $arr_Details["username"]; ?>" disabled>
+                                              <input name="usrname" id="usrname" type="hidden" value="<?php echo ucfirst($arr_Details['username']); ?>">
                                             </div>
                                           </div>
                                           <div class="form-group">

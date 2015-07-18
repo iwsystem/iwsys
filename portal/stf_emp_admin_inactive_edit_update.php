@@ -18,6 +18,7 @@ include_once("mailer/class.smtp.php");
     $postcode = strtolower($_POST['postcode']); // Variable for the user's email
     $country = strtolower($_POST['country']); // Variable for the user's email
     $status = $_POST['status']; // Variable for the user's email
+    $username = strtolower($_POST['usrname']); // Variable for the user's username
     $password = strtolower($_POST['password']); // Variable for the user's password
     $confirm_password = strtolower($_POST['confirm_password']); // Variable for the user's password confirmation field
     $role = $_POST['role']; // Variable for the user's role
@@ -174,16 +175,16 @@ include_once("mailer/class.smtp.php");
         $mail->addAddress("$email", ucfirst($firstname) . ucfirst($lastname));
         $mail->addReplyTo("donotreply@iwsystem.co.uk","Do Not Reply");
         $mail->Subject    = "Password Changed";
-        $mail->AltBody    = "Hi " . ucfirst($firstname) .", A new password has been created for you. Your new password is: "
-         . $password . ". Please, login to your account at http://www.iwsystem.co.uk and change your password immediately for improved security of your account. If you didn't request for this change, please contact us immediately on support@iwsystem.co.uk. Thanks. Support Team"; //Text Body
+        $mail->AltBody    = "Hi " . ucfirst($firstname) .", A new password has been created for you. Your new username is:" . $username ." password is: "
+         . $password .". Please, login to your account at http://www.iwsystem.co.uk and change your password immediately for improved security of your account. If you didn't request for this change, please contact us immediately on support@iwsystem.co.uk. Thanks. Support Team"; //Text Body
         $mail->IsHTML(true); // send as HTML
-        $mail_body             = "Hi " . ucfirst($firstname) .", <br><br>A new password has been created for you <br><br>Your new password is: <b>" . $password . "</b><br><br>Please, login to your <a href='http://www.iwsystem.co.uk'>IW System account</a> and change your password immediately for improved security of your account  
+        $mail_body             = "Hi " . ucfirst($firstname) .", <br><br>A new password has been created for you <br><br>Your new login details are: <br><br>username: <b>" . $username . "</b><br>password: <b>" . $password . "</b><br><br>Please, login to your <a href='http://www.iwsystem.co.uk'>IW System account</a> and change your password immediately for improved security of your account  
         <br><br>If you didn't request for this change, please contact us immediately on <a>support@iwsystem.co.uk</a>.<br><br>Thanks. <br><br><b>Administrator</b><br>IW System";   // HTML Message
         $mail->msgHTML($mail_body);
         //  Sending off the mail
         if(!$mail->Send()) {
           echo "Mailer Error: " . $mail->ErrorInfo;
-        } 
+        }  
     }
     if (!($role == "")) {  // If role is changed
         //  Code to store the inputed data into th database table
