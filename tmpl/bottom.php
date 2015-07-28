@@ -37,6 +37,7 @@
                           <li><a href="about-us.php">About Us</a></li>
                           <li><a href="contact-us.php">Support</a></li>
                           <li><a href="privacy.php">Privacy Policy</a></li>
+                          <li><a href="refund.php">Refund Policy</a></li>
                       </ul>
                   </div>  
               </div>

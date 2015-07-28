@@ -7,9 +7,12 @@
               <!--/Copyright-->
               <div class="span4">
                   <ul class="social pull-right">
-                      <li><a href="https://facebook.com/iwsystem"><i class="icon-facebook"></i></a></li>
-                      <li><a href="https://twitter.com/iw_system"><i class="icon-twitter"></i></a></li>                    
-                      <li><a href="#"><i class="icon-skype"></i></a></li>                 
+                      <li><img src='images/ico/footer/paypal.ico' title="PayPal" alt='PayPal' height="20px" width="30px"></li>      
+                      <li><img src='images/ico/footer/visa_debit.gif' title="Visa Debit" alt='Visa Debit' height="20px" width="30px"></li>
+                      <li><img src='images/ico/footer/visa_credit.gif' title="Visa Credit" alt='Visa Credit' height="20px" width="30px"></li>                    
+                      <li><img src='images/ico/footer/visa_electron.gif' title="Visa Electron" alt='Visa Electron' height="20px" width="30px"></li>
+                      <li><img src='images/ico/footer/mastercard.gif' title="Mastercard" alt='Mastercard' height="20px" width="30px"></li>
+                      <li><img src='images/ico/footer/amex.gif' title="Amex" alt='Amex' height="20px" width="30px"></li>            
                   </ul>
               </div>
               <div class="span1">
