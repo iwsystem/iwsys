@@ -1,12 +1,15 @@
   <footer id="footer">
       <div class="container">
           <div class="row-fluid">
-              <div class="span7 cp">
-                  Copyright &copy; IW System Ltd. <script type="text/javascript">document.write(new Date().getFullYear());</script>. Company Registration #: 09623279. All Rights Reserved
+              <div class="span5 cp">
+                  Copyright &copy; IW System Ltd. <script type="text/javascript">document.write(new Date().getFullYear());</script>. Company Registration #: 09623279
               </div>
               <!--/Copyright-->
-              <div class="span4">
-                  <ul class="social pull-right">
+              <div class="span6">
+                  <ul class="social pull-right">Currencies Accepted &nbsp;
+                  <select class="footer_currency">
+                    <option>GBP £</option><option>USD $</option><option>EUR €</option>
+                  </select>
                       <li><img src='images/ico/footer/paypal.ico' title="PayPal" alt='PayPal' height="20px" width="30px"></li>      
                       <li><img src='images/ico/footer/visa_debit.gif' title="Visa Debit" alt='Visa Debit' height="20px" width="30px"></li>
                       <li><img src='images/ico/footer/visa_credit.gif' title="Visa Credit" alt='Visa Credit' height="20px" width="30px"></li>                    

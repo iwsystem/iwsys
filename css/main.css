@@ -1089,6 +1089,11 @@ font-weight: lighter;
   color: #4490c2;
   padding: 30px;    
 }
+.footer_currency {
+    width: 7em;
+    height: 0.3em;
+    background-color: #F8F8FF;
+}
 
 /*
 Media Queries
